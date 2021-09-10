@@ -24,6 +24,9 @@ set number
 " Disable automatically adding comments to the next line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Disable word wrap
+set nowrap
+
 " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
 " Show line, col in bottom right
