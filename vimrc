@@ -9,7 +9,7 @@
 " `vim -u foo`).
 set nocompatible
 
-" Keep a history of 200 commands and searches 
+" Keep a history of 200 commands and searches
 set history=200
 
 " Turn on syntax highlighting.
@@ -85,7 +85,7 @@ set hidden
 " 3. Using indent files
 filetype plugin indent on
 
-" Allow recursive find 
+" Allow recursive find
 set path+=**
 
 " Enable searching as you type, rather than waiting till you press enter.
@@ -127,10 +127,18 @@ set ts=4 sw=4
 call plug#begin()
 Plug 'joshdick/onedark.vim'
 
+" Deletes trailing whitespace on buffer write
+Plug 'ntpeters/vim-better-whitespace'
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
+
+" Allows changing the surrounding chars of a string with cs
+Plug 'tpope/vim-surround'
+
 " Fuzzy file finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Remap GFiles to ctrl P 
+" Remap GFiles to ctrl P
 nnoremap <C-p> :<C-u>:GFiles<CR>
 
 if has('nvim')
@@ -139,11 +147,11 @@ if has('nvim')
     Plug 'prabirshrestha/vim-lsp' " needed for vim-lsp-settings below
     Plug 'mattn/vim-lsp-settings' " auto installs lsp server
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " provides interface for tree-sitter
-    Plug 'nvim-lua/completion-nvim' " auto completion framework using the LSP 
+    Plug 'nvim-lua/completion-nvim' " auto completion framework using the LSP
     call plug#end()
 
     " setup typescript language server
-    :lua require('lspconfig').tsserver.setup{} 
+    :lua require('lspconfig').tsserver.setup{}
 else
     " vim settings that we don't want to use for neovim
     Plug 'pangloss/vim-javascript'
@@ -151,7 +159,7 @@ else
     Plug 'kchmck/vim-coffee-script'
     " Plug 'maxmellon/vim-jsx-pretty'
     " Plug 'mxw/vim-jsx'
-        
+
     " Asynchronous Lint Engine - needed for linting and type checks
     Plug 'dense-analysis/ale'
 
