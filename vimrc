@@ -136,11 +136,21 @@ let g:strip_whitespace_confirm=0
 " Allows changing the surrounding chars of a string with cs
 Plug 'tpope/vim-surround'
 
+" Shortcuts for navigating quickfix list
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [q :cprev<CR>
+
 " Fuzzy file finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
 " Remap GFiles to ctrl P
 nnoremap <C-p> :<C-u>:GFiles<CR>
+
+" Grep within working dir or repo
+Plug 'mhinz/vim-grepper'
+let g:grepper = {}
+let g:grepper.tools = ['rg', 'git', 'grep']
 
 if has('nvim')
     " neovim settings
