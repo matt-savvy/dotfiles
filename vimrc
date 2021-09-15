@@ -187,6 +187,12 @@ else
     let g:ale_lint_delay = 0
     let g:ale_set_quickfix = 0
     let g:ale_set_loclist = 0
+    " Mappings from Modern Vim to move through warnings/errors
+    nmap <silent> [W <Plug>(ale_first)
+    nmap <silent> [w <Plug>(ale_previous)
+    nmap <silent> ]w <Plug>(ale_next)
+    nmap <silent> ]W <Plug>(ale_last)
+
     call plug#end()
 endif
 colorscheme onedark
