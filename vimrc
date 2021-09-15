@@ -147,6 +147,9 @@ nnoremap <silent> [b :bprev<CR>
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Git integration
+Plug 'tpope/vim-fugitive'
+
 " Remap GFiles to ctrl P
 nnoremap <C-p> :<C-u>:GFiles<CR>
 
