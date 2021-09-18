@@ -109,8 +109,8 @@ set mouse+=a
 set autoread
 
 " Adds command DiffOrig to compare changes in buffer
-command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-      \ | wincmd p | diffthis
+" command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+      "\ | wincmd p | diffthis
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
 " for movement, rather than using more efficient movement commands, is also a
