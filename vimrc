@@ -225,7 +225,7 @@ else
     Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
     Plug 'kchmck/vim-coffee-script'
-    " Plug 'maxmellon/vim-jsx-pretty'
+    Plug 'maxmellon/vim-jsx-pretty'
     " Plug 'mxw/vim-jsx'
 
     " Asynchronous Lint Engine - needed for linting and type checks
