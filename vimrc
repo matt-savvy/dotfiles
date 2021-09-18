@@ -162,6 +162,9 @@ nnoremap <C-p> :<C-u>:GFiles<CR>
 Plug 'mhinz/vim-grepper'
 let g:grepper = {}
 let g:grepper.tools = ['rg', 'git', 'grep']
+" Use gs to take any motion and populate the search prompt
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
 
 if has('nvim')
     " neovim settings
