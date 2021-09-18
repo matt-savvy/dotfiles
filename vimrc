@@ -90,6 +90,10 @@ set path+=**
 
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
+" Do not highlight all search hits
+set nohlsearch
+"This unsets the "last search pattern" register by hitting return
+nnoremap <silent><CR> :noh<CR><CR>
 
 " Unbind some useless/annoying default key bindings.
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
