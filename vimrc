@@ -130,6 +130,7 @@ set ts=4 sw=4
 
 call plug#begin()
 Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
 
 " Deletes trailing whitespace on buffer write
 Plug 'ntpeters/vim-better-whitespace'
@@ -200,3 +201,5 @@ else
     call plug#end()
 endif
 colorscheme onedark
+colorscheme gruvbox
+set background=dark
