@@ -108,6 +108,8 @@ set mouse+=a
 " Automatically reload files
 set autoread
 
+" No large banner at the top of netwr
+let g:netrw_banner=0
 " Adds command DiffOrig to compare changes in buffer
 " command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
       "\ | wincmd p | diffthis
