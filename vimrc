@@ -21,9 +21,6 @@ set shortmess+=I
 " Show line numbers.
 set number
 
-" Disable automatically adding comments to the next line
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 " Disable word wrap
 set nowrap
 
@@ -85,6 +82,9 @@ set hidden
 " 3. Using indent files
 filetype plugin indent on
 
+
+" Disable automatically adding comments to the next line
+autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 " Allow recursive find
 set path+=**
 
