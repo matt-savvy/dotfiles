@@ -88,6 +88,9 @@ autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 " Allow recursive find
 set path+=**
 
+" Allows %% in command mode to fill in the directory of the buffer
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
 " Do not highlight all search hits
