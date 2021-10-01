@@ -176,8 +176,13 @@ if has('nvim')
     Plug 'mattn/vim-lsp-settings' " auto installs lsp servers as needed
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " provides interface for tree-sitter
     Plug 'nvim-lua/completion-nvim' " auto completion framework using the LSP
+    Plug 'nvim-lua/plenary.nvim' " required for telescope
+    Plug 'nvim-telescope/telescope.nvim' " fuzzy finder and more
     call plug#end()
 lua << EOF
+    -- set up telescope
+    require("telescope").setup()
+
     local nvim_lsp = require('lspconfig')
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
