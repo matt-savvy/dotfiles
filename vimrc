@@ -175,6 +175,11 @@ let g:grepper.tools = ['rg', 'git', 'grep']
 nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
 
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'],
+  \ 'do': 'make install'
+\}
+
 if has('nvim')
     " neovim settings
     Plug 'neovim/nvim-lspconfig' "default configs for LSP
