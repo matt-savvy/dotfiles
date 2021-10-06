@@ -246,6 +246,10 @@ else
     let g:ale_lint_delay = 0
     let g:ale_set_quickfix = 0
     let g:ale_set_loclist = 0
+    let g:ale_floating_preview = 1
+    let g:ale_set_balloons = 1
+    let g:ale_hover_to_floating_preview = 1
+    let g:ale_floating_window_border = []
     " Mappings from Modern Vim to move through warnings/errors
     nmap <silent> [W <Plug>(ale_first)
     nmap <silent> [w <Plug>(ale_previous)
@@ -255,7 +259,7 @@ else
     " Works as client for typescript language server
     Plug 'Quramy/tsuquyomi'
     " Disable default mappins
-    " let g:tsuquyomi_disable_default_mappings = 1
+    let g:tsuquyomi_disable_default_mappings = 1
     " Use gd for go to definition
     map gd <Plug>(TsuquyomiDefinition)
     call plug#end()
