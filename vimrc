@@ -146,6 +146,9 @@ let g:strip_whitespace_confirm=0
 " Allows changing the surrounding chars of a string with cs
 Plug 'tpope/vim-surround'
 
+" Allows for easy commenting out of lines and motions
+Plug 'tpope/vim-commentary'
+
 " Shortcuts for navigating quickfix list
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [q :cprev<CR>
