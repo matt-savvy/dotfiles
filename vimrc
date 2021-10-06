@@ -247,32 +247,34 @@ else
     Plug 'maxmellon/vim-jsx-pretty'
     " Plug 'mxw/vim-jsx'
 
-    " Asynchronous Lint Engine - needed for linting and type checks
+    " Asynchronous Lint Engine - linting and type checks
     Plug 'dense-analysis/ale'
-
+    " ALE options
     let g:ale_linters = {'javascript': ['eslint'], 'typescript': ['tsserver', 'eslint'], 'typescript.tsx': ['tsserver', 'eslint']}
     let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['prettier'], 'typescript.tsx': ['prettier']}
+    let g:ale_open_list = 0
     let g:ale_lint_on_text_changed = 'normal'
     let g:ale_lint_on_insert_leave = 1
     let g:ale_lint_delay = 0
     let g:ale_set_quickfix = 0
-    let g:ale_set_loclist = 0
+    let g:ale_set_loclist = 1
+    let g:ale_hover_cursor = 1
     let g:ale_floating_preview = 1
     let g:ale_set_balloons = 1
-    let g:ale_hover_to_floating_preview = 1
     let g:ale_floating_window_border = []
+    let g:ale_sign_column_always = 1
+    let g:ale_cursor_detail = 0
+    let g:ale_hover_to_floating_preview = 1
+    let g:ale_detail_to_floating_preview = 1
     " Mappings from Modern Vim to move through warnings/errors
     nmap <silent> [W <Plug>(ale_first)
     nmap <silent> [w <Plug>(ale_previous)
     nmap <silent> ]w <Plug>(ale_next)
     nmap <silent> ]W <Plug>(ale_last)
+    " Mappings for other ALE commands
+    nmap gd <Plug>(ale_go_to_definition)
+    nmap gr <Plug>(ale_find_references)
 
-    " Works as client for typescript language server
-    Plug 'Quramy/tsuquyomi'
-    " Disable default mappins
-    let g:tsuquyomi_disable_default_mappings = 1
-    " Use gd for go to definition
-    map gd <Plug>(TsuquyomiDefinition)
     call plug#end()
 endif
 colorscheme onedark
