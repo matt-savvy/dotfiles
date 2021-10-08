@@ -109,6 +109,8 @@ set mouse+=a
 " Automatically reload files
 set autoread
 
+" Use system clipboard by default
+set clipboard=unnamed
 " No large banner at the top of netwr
 let g:netrw_banner=0
 " Adds command DiffOrig to compare changes in buffer
