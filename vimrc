@@ -282,6 +282,9 @@ else
     " Mappings for other ALE commands
     nmap gd <Plug>(ale_go_to_definition)
     nmap gr <Plug>(ale_find_references)
+    nmap <Leader>d <Plug>(ale_detail)
+    nmap <Leader>h <Plug>(ale_hover)
+    nmap <Leader>r <Plug>(ale_rename)
 
     call plug#end()
 endif
