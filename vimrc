@@ -9,6 +9,9 @@
 " `vim -u foo`).
 set nocompatible
 
+" Shortcut to open vimrc
+nmap <silent><Leader>v :e ~/.vim/vimrc<CR>
+
 " Keep a history of 200 commands and searches
 set history=200
 
