@@ -261,7 +261,7 @@ else
     " Asynchronous Lint Engine - linting and type checks
     Plug 'dense-analysis/ale'
     " ALE options
-    let g:ale_linters = {'javascript': ['eslint'], 'typescript': ['tsserver', 'eslint'], 'typescript.tsx': ['tsserver', 'eslint']}
+    let g:ale_linters = {'javascript': ['eslint'], 'typescript': ['tsserver', 'eslint'], 'typescript.tsx': ['tsserver', 'eslint'], 'coffee': ['coffeelint']}
     let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['prettier'], 'typescript.tsx': ['prettier']}
     let g:ale_open_list = 0
     let g:ale_lint_on_text_changed = 'normal'
