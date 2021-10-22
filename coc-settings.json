@@ -1,0 +1,6 @@
+{
+    "signature.triggerSignatureWait": 1000,
+    "diagnostic.enableMessage": "jump",
+    "typescript.autoClosingTags": true,
+    "coc.preferences.useQuickfixForLocations": true
+}

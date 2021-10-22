@@ -57,22 +57,23 @@ set expandtab
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col
-        return "\<tab>"
-    endif
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col
+"         return "\<tab>"
+"     endif
 
-    let char = getline('.')[col - 1]
-    if char =~ '\k'
-        " There's an identifier before the cursor, so complete the identifier.
-        return "\<c-p>"
-    else
-        return "\<tab>"
-    endif
-endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
+"     let char = getline('.')[col - 1]
+"     if char =~ '\k'
+"         " There's an identifier before the cursor, so complete the identifier.
+"         return "\<c-p>"
+"     else
+"         return "\<tab>"
+"     endif
+" endfunction
+" inoremap <expr> <tab> InsertTabWrapper()
+" inoremap <s-tab> <c-n>
+
 " By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
 " shown in any window) that has unsaved changes. This is to prevent you from "
 " forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
@@ -183,72 +184,61 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'do': 'make install'
 \}
 
+" Conquer of Completion for linting, etc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" unicode characters in the file autoload/float.vim
+set encoding=utf-8
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+set updatetime=300
+set shortmess+=c
+set signcolumn=number
+" navigate diagnostics
+nmap <silent> [w <Plug>(coc-diagnostic-prev)
+nmap <silent> ]w <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Make <tab> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+" Rename symbol
+nmap <leader>r <Plug>(coc-rename)
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
 if has('nvim')
     " neovim settings
-    Plug 'neovim/nvim-lspconfig' "default configs for LSP
-    Plug 'prabirshrestha/vim-lsp' " needed for vim-lsp-settings below
-    Plug 'mattn/vim-lsp-settings' " auto installs lsp servers as needed
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " provides interface for tree-sitter
-    Plug 'nvim-lua/completion-nvim' " auto completion framework using the LSP
-    Plug 'nvim-lua/plenary.nvim' " required for telescope
-    Plug 'nvim-telescope/telescope.nvim' " fuzzy finder and more
+    " Plug 'neovim/nvim-lspconfig' "default configs for LSP
+    " Plug 'prabirshrestha/vim-lsp' " needed for vim-lsp-settings below
+    " Plug 'mattn/vim-lsp-settings' " auto installs lsp servers as needed
+    "  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " provides interface for tree-sitter
+    " Plug 'nvim-lua/completion-nvim' " auto completion framework using the LSP
+    " Plug 'nvim-lua/plenary.nvim' " required for telescope
+    " Plug 'nvim-telescope/telescope.nvim' " fuzzy finder and more
     call plug#end()
 lua << EOF
     -- set up telescope
-    require("telescope").setup()
+    -- require("telescope").setup()
 
-    local nvim_lsp = require('lspconfig')
-    -- Use an on_attach function to only map the following keys
-    -- after the language server attaches to the current buffer
-    local on_attach = function(client, bufnr)
-        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-        local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-        -- Enable completion triggered by <c-x><c-o>
-        buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-        -- Mappings.
-        local opts = { noremap=true, silent=true }
-
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
-        buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-        buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-        buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-        buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-        buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-        buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-        buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-        buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-        buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-        buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-        buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-        buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-        buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-        buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-        buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-        buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-        buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
-end
-    -- Use a loop to conveniently call 'setup' on multiple servers and
-    -- map buffer local keybindings when the language server attaches
-    local servers = { 'tsserver' }
-    for _, lsp in ipairs(servers) do
-      nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        flags = {
-          debounce_text_changes = 150,
-        },
-        handlers = {
-            ["textDocument/publishDiagnostics"] = vim.lsp.with(
-                vim.lsp.diagnostic.on_publish_diagnostics, {
-                    -- Disable virtual_text
-                    virtual_text = false
-                    }
-                ),
-            }
-        }
-    end
 EOF
 else
     " vim settings that we don't want to use for neovim
@@ -256,35 +246,36 @@ else
     Plug 'leafgarland/typescript-vim'
     Plug 'kchmck/vim-coffee-script'
     Plug 'maxmellon/vim-jsx-pretty'
+    Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     " Plug 'mxw/vim-jsx'
 
-    " Asynchronous Lint Engine - linting and type checks
-    Plug 'dense-analysis/ale'
-    " ALE options
-    let g:ale_linters = {'javascript': ['eslint'], 'typescript': ['tsserver', 'eslint'], 'typescript.tsx': ['tsserver', 'eslint']}
-    let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['prettier'], 'typescript.tsx': ['prettier']}
-    let g:ale_open_list = 0
-    let g:ale_lint_on_text_changed = 'normal'
-    let g:ale_lint_on_insert_leave = 1
-    let g:ale_lint_delay = 0
-    let g:ale_set_quickfix = 0
-    let g:ale_set_loclist = 1
-    let g:ale_hover_cursor = 1
-    let g:ale_floating_preview = 1
-    let g:ale_set_balloons = 1
-    let g:ale_floating_window_border = []
-    let g:ale_sign_column_always = 1
-    let g:ale_cursor_detail = 0
-    let g:ale_hover_to_floating_preview = 1
-    let g:ale_detail_to_floating_preview = 1
-    " Mappings from Modern Vim to move through warnings/errors
-    nmap <silent> [W <Plug>(ale_first)
-    nmap <silent> [w <Plug>(ale_previous)
-    nmap <silent> ]w <Plug>(ale_next)
-    nmap <silent> ]W <Plug>(ale_last)
-    " Mappings for other ALE commands
-    nmap gd <Plug>(ale_go_to_definition)
-    nmap gr <Plug>(ale_find_references)
+    " " Asynchronous Lint Engine - linting and type checks
+    " Plug 'dense-analysis/ale'
+    " " ALE options
+    " let g:ale_linters = {'javascript': ['eslint'], 'typescript': ['tsserver', 'eslint'], 'typescript.tsx': ['tsserver', 'eslint']}
+    " let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['prettier'], 'typescript.tsx': ['prettier']}
+    " let g:ale_open_list = 0
+    " let g:ale_lint_on_text_changed = 'normal'
+    " let g:ale_lint_on_insert_leave = 1
+    " let g:ale_lint_delay = 0
+    " let g:ale_set_quickfix = 0
+    " let g:ale_set_loclist = 1
+    " let g:ale_hover_cursor = 1
+    " let g:ale_floating_preview = 1
+    " let g:ale_set_balloons = 1
+    " let g:ale_floating_window_border = []
+    " let g:ale_sign_column_always = 1
+    " let g:ale_cursor_detail = 0
+    " let g:ale_hover_to_floating_preview = 1
+    " let g:ale_detail_to_floating_preview = 1
+    " " Mappings from Modern Vim to move through warnings/errors
+    " nmap <silent> [W <Plug>(ale_first)
+    " nmap <silent> [w <Plug>(ale_previous)
+    " nmap <silent> ]w <Plug>(ale_next)
+    " nmap <silent> ]W <Plug>(ale_last)
+    " " Mappings for other ALE commands
+    " nmap gd <Plug>(ale_go_to_definition)
+    " nmap gr <Plug>(ale_find_references)
 
     call plug#end()
 endif
