@@ -223,7 +223,10 @@ endfunction
 nmap <leader>r <Plug>(coc-rename)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
-
+" Show Hover
+nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
+" Show diagnostic
+nnoremap <silent> <leader>d :call CocActionAsync('diagnosticInfo')<cr>
 if has('nvim')
     " neovim settings
     " Plug 'neovim/nvim-lspconfig' "default configs for LSP
