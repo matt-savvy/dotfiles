@@ -12,6 +12,11 @@ set nocompatible
 " Shortcut to open vimrc
 nmap <silent><Leader>v :e ~/.vim/vimrc<CR>
 
+" Shortcut to open workingMemory
+nmap <silent><Leader>wm :e ~/workingMemory.txt<CR>
+" Shortcut to open standup
+nmap <silent><Leader>ss :e ~/onfleet/squad/standup.txt<CR>
+
 " Keep a history of 200 commands and searches
 set history=200
 
