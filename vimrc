@@ -157,6 +157,9 @@ Plug 'tpope/vim-surround'
 " Allows for easy commenting out of lines and motions
 Plug 'tpope/vim-commentary'
 
+" Allows . command to repeat plugin actions
+Plug 'tpope/vim-repeat'
+
 " Shortcuts for navigating quickfix list
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [q :cprev<CR>
