@@ -167,6 +167,8 @@ nnoremap <silent> [q :cprev<CR>
 " Shortcuts to navigate the buffer list
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [b :bprev<CR>
+nnoremap <silent> [a :e #<CR>
+
 " Fuzzy file finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
