@@ -176,7 +176,10 @@ Plug 'junegunn/fzf.vim'
 " Git integration
 Plug 'tpope/vim-fugitive'
 " Open diffs in vertical splits by default
-set diffopt+=vertical
+if &diff
+    set diffopt-=internal
+    set diffopt+=vertical
+endif
 " Remap GFiles to ctrl P
 nnoremap <C-p> :<C-u>:GFiles<CR>
 
