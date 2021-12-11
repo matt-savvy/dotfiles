@@ -1,7 +1,7 @@
 -- neovim specific settings
 
 -- source vim config
-vim.cmd('source ./vimrc')
+vim.cmd('source ~/.vim/vimrc')
 
 -- keymap to open this file
 vim.api.nvim_set_keymap("n", "<Leader>v", ":e ~/.vim/init.lua<CR>", { silent = false})
