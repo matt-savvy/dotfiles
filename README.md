@@ -27,6 +27,13 @@ From ~/dev/dotfiles
 ln -s $(pwd)/git/.gitconfig ~/.gitconfig
 ln -s $(pwd)/git/.gitignore ~/.gitignore
 ```
+
+Add custom author gitconfig for work projects if needed. E.g.
+```
+git config --local user.name "Matt Savoia"
+git config --local user.email matt@work.com
+```
+
     - install homebrew
     - install oh-my-zsh
     - add zshrc (if needed)
