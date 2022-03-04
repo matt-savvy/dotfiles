@@ -17,3 +17,5 @@
 	st = status
 [commit]
     verbose = true
+[pull]
+	rebase = true
