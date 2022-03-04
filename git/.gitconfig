@@ -7,6 +7,7 @@
 	driver = npx npm-merge-driver merge %A %O %B %P
 [diff]
     tool = default-difftool
+	colorMoved = default
 [core]
 	excludesfile = ~/.gitignore
 [blame]
