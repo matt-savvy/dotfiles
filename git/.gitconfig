@@ -1,0 +1,19 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Matt Savoia
+	email = matt@1-800-rad-dude.com
+[merge "npm-merge-driver"]
+	name = automatically merge npm lockfiles
+	driver = npx npm-merge-driver merge %A %O %B %P
+[diff]
+    tool = default-difftool
+[core]
+	excludesfile = ~/.gitignore
+[blame]
+    date = short
+[alias]
+	co = checkout
+	br = branch
+	st = status
+[commit]
+    verbose = true
