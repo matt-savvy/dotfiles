@@ -4,7 +4,8 @@
 vim.cmd('source ~/.vim/vimrc')
 
 -- keymap to open this file
-vim.api.nvim_set_keymap("n", "<Leader>v", ":e ~/.vim/init.lua<CR>", { silent = false})
+vim.api.nvim_set_keymap("n", "<Leader>v", ":e ~/.config/nvim/init.lua<CR>", { silent = false})
+
 
 --default configs for LSP
 local Plug = vim.fn['plug#']
@@ -78,11 +79,7 @@ vim.diagnostic.config({
 
 local signs = { Error = ">>", Warn = "W", Hint = "H", Info = "I" }
 for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, {
-        text = "",
-        texthl = hl,
-        numhl = hl
-    })
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
