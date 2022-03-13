@@ -22,3 +22,5 @@
 	rebase = true
 [fetch]
 	prune = true
+[advice]
+	detachedHead = false
