@@ -141,6 +141,14 @@ inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 set ts=4 sw=4
 
+" git conflict marker shortcuts
+" conflict marker
+nmap <silent><Leader>< /<<<<<<<<CR>
+" conflict marker
+nmap <silent><Leader>> />>>>>>><CR>
+" conflict marker
+nmap <silent><Leader>= /=======<CR>
+
 " Install Vim Plug if needed
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
