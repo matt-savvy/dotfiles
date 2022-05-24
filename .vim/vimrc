@@ -205,6 +205,8 @@ let g:grepper.tools = ['rg', 'git', 'grep']
 " Use gs to take any motion and populate the search prompt
 nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
+" Shortcut to open :Grepper
+nmap <silent><Leader>gg :Grepper<CR>
 
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'],
