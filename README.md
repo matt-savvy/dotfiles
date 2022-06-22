@@ -50,6 +50,12 @@ git config --local user.email matt@work.com
         - npx npm-merge-driver install --global
     - install elm
         https://guide.elm-lang.org/install/elm.html
+    - install sdkman
+        - curl -s "https://get.sdkman.io" | bash
+    - install jdk
+        - sdk install java x.y.z-open (get verison number from https://jdk.java.net/)
+    - install scala-sbt
+        - sdk install sbt
 
 ## Mac Setup (misc)
 - create ~/dev dir
