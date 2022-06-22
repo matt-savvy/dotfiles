@@ -48,6 +48,8 @@ git config --local user.email matt@work.com
         - nvm install 16 (or latest stable version)
     - install npm-merge-driver
         - npx npm-merge-driver install --global
+    - install elm
+        https://guide.elm-lang.org/install/elm.html
 
 ## Mac Setup (misc)
 - create ~/dev dir
