@@ -50,6 +50,13 @@ git config --local user.email matt@work.com
         - npx npm-merge-driver install --global
     - install elm
         https://guide.elm-lang.org/install/elm.html
+    - install pyenv
+        - brew install pyenv
+    - identify latest python2
+        - pyenv install --list | grep 2.7
+    - install python2
+        - pyenv install <version>
+
 
 ## Mac Setup (misc)
 - create ~/dev dir
