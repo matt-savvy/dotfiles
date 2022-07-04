@@ -21,10 +21,6 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
-" 1. Filetype detection.
-" 2. Using filetype plugin files
-" 3. Using indent files
-filetype plugin indent on
 
 
 " Disable automatically adding comments to the next line
@@ -52,47 +48,13 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'joshdick/onedark.vim'
-Plug 'morhetz/gruvbox'
 
-" Deletes trailing whitespace on buffer write
-Plug 'ntpeters/vim-better-whitespace'
-let g:better_whitespace_enabled=0
-let g:strip_whitespace_on_save=1
-let g:strip_whitespace_confirm=0
-
-" Allows changing the surrounding chars of a string with cs
-Plug 'tpope/vim-surround'
-
-" Allows for easy commenting out of lines and motions
-Plug 'tpope/vim-commentary'
-
-" Allows . command to repeat plugin actions
-Plug 'tpope/vim-repeat'
-
-" Fuzzy file finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-" Git integration
-Plug 'tpope/vim-fugitive'
 " Open diffs in vertical splits by default
 if &diff
     set diffopt-=internal
     set diffopt+=vertical
 endif
-" Remap GFiles to ctrl P
-nnoremap <C-p> :<C-u>:GFiles<CR>
 
-" Grep within working dir or repo
-Plug 'mhinz/vim-grepper'
-let g:grepper = {}
-let g:grepper.tools = ['rg', 'git', 'grep']
-" Use gs to take any motion and populate the search prompt
-nmap gs  <plug>(GrepperOperator)
-xmap gs  <plug>(GrepperOperator)
-" Shortcut to open :Grepper
-nmap <silent><Leader>gg :Grepper<CR>
 
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'],
@@ -143,5 +105,3 @@ else
 endif
 
 call plug#end()
-" colorscheme onedark
-colorscheme gruvbox
