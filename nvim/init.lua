@@ -165,6 +165,9 @@ end
 vim.keymap.set('i', '<tab>', InsertTabWrapper, { expr = true })
 vim.keymap.set('i', '<s-tab>', '<c-n>', { noremap = true })
 
+-- Allows %% in command mode to fill in the directory of the buffer
+vim.keymap.set('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true, noremap = true })
+
 -- Remove neovim mapping of Y to y$
 -- vim.keymap.del('n', 'Y')
 
