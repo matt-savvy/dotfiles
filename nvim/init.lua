@@ -30,7 +30,12 @@ vim.o.ts = 4
 vim.o.sw = 4
 
 -- Disable automatically adding comments to the next line
-vim.opt.formatoptions:remove({'c'})
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = '*',
+	callback = function()
+		vim.opt.formatoptions:remove({'c', 'r', 'o'})
+	end
+})
 
 -- Allow recursive find
 vim.opt.path:append('**')
@@ -139,6 +144,27 @@ vim.keymap.set('n', '<Leader>=', '/=======<CR>', { silent = true })
 
 -- 'Q' in normal mode enters Ex mode. You almost never want this.
 vim.keymap.set('n', 'Q', '<Nop>')
+
+-- Multipurpose tab key
+function InsertTabWrapper()
+    vim.cmd [[
+        let col = col('.') - 1
+        if !col
+            return "\<tab>"
+        endif
+
+        let char = getline('.')[col - 1]
+        if char =~ '\k'
+            " There's an identifier before the cursor, so complete the identifier.
+            return "\<c-p>"
+        else
+            return "\<tab>"
+        endif
+    ]]
+end
+
+-- vim.keymap.set('i', '<tab>', sanity, { expr = true })
+-- inoremap <expr> <tab> InsertTabWrapper()
 
 -- Remove neovim mapping of Y to y$
 -- vim.keymap.del('n', 'Y')
