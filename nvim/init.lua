@@ -29,6 +29,9 @@ vim.o.clipboard = "unnamed"
 vim.o.ts = 4
 vim.o.sw = 4
 
+-- Disable swapfiles
+vim.bo.swapfile = false
+
 -- Shortcut to open this file
 vim.keymap.set('n', '<Leader>v', ':e ~/.config/nvim/init.lua<CR>', { silent = false })
 
