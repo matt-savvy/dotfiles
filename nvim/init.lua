@@ -32,6 +32,9 @@ vim.o.sw = 4
 -- Disable swapfiles
 vim.bo.swapfile = false
 
+-- No large banner at the top of netwr
+vim.g.netrw_banner = 0
+
 -- highlight embedded lua
 vim.g.vimsyn_embed = 'l'
 

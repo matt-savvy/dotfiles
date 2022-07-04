@@ -31,12 +31,6 @@ set path+=**
 " Allows %% in command mode to fill in the directory of the buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" No large banner at the top of netwr
-let g:netrw_banner=0
-" Adds command DiffOrig to compare changes in buffer
-" command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-      "\ | wincmd p | diffthis
-
 " Install Vim Plug if needed
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
