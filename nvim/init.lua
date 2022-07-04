@@ -25,8 +25,39 @@ vim.o.mouse = "nv"
 -- Use system clipboard by default
 vim.o.clipboard = "unnamed"
 
+-- TODO: what do these do?
 vim.o.ts = 4
 vim.o.sw = 4
+
+-- Shortcut to open this file
+vim.keymap.set('n', '<Leader>v', ':e ~/.config/nvim/init.lua<CR>', { silent = false })
+
+-- Shortcut to open workingMemory.txt
+vim.keymap.set('n', '<Leader>wm', ':e ~/workingMemory.txt<CR>', { silent = false })
+
+-- Try to prevent bad habits like using the arrow keys for movement. This is
+-- not the only possible bad habit. For example, holding down the h/j/k/l keys
+-- for movement, rather than using more efficient movement commands, is also a
+-- bad habit. The former is enforceable through a .vimrc, while we don't know
+-- how to prevent the latter.
+vim.keymap.set('n', '<Left>',  ':echoe "Use h"<CR>')
+vim.keymap.set('n', '<Right>', ':echoe "Use l"<CR>')
+vim.keymap.set('n', '<Up>',    ':echoe "Use k"<CR>')
+vim.keymap.set('n', '<Down>',  ':echoe "Use j"<CR>')
+
+-- Shortcuts to navigate the buffer list
+vim.keymap.set('n', ']b', ':bnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '[b', ':bprev<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '[a', ':e #<CR>', { noremap = true, silent = true })
+
+-- Shortcuts for navigating quickfix list
+vim.keymap.set('n', ']q', ':cnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '[q', ':cprev<CR>', { noremap = true, silent = true })
+
+-- Git conflict marker shortcuts
+vim.keymap.set('n', '<Leader><', '/<<<<<<<<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>>', '/>>>>>>><CR>', { silent = true })
+vim.keymap.set('n', '<Leader>=', '/=======<CR>', { silent = true })
 
 -- Remove neovim mapping of Y to y$
 vim.keymap.del('n', 'Y')
