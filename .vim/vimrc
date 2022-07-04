@@ -49,17 +49,6 @@ endif
 
 call plug#begin()
 
-" Open diffs in vertical splits by default
-if &diff
-    set diffopt-=internal
-    set diffopt+=vertical
-endif
-
-
-Plug 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'],
-  \ 'do': 'make install'
-\}
 
 if has('nvim')
     " figure out how to do a conditional the other way

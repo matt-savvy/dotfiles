@@ -52,10 +52,6 @@ vim.g.better_whitespace_enabled = 0
 vim.g.strip_whitespace_on_save = 1
 vim.g.strip_whitespace_confirm = 0
 
--- Fuzzy file finder
-Plug('junegunn/fzf')
-Plug('junegunn/fzf.vim')
-
 -- Allows changing the surrounding chars of a string with cs
 Plug('tpope/vim-surround')
 
@@ -67,6 +63,9 @@ Plug('tpope/vim-repeat')
 
 -- Git integration
 Plug('tpope/vim-fugitive')
+-- Open diffs in vertical splits by default
+vim.opt.diffopt:append({ internal = false })
+vim.opt.diffopt:remove({ 'vertical' })
 
 -- treesitter configs and abstraction layer
 Plug('nvim-treesitter/nvim-treesitter')
@@ -87,6 +86,13 @@ vim.g.grepper = {
 vim.keymap.set({'n', 'x'}, 'gs', '<plug>(GrepperOperator)')
 -- Shortcut to open :Grepper
 vim.keymap.set('n', '<Leader>gg', ':Grepper<CR>', { silent = true })
+
+
+-- JS Doc
+Plug('heavenshell/vim-jsdoc', {
+  ['for'] = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact'},
+  ['do'] = 'make install'
+})
 
 vim.call('plug#end')
 
