@@ -27,3 +27,6 @@ vim.o.clipboard = "unnamed"
 
 vim.o.ts = 4
 vim.o.sw = 4
+
+-- Remove neovim mapping of Y to y$
+vim.keymap.del('n', 'Y')
