@@ -10,6 +10,7 @@
 	colorMoved = default
 [core]
 	excludesfile = ~/.gitignore
+	editor = nvim
 [blame]
     date = short
 [alias]
