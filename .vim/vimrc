@@ -21,10 +21,6 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
-
-
-" Disable automatically adding comments to the next line
-autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 " Allow recursive find
 set path+=**
 

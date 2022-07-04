@@ -29,6 +29,9 @@ vim.o.clipboard = "unnamed"
 vim.o.ts = 4
 vim.o.sw = 4
 
+-- Disable automatically adding comments to the next line
+vim.opt.formatoptions:remove({'c'})
+
 -- Disable swapfiles
 vim.bo.swapfile = false
 
