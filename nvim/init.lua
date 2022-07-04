@@ -169,5 +169,5 @@ vim.keymap.set('i', '<s-tab>', '<c-n>', { noremap = true })
 vim.keymap.set('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true, noremap = true })
 
 -- Remove neovim mapping of Y to y$
--- vim.keymap.del('n', 'Y')
+vim.keymap.del('n', 'Y')
 
