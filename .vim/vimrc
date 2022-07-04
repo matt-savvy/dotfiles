@@ -31,9 +31,6 @@ set path+=**
 " Allows %% in command mode to fill in the directory of the buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" Unbind some useless/annoying default key bindings.
-nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
-
 " No large banner at the top of netwr
 let g:netrw_banner=0
 " Adds command DiffOrig to compare changes in buffer

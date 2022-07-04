@@ -128,6 +128,9 @@ vim.keymap.set('n', '<Leader><', '/<<<<<<<<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>>', '/>>>>>>><CR>', { silent = true })
 vim.keymap.set('n', '<Leader>=', '/=======<CR>', { silent = true })
 
+-- 'Q' in normal mode enters Ex mode. You almost never want this.
+vim.keymap.set('n', 'Q', '<Nop>')
+
 -- Remove neovim mapping of Y to y$
 -- vim.keymap.del('n', 'Y')
 
