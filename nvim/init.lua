@@ -147,24 +147,23 @@ vim.keymap.set('n', 'Q', '<Nop>')
 
 -- Multipurpose tab key
 function InsertTabWrapper()
-    vim.cmd [[
-        let col = col('.') - 1
-        if !col
-            return "\<tab>"
-        endif
+	local col = vim.fn.col('.')
+	if (not col) then
+		return "<tab>"
+	end
+	local row = vim.fn.getline('.')
+	local char = string.sub(row, -1)
+	print (char)
+	if (string.match(char, "%a")) then
+		-- There's an identifier before the cursor, so complete the identifier.
+		return "<c-p>"
+    end
 
-        let char = getline('.')[col - 1]
-        if char =~ '\k'
-            " There's an identifier before the cursor, so complete the identifier.
-            return "\<c-p>"
-        else
-            return "\<tab>"
-        endif
-    ]]
+    return "<tab>"
 end
 
--- vim.keymap.set('i', '<tab>', sanity, { expr = true })
--- inoremap <expr> <tab> InsertTabWrapper()
+vim.keymap.set('i', '<tab>', InsertTabWrapper, { expr = true })
+vim.keymap.set('i', '<s-tab>', '<c-n>', { noremap = true })
 
 -- Remove neovim mapping of Y to y$
 -- vim.keymap.del('n', 'Y')
