@@ -32,6 +32,9 @@ vim.o.sw = 4
 -- Disable automatically adding comments to the next line
 vim.opt.formatoptions:remove({'c'})
 
+-- Allow recursive find
+vim.opt.path:append('**')
+
 -- Disable swapfiles
 vim.bo.swapfile = false
 

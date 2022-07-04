@@ -21,9 +21,6 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
-" Allow recursive find
-set path+=**
-
 " Allows %% in command mode to fill in the directory of the buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
@@ -35,7 +32,6 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
-
 
 if has('nvim')
     " figure out how to do a conditional the other way
