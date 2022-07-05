@@ -115,3 +115,4 @@ export HISTCONTROL=ignoreboth:erasedups
 
 alias glm="git log --oneline master.."
 alias diff="colordiff"
+alias vim="nvim"
