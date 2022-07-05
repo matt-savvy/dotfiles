@@ -82,7 +82,7 @@ vim.opt.diffopt:append({ internal = false })
 vim.opt.diffopt:remove({ 'vertical' })
 
 -- treesitter configs and abstraction layer
-Plug('nvim-treesitter/nvim-treesitter')
+Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 -- Needed for telescope
 Plug('nvim-lua/plenary.nvim')
 -- Fuzzy finder
@@ -110,6 +110,10 @@ Plug('heavenshell/vim-jsdoc', {
 
 -- Quickstart configs for Nvim LSP
 Plug('neovim/nvim-lspconfig')
+
+-- for linting
+Plug('jose-elias-alvarez/null-ls.nvim')
+Plug('MunifTanjim/eslint.nvim')
 
 vim.call('plug#end')
 
@@ -237,3 +241,26 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+local null_ls = require('null-ls')
+local eslint = require('eslint')
+
+null_ls.setup()
+
+eslint.setup({
+  bin = 'eslint',
+  code_actions = {
+    enable = false,
+    apply_on_save = {
+      enable = false,
+    },
+    disable_rule_comment = {
+      enable = true,
+      location = "separate_line",
+    },
+  },
+  diagnostics = {
+    enable = true,
+    report_unused_disable_directives = false,
+    run_on = "save",
+  },
+})
