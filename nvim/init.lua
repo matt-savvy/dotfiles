@@ -108,6 +108,9 @@ Plug('heavenshell/vim-jsdoc', {
   ['do'] = 'make install'
 })
 
+-- Quickstart configs for Nvim LSP
+Plug('neovim/nvim-lspconfig')
+
 vim.call('plug#end')
 
 vim.cmd('colorscheme gruvbox')
@@ -169,5 +172,62 @@ vim.keymap.set('i', '<s-tab>', '<c-n>', { noremap = true })
 vim.keymap.set('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true, noremap = true })
 
 -- Remove neovim mapping of Y to y$
-vim.keymap.del('n', 'Y')
+-- vim.keymap.del('n', 'Y')
+
+-- from nvim-lspconfig
+local nvim_lsp = require('lspconfig')
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    local opts = { noremap=true, silent=true }
+    -- Mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '[w', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']w', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', '<Leader>q', vim.diagnostic.setqflist, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<Leader>R', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+    -- always show a sign column of width 1
+    vim.wo.signcolumn = "yes:1"
+end
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { 'tsserver', 'elmls' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+
+vim.diagnostic.config({
+  virtual_text = false,
+  underline = { severity = vim.diagnostic.severity.ERROR },
+  update_in_insert = false,
+  signs = true,
+})
+
+-- always show
+local signs = { Error = ">", Warn = "W", Hint = "H", Info = "I" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
