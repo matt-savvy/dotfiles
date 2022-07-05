@@ -176,7 +176,6 @@ vim.keymap.set('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { ex
 
 -- from nvim-lspconfig
 local nvim_lsp = require('lspconfig')
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -203,6 +202,13 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
     -- always show a sign column of width 1
     vim.wo.signcolumn = "yes:1"
+    -- format on save if available
+    if client.resolved_capabilities.document_formatting then
+        vim.cmd [[augroup Format]]
+        vim.cmd [[autocmd! * <buffer>]]
+        vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+        vim.cmd [[augroup END]]
+    end
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
