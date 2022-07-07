@@ -115,6 +115,9 @@ Plug('neovim/nvim-lspconfig')
 Plug('jose-elias-alvarez/null-ls.nvim')
 Plug('MunifTanjim/eslint.nvim')
 
+-- coffeescript support
+Plug('kchmck/vim-coffee-script')
+
 vim.call('plug#end')
 
 vim.cmd('colorscheme gruvbox')
