@@ -12,10 +12,6 @@ vim.wo.wrap = false
 -- remote connection, increase the number.  See 'ttimeout'.
 vim.o.ttimeoutlen = 100
 
--- Insert 4 spaces instead of a tab char when pressing the tab key in insert
--- modes
-vim.bo.expandtab = true
-
 -- Do not highlight all search hits
 vim.o.hlsearch = false
 
@@ -34,14 +30,19 @@ vim.api.nvim_create_autocmd('FileType', {
 	pattern = '*',
 	callback = function()
 		vim.opt.formatoptions:remove({'c', 'r', 'o'})
+
+		-- Disable swapfiles
+		vim.bo.swapfile = false
+
+		-- Insert 4 spaces instead of a tab char when pressing the tab key in insert
+		-- modes
+		vim.bo.expandtab = true
 	end
 })
 
 -- Allow recursive find
 vim.opt.path:append('**')
 
--- Disable swapfiles
-vim.bo.swapfile = false
 
 -- No large banner at the top of netwr
 vim.g.netrw_banner = 0
