@@ -186,7 +186,6 @@ function InsertTabWrapper()
 	end
 	local row = vim.fn.getline('.')
 	local char = string.sub(row, -1)
-	print (char)
 	if (string.match(char, "%a")) then
 		-- There's an identifier before the cursor, so complete the identifier.
 		return "<c-p>"
