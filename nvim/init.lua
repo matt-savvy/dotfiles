@@ -126,8 +126,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end,
     group = autogroup_eslint_lsp
 })
-vim.keymap.set('n', '<Leader>f', ':Neoformat prettier<CR>', { silent = false })
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { "ts", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	callback = function()
+        -- register prettier shortcut for JS/TS files
+        vim.keymap.set('n', '<Leader>f', ':Neoformat prettier<CR>', { silent = false })
+	end
+})
 
 -- coffeescript support
 Plug('kchmck/vim-coffee-script')
