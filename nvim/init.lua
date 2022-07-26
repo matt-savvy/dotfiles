@@ -110,6 +110,7 @@ Plug('heavenshell/vim-jsdoc', {
 })
 
 -- Quickstart configs for Nvim LSP
+Plug('williamboman/nvim-lsp-installer')
 Plug('neovim/nvim-lspconfig')
 
 -- for linting
