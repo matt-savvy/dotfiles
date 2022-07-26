@@ -242,7 +242,8 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver', 'elmls' }
+local servers = { 'tsserver', 'elmls', 'eslint' }
+-- local servers = { 'tsserver', 'elmls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -266,26 +267,26 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-local null_ls = require('null-ls')
-local eslint = require('eslint')
+-- local null_ls = require('null-ls')
+-- local eslint = require('eslint')
 
-null_ls.setup()
+-- null_ls.setup()
 
-eslint.setup({
-  bin = 'eslint',
-  code_actions = {
-    enable = false,
-    apply_on_save = {
-      enable = false,
-    },
-    disable_rule_comment = {
-      enable = true,
-      location = "separate_line",
-    },
-  },
-  diagnostics = {
-    enable = true,
-    report_unused_disable_directives = false,
-    run_on = "save",
-  },
-})
+-- eslint.setup({
+--   bin = 'eslint_d',
+--   code_actions = {
+--     enable = false,
+--     apply_on_save = {
+--       enable = false,
+--     },
+--     disable_rule_comment = {
+--       enable = true,
+--       location = "separate_line",
+--     },
+--   },
+--   diagnostics = {
+--     enable = true,
+--     report_unused_disable_directives = false,
+--     run_on = "type",
+--   },
+-- })
