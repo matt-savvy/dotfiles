@@ -121,8 +121,7 @@ Plug('jose-elias-alvarez/null-ls.nvim')
 Plug('sbdchd/neoformat')
 vim.g.neoformat_try_node_exe = 1
 vim.api.nvim_create_autocmd("BufWritePre", {
-    -- pattern = { "*.js", "*.ts", "*.jsx", "*.tsx" },
-    pattern = "*.ts",
+    pattern = { "*.js", "*.ts", "*.jsx", "*.tsx" },
     group = vim.api.nvim_create_augroup("Autoformat", { clear = true }),
     callback = function()
         vim.cmd("Neoformat prettierd")
