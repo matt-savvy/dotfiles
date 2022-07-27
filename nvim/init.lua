@@ -120,19 +120,21 @@ Plug('jose-elias-alvarez/null-ls.nvim')
 -- for autoformat
 Plug('sbdchd/neoformat')
 vim.g.neoformat_try_node_exe = 1
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.js", "*.ts", "*.jsx", "*.tsx" },
-    group = vim.api.nvim_create_augroup("Autoformat", { clear = true }),
-    callback = function()
-        vim.cmd("Neoformat prettierd")
-    end
-})
 
+-- register prettier shortcut and autosave for js/ts files
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { "ts", "javascript", "javascriptreact", "typescript", "typescriptreact" },
     callback = function()
-        -- register prettier shortcut for JS/TS files
-        vim.keymap.set('n', '<Leader>f', ':Neoformat prettier<CR>', { silent = false })
+        -- keymap for prettier
+        vim.keymap.set('n', '<Leader>f', ':Neoformat prettierd<CR>', { silent = true })
+        -- register autocommand to format on save
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = { "*.js", "*.ts", "*.jsx", "*.tsx" },
+            group = vim.api.nvim_create_augroup("Autoformat", { clear = true }),
+            callback = function()
+                vim.cmd("Neoformat prettierd")
+            end
+        })
     end
 })
 
@@ -234,10 +236,6 @@ local on_attach = function(client, bufnr)
     -- always show a sign column of width 1
     vim.wo.signcolumn = "yes:1"
 
-    -- if client.name == "tsserver" then
-    --     client.server_capabilities.documentFormattingProvider = false
-    -- end
-
     -- -- format on save if available
     -- if client.server_capabilities.documentFormattingProvider then
     --     vim.cmd [[augroup Format]]
@@ -276,7 +274,7 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-local null_ls = require('null-ls')
+-- local null_ls = require('null-ls')
 -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- local lsp_formatting = function(bufnr)
