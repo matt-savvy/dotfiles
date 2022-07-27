@@ -121,19 +121,20 @@ Plug('jose-elias-alvarez/null-ls.nvim')
 Plug('sbdchd/neoformat')
 vim.g.neoformat_try_node_exe = 1
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "ts", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    -- pattern = { "*.js", "*.ts", "*.jsx", "*.tsx" },
+    pattern = "*.ts",
+    group = vim.api.nvim_create_augroup("Autoformat", { clear = true }),
     callback = function()
-        vim.cmd("Neoformat prettier")
-    end,
-    group = autogroup_eslint_lsp
+        vim.cmd("Neoformat prettierd")
+    end
 })
 
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { "ts", "javascript", "javascriptreact", "typescript", "typescriptreact" },
-       callback = function()
+    callback = function()
         -- register prettier shortcut for JS/TS files
         vim.keymap.set('n', '<Leader>f', ':Neoformat prettier<CR>', { silent = false })
-       end
+    end
 })
 
 -- coffeescript support
