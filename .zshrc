@@ -116,3 +116,5 @@ export HISTCONTROL=ignoreboth:erasedups
 alias glm="git log --oneline master.."
 alias diff="colordiff"
 alias vim="nvim"
+
+export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
