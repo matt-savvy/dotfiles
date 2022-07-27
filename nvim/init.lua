@@ -187,6 +187,8 @@ vim.keymap.del('n', 'Y')
 
 -- from nvim-lspconfig
 local nvim_lsp = require('lspconfig')
+
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -213,8 +215,12 @@ local on_attach = function(client, bufnr)
     -- always show a sign column of width 1
     vim.wo.signcolumn = "yes:1"
 
-    -- format on save if available
-    -- if client.resolved_capabilities.document_formatting then
+    -- if client.name == "tsserver" then
+    --     client.server_capabilities.documentFormattingProvider = false
+    -- end
+
+    -- -- format on save if available
+    -- if client.server_capabilities.documentFormattingProvider then
     --     vim.cmd [[augroup Format]]
     --     vim.cmd [[autocmd! * <buffer>]]
     --     vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
@@ -251,24 +257,31 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require('null-ls')
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-null_ls.setup({
-    -- you can reuse a shared lspconfig on_attach callback here
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.formatting({ bufnr = bufnr })
-                end,
-            })
-        end
-    end,
-    sources = {
-        null_ls.builtins.formatting.prettierd
-    },
-})
+-- local lsp_formatting = function(bufnr)
+--     vim.lsp.buf.formatting({
+--         filter = function(client)
+--             -- apply whatever logic you want (in this example, we'll only use null-ls)
+--             return client.name == "null-ls"
+--         end,
+--         bufnr = bufnr,
+--     })
+-- end
+
+-- null_ls.setup({
+--     on_attach = function(client, bufnr)
+--         if client.server_capabilities.documentFormattingProvider then
+--             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+--             vim.api.nvim_create_autocmd("BufWritePre", {
+--                 group = augroup,
+--                 buffer = bufnr,
+--                 callback = lsp_formatting
+--             })
+--         end
+--     end,
+--     sources = {
+--         null_ls.builtins.formatting.prettierd
+--     },
+-- })
