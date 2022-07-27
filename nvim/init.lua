@@ -43,13 +43,11 @@ vim.api.nvim_create_autocmd('FileType', {
 -- Allow recursive find
 vim.opt.path:append('**')
 
-
 -- No large banner at the top of netwr
 vim.g.netrw_banner = 0
 
 -- highlight embedded lua
 vim.g.vimsyn_embed = 'l'
-
 
 -- Plugins
 local Plug = vim.fn['plug#']
@@ -58,6 +56,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 -- plug#begin has the effect of
 -- filetype plugin indent on
 
+-- gruvbox theme
 Plug('morhetz/gruvbox')
 
 -- Deletes trailing whitespace on buffer write
@@ -78,6 +77,7 @@ Plug('tpope/vim-repeat')
 
 -- Git integration
 Plug('tpope/vim-fugitive')
+
 -- Open diffs in vertical splits by default
 vim.opt.diffopt:append({ internal = false })
 vim.opt.diffopt:remove({ 'vertical' })
