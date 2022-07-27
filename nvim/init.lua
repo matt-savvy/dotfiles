@@ -53,8 +53,6 @@ vim.g.vimsyn_embed = 'l'
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.config/nvim/plugged')
--- plug#begin has the effect of
--- filetype plugin indent on
 
 -- gruvbox theme
 Plug('morhetz/gruvbox')
