@@ -113,9 +113,8 @@ Plug('heavenshell/vim-jsdoc', {
 Plug('williamboman/nvim-lsp-installer')
 Plug('neovim/nvim-lspconfig')
 
--- for linting
+-- Allow neovim to act as a language server for non-LSP based utils
 Plug('jose-elias-alvarez/null-ls.nvim')
-Plug('MunifTanjim/eslint.nvim')
 
 -- for autoformat
 Plug('sbdchd/neoformat')
