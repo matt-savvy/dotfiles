@@ -126,10 +126,9 @@ vim.api.nvim_create_autocmd('FileType', {
     pattern = { "ts", "javascript", "javascriptreact", "typescript", "typescriptreact" },
     callback = function()
         -- keymap for prettier
-        vim.keymap.set('n', '<Leader>f', ':Neoformat prettierd<CR>', { silent = true })
+        vim.keymap.set('n', '<Leader>f', vim.cmd("Neoformat prettierd"), { silent = true })
         -- register autocommand to format on save
         vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = { "*.js", "*.ts", "*.jsx", "*.tsx" },
             group = vim.api.nvim_create_augroup("Autoformat", { clear = true }),
             callback = function()
                 vim.cmd("Neoformat prettierd")
