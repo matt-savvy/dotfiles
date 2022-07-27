@@ -84,24 +84,27 @@ vim.opt.diffopt:remove({ 'vertical' })
 
 -- treesitter configs and abstraction layer
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
+
 -- Needed for telescope
 Plug('nvim-lua/plenary.nvim')
+
 -- Fuzzy finder
 Plug('nvim-telescope/telescope.nvim')
+
 -- open telescope file finder on cmd-P
 vim.keymap.set('n', '<C-p>', '<cmd>Telescope git_files<cr>', { noremap = true })
 
 -- Grep within working dir or repo
 Plug('mhinz/vim-grepper')
+
+-- use rg and git grep
 vim.g.grepper = {
     tools = {'rg', 'git'}
 }
-
 -- Use gs to take any motion and populate the search prompt
 vim.keymap.set({'n', 'x'}, 'gs', '<plug>(GrepperOperator)')
 -- Shortcut to open :Grepper
 vim.keymap.set('n', '<Leader>gg', ':Grepper<CR>', { silent = true })
-
 
 -- JS Doc
 Plug('heavenshell/vim-jsdoc', {
