@@ -137,6 +137,20 @@ vim.api.nvim_create_autocmd('FileType', {
     end
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = "elm",
+    callback = function()
+        -- keymap for prettier
+        vim.keymap.set('n', '<Leader>f', vim.cmd("Neoformat elmformat"), { silent = true })
+        -- register autocommand to format on save
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = vim.api.nvim_create_augroup("Autoformat", { clear = true }),
+            callback = function()
+                vim.cmd("Neoformat elmformat")
+            end
+        })
+    end
+})
 -- coffeescript support
 Plug('kchmck/vim-coffee-script')
 
