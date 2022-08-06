@@ -194,15 +194,15 @@ vim.keymap.set('n', '<Leader>=', '/=======<CR>', { silent = true })
 -- 'Q' in normal mode enters Ex mode. You almost never want this.
 vim.keymap.set('n', 'Q', '<Nop>')
 
+-- from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 -- Multipurpose tab key
-function InsertTabWrapper()
-	local col = vim.fn.col('.')
-	if (not col) then
-		return "<tab>"
-	end
-	local row = vim.fn.getline('.')
-	local char = string.sub(row, -1)
-	if (string.match(char, "%a")) then
+function InsertTab()
+	if (has_words_before()) then
 		-- There's an identifier before the cursor, so complete the identifier.
 		return "<c-p>"
     end
@@ -210,7 +210,7 @@ function InsertTabWrapper()
     return "<tab>"
 end
 
-vim.keymap.set('i', '<tab>', InsertTabWrapper, { expr = true })
+vim.keymap.set('i', '<tab>', InsertTab, { expr = true })
 vim.keymap.set('i', '<s-tab>', '<c-n>', { noremap = true })
 
 -- Allows %% in command mode to fill in the directory of the buffer
