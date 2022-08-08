@@ -1,3 +1,6 @@
+-- Shortcut to open this file
+vim.keymap.set('n', '<Leader>v', ':e ~/.config/nvim/init.lua<CR>', { silent = false })
+
 -- Don't give the intro message when starting
 vim.opt.shortmess:append({ I = true })
 
@@ -163,9 +166,6 @@ Plug('elixir-editors/vim-elixir')
 vim.call('plug#end')
 
 vim.cmd('colorscheme gruvbox')
-
--- Shortcut to open this file
-vim.keymap.set('n', '<Leader>v', ':e ~/.config/nvim/init.lua<CR>', { silent = false })
 
 -- Shortcut to open workingMemory.txt
 vim.keymap.set('n', '<Leader>wm', ':e ~/workingMemory.txt<CR>', { silent = false })
