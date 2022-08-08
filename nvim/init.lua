@@ -261,6 +261,12 @@ local on_attach = function(client, bufnr)
     --     vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
     --     vim.cmd [[augroup END]]
     -- end
+    function restartLsp()
+        vim.cmd('LspStop')
+        vim.cmd('LspStart')
+    end
+    -- restart the LSP
+    vim.keymap.set('n', '<Leader>ll', restartLsp, bufopts)
 end
 
 -- register lsp auto installer
