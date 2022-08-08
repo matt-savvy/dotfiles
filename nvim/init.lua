@@ -124,21 +124,20 @@ Plug('jose-elias-alvarez/null-ls.nvim')
 Plug('sbdchd/neoformat')
 vim.g.neoformat_try_node_exe = 1
 
+function prettierd()
+    vim.cmd("Neoformat prettierd")
+end
 -- register prettier shortcut and autosave for js/ts files
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { "ts", "javascript", "javascriptreact", "typescript", "typescriptreact" },
     callback = function()
         -- keymap for prettier
-        vim.keymap.set('n', '<Leader>f', function()
-            vim.cmd("Neoformat prettierd")
-        end
-        , { silent = true })
+        vim.keymap.set('n', '<Leader>f', prettierd, { silent = true })
+        vim.keymap.set('n', '<Leader>cl', 'Oconsole.log()<Esc>i', { silent = true })
         -- register autocommand to format on save
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = vim.api.nvim_create_augroup("Autoformat", { clear = true }),
-            callback = function()
-                vim.cmd("Neoformat prettierd")
-            end
+            callback = prettierd,
         })
     end
 })
