@@ -189,7 +189,7 @@ vim.keymap.set('n', ']q', ':cnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '[q', ':cprev<CR>', { noremap = true, silent = true })
 
 -- Close all buffers
-vim.keymap.set('n', '<Leader>bd', ':%bd<CR>', { silent = true, noremap = true })
+vim.keymap.set('n', '<Leader>bd', ':%bd|e#<CR>', { silent = true, noremap = true })
 
 -- Git conflict marker shortcuts
 vim.keymap.set('n', '<Leader><', '/<<<<<<<<CR>', { silent = true })
