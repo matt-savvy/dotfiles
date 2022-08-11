@@ -154,6 +154,9 @@ vim.api.nvim_create_autocmd('FileType', {
 -- coffeescript support
 Plug('kchmck/vim-coffee-script')
 
+-- elixir support
+Plug('elixir-editors/vim-elixir')
+
 vim.call('plug#end')
 
 vim.cmd('colorscheme gruvbox')
