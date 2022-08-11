@@ -56,6 +56,9 @@ git config --local user.email matt@work.com
         - pyenv install --list | grep 2.7
     - install python2
         - pyenv install <version>
+    - install elixir
+        - brew install elixir
+
 
 
 ## Mac Setup (misc)
