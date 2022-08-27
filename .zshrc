@@ -99,8 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python=/usr/local/bin/python3
-alias pip=/usr/local/bin/pip3
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -118,3 +116,8 @@ alias diff="colordiff"
 alias vim="nvim"
 
 export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
+
+## for pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
