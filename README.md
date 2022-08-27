@@ -39,10 +39,11 @@ git config --local user.email matt@work.com
     - install oh-my-zsh
     - add zshrc (if needed)
     - brew install tldr
-    - brew install mit-scheme
     - brew install ngrok
     - brew install rg
     - brew install gh
+    - brew install fd
+    - brew install mit-scheme
     - install nvm
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
         - nvm install 16 (or latest stable version)
