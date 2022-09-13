@@ -133,7 +133,6 @@ vim.api.nvim_create_autocmd('FileType', {
     callback = function()
         -- keymap for prettier
         vim.keymap.set('n', '<Leader>f', prettierd, { silent = true })
-        vim.keymap.set('n', '<Leader>cl', 'Oconsole.log()<Esc>i', { silent = true })
         -- register autocommand to format on save
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = vim.api.nvim_create_augroup("Autoformat", { clear = true }),
@@ -156,11 +155,15 @@ vim.api.nvim_create_autocmd('FileType', {
         })
     end
 })
+
 -- coffeescript support
 Plug('kchmck/vim-coffee-script')
 
 -- elixir support
 Plug('elixir-editors/vim-elixir')
+
+-- snippets
+Plug('L3MON4D3/LuaSnip')
 
 vim.call('plug#end')
 
@@ -326,3 +329,40 @@ end
 --         null_ls.builtins.formatting.prettierd
 --     },
 -- })
+
+local ls = require('luasnip')
+local types = require('luasnip.util.types')
+
+ls.config.set_config {
+    -- Keep the last snippet around so you can jump back in
+    history = true,
+
+    -- enables dynamic snippets
+    updateevents = 'TextChanged,TextChangedI'
+}
+
+vim.keymap.set({ "i", "s" }, "<c-k>", function ()
+    if ls.expand_or_jumpable() then
+        ls.expand_or_jump()
+    end
+end, { silent = true })
+
+-- vim.keymap.set({ "i", "s" }, "<c-j>", function ()
+--     if ls.expand_or_jumpable(-1) then
+--         ls.expand_or_jump(-1)
+--     end
+-- end, { silent = true })
+
+-- vim.keymap.set("i", "<c-l>", function ()
+--     if ls.choice_active() then
+--         ls.change_choice()
+--     end
+-- end, { silent = true })
+
+ls.snippets = {
+    all = {
+        ls.parser.parse_snippet("log", "console.log($1)"),
+        ls.parser.parse_snippet("expanded", "-- this was expanded"),
+    }
+}
+
