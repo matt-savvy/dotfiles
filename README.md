@@ -29,6 +29,7 @@ From ~/dev/dotfiles
 ln -s $(pwd)/git/.gitconfig ~/.gitconfig
 ln -s $(pwd)/git/.gitignore ~/.gitignore
 ln -s $(pwd)/.zshrc ~/.zshrc
+ln -s $(pwd)/.iex.exs ~/.iex.exs
 ```
 
 Add custom author gitconfig for work projects if needed. E.g.
