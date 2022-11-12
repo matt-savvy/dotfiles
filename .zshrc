@@ -143,3 +143,6 @@ _gt_yargs_completions()
 }
 compdef _gt_yargs_completions gt
 ###-end-gt-completions-###
+
+# elixir
+export ERL_AFLAGS="-kernel shell_history enabled"
