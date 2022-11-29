@@ -43,6 +43,7 @@ git config --local user.email matt@work.com
     - brew install rg
     - brew install gh
     - brew install fd
+
     - brew install mit-scheme
     - install nvm
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -149,6 +150,8 @@ git config --local user.email matt@work.com
         - disable autoplay
         - disable show announcements for new releases
         - disable see what your friends are playing
+- install marp
+    - https://marp.app/
 - install VLC
 - install docker
 - clear everything from dock except finder, terminal, brave, spotify, calendar
