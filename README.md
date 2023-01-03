@@ -22,13 +22,13 @@ mkdir -p ~/.config/nvim
 ln -s $(pwd)/nvim/init.lua ~/.config/nvim/init.lua
 ```
 
+
 ### Symlink .gitconfig and .gitignore
 From ~/dev/dotfiles
 
 ```
 ln -s $(pwd)/git/.gitconfig ~/.gitconfig
 ln -s $(pwd)/git/.gitignore ~/.gitignore
-ln -s $(pwd)/.zshrc ~/.zshrc
 ln -s $(pwd)/.iex.exs ~/.iex.exs
 ```
 
@@ -46,6 +46,7 @@ git config --local user.email matt@work.com
    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
     - in nvim, `:PlugInstall`
 - `install oh-my-zsh`
+    Manually copy needed steps to new .zshrc
 - `add zshrc (if needed)`
 - `brew install tldr`
 - `brew install ngrok`
