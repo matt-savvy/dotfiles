@@ -38,39 +38,37 @@ git config --local user.name "Matt Savoia"
 git config --local user.email matt@work.com
 ```
 
-    - install homebrew
-    - install neovim
-	- `brew install nvim`
-    - install Plug
-    `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
-        - in nvim, :PlugInstall
-    - install oh-my-zsh
-    - add zshrc (if needed)
-    - brew install tldr
-    - brew install ngrok
-    - brew install rg
-    - brew install gh
-    - brew install fd
+- install homebrew
+- install neovim
+- `brew install nvim`
+- install Plug
+`sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
+    - in nvim, :PlugInstall
+- install oh-my-zsh
+- add zshrc (if needed)
+- brew install tldr
+- brew install ngrok
+- brew install rg
+- brew install gh
+- brew install fd
 
-    - brew install mit-scheme
-    - install nvm
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-        - nvm install 16 (or latest stable version)
-    - install npm-merge-driver
-        - npx npm-merge-driver install --global
-    - install elm
-        https://guide.elm-lang.org/install/elm.html
-    - install pyenv
-        - brew install pyenv
-    - identify latest python2
-        - pyenv install --list | grep 2.7
-    - install python2
-        - pyenv install <version>
-    - install elixir
-        - brew install elixir
-
-
+- brew install mit-scheme
+- install nvm
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    - nvm install 16 (or latest stable version)
+- install npm-merge-driver
+    - npx npm-merge-driver install --global
+- install elm
+    https://guide.elm-lang.org/install/elm.html
+- install pyenv
+    - brew install pyenv
+- identify latest python2
+    - pyenv install --list | grep 2.7
+- install python2
+    - pyenv install <version>
+- install elixir
+    - brew install elixir
 
 ## Mac Setup (misc)
 - create ~/dev dir
