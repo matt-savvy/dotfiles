@@ -18,6 +18,8 @@ From ~/dev/dotfiles
 
 ```
 ln -s $(pwd)/.vim/vimrc ~/.vim/vimrc
+mkdir -p ~/.config/nvim
+ln -s $(pwd)/nvim/init.lua ~/.config/nvim/init.lua
 ```
 
 ### Symlink .gitconfig and .gitignore
@@ -36,6 +38,8 @@ git config --local user.email matt@work.com
 ```
 
     - install homebrew
+    - install neovim
+	- `brew install nvim`
     - install oh-my-zsh
     - add zshrc (if needed)
     - brew install tldr
