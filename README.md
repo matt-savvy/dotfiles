@@ -51,6 +51,7 @@ git config --local user.email matt@work.com
 - `brew install ngrok`
 - `brew install rg`
 - `brew install gh`
+    - `gh config set editor vim`
 - `brew install fd`
 
 - brew install mit-scheme
