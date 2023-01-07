@@ -106,7 +106,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export npm_config_fund=false
-export MYVIMRC="~/.vim/.vimrc"
 
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTCONTROL=ignoreboth:erasedups
