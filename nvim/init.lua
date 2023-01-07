@@ -260,13 +260,13 @@ local on_attach = function(client, bufnr)
     -- always show a sign column of width 1
     vim.wo.signcolumn = "yes:1"
 
-    -- -- format on save if available
-    -- if client.server_capabilities.documentFormattingProvider then
-    --     vim.cmd [[augroup Format]]
-    --     vim.cmd [[autocmd! * <buffer>]]
-    --     vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
-    --     vim.cmd [[augroup END]]
-    -- end
+    -- format on save if available
+    if client.server_capabilities.documentFormattingProvider then
+        vim.cmd [[augroup Format]]
+        vim.cmd [[autocmd! * <buffer>]]
+        vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+        vim.cmd [[augroup END]]
+    end
     function restartLsp()
         vim.cmd('LspStop')
         vim.cmd('LspStart')
