@@ -113,8 +113,10 @@ Plug('heavenshell/vim-jsdoc', {
   ['do'] = 'make install'
 })
 
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
 -- Quickstart configs for Nvim LSP
-Plug('williamboman/nvim-lsp-installer')
 Plug('neovim/nvim-lspconfig')
 
 -- Allow neovim to act as a language server for non-LSP based utils
@@ -230,6 +232,9 @@ vim.keymap.set('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { ex
 -- Remove neovim mapping of Y to y$
 vim.keymap.del('n', 'Y')
 
+require('mason').setup()
+require("mason-lspconfig").setup({ automatic_installation = true })
+
 -- from nvim-lspconfig
 local nvim_lsp = require('lspconfig')
 
@@ -274,9 +279,6 @@ local on_attach = function(client, bufnr)
     -- restart the LSP
     vim.keymap.set('n', '<Leader>ll', restartLsp, bufopts)
 end
-
--- register lsp auto installer
-require("nvim-lsp-installer").setup {}
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
