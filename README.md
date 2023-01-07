@@ -46,8 +46,7 @@ git config --local user.email matt@work.com
    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
     - in nvim, `:PlugInstall`
 - `install oh-my-zsh`
-    ln -s $(pwd)/dotfiles/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh
-- `add zshrc (if needed)`
+    add `ZSH_CUSTOM=~/dev/dotfiles/zsh_custom`
 - `brew install tldr`
 - `brew install ngrok`
 - `brew install rg`
