@@ -13,6 +13,39 @@
 		- scope: repo
 	- from dev dir, git clone https://github.com/matt-savvy/dotfiles
 
+### Nix
+
+- install nix
+`sh <(curl -L https://nixos.org/nix/install)`
+
+- install neovim
+`nix-env -iA nixpkgs.neovim`
+- tldr
+`nix-env -iA nixpkgs.tldr`
+- ngrok
+`NIXPKGS_ALLOW_UNFREE=1 nix-env -iA --impure nixpkgs.ngrok`
+- ripgrep
+`nix-env -iA nixpkgs.ripgrep`
+- gh
+`nix-env -iA nixpkgs.gh`
+- fd
+`nix-env -iA nixpkgs.fd`
+- elixir
+`nix-env -iA nixpkgs.elixir_1_14`
+- python2
+`nix-env -iA nixpkgs.python2`
+- python3
+`nix-env -iA nixpkgs.python311`
+- node
+`nix-env -iA nixpkgs.nodejs`
+- elm
+`nix-env -iA nixpkgs.elmPackages.elm`
+- docker
+`nix-env -iA nixpkgs.docker`
+- postgres
+`nix-env -iA nixpkgs.postgresql`
+```
+
 ### Symlink vimrc
 From ~/dev/dotfiles
 
@@ -38,37 +71,17 @@ git config --local user.name "Matt Savoia"
 git config --local user.email matt@work.com
 ```
 
-- install homebrew
-- install neovim
-- `brew install nvim`
 - install Plug
 `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
     - in nvim, `:PlugInstall`
 - `install oh-my-zsh`
     add `ZSH_CUSTOM=~/dev/dotfiles/zsh_custom`
-- `brew install tldr`
-- `brew install ngrok`
-- `brew install rg`
-- `brew install gh`
-- `brew install fd`
 
-- brew install mit-scheme
-- install nvm
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-    - `nvm install 16` (or latest stable version)
 - install npm-merge-driver
     - `npx npm-merge-driver install --global`
 - install elm
     https://guide.elm-lang.org/install/elm.html
-- install pyenv
-    - `brew install pyenv`
-- identify latest python2
-    - `pyenv install --list | grep 2.7`
-- install python2
-    - `pyenv install <version>`
-- install elixir
-    - `brew install elixir`
 
 ## Mac Setup (misc)
 - create ~/dev dir
@@ -160,7 +173,7 @@ killall Finder
 - install marp
     - https://marp.app/
 - install VLC
-- install docker
+- install docker desktop app
 - clear everything from dock except finder, terminal, brave, spotify, calendar
     - remove downloads folder, may need to have something in it
 
