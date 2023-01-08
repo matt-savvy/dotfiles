@@ -161,6 +161,9 @@ vim.api.nvim_create_autocmd('FileType', {
 -- elixir support
 Plug('elixir-editors/vim-elixir')
 
+-- nix support
+Plug 'LnL7/vim-nix'
+
 -- snippets
 Plug('L3MON4D3/LuaSnip')
 
