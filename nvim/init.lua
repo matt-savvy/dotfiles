@@ -158,9 +158,6 @@ vim.api.nvim_create_autocmd('FileType', {
     end
 })
 
--- coffeescript support
-Plug('kchmck/vim-coffee-script')
-
 -- elixir support
 Plug('elixir-editors/vim-elixir')
 
