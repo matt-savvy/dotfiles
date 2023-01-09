@@ -34,6 +34,7 @@
     pkgs.ripgrep
     pkgs.gh
     pkgs.fd
+    pkgs.erlangR25
     pkgs.elixir_1_14
     pkgs.python2
     pkgs.python311
