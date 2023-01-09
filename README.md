@@ -17,51 +17,19 @@
 
 - install nix
 `sh <(curl -L https://nixos.org/nix/install)`
-
-- install neovim
-`nix-env -iA nixpkgs.neovim`
-- tldr
-`nix-env -iA nixpkgs.tldr`
-- ngrok
-`NIXPKGS_ALLOW_UNFREE=1 nix-env -iA --impure nixpkgs.ngrok`
-- ripgrep
-`nix-env -iA nixpkgs.ripgrep`
-- gh
-`nix-env -iA nixpkgs.gh`
-- fd
-`nix-env -iA nixpkgs.fd`
-- elixir
-`nix-env -iA nixpkgs.elixir_1_14`
-- python2
-`nix-env -iA nixpkgs.python2`
-- python3
-`nix-env -iA nixpkgs.python311`
-- node
-`nix-env -iA nixpkgs.nodejs`
-- elm
-`nix-env -iA nixpkgs.elmPackages.elm`
-- docker
-`nix-env -iA nixpkgs.docker`
-- postgres
-`nix-env -iA nixpkgs.postgresql`
+- install home-manager (https://nix-community.github.io/home-manager/index.html#sec-install-standalone)
 ```
-
-### Symlink vimrc
-From ~/dev/dotfiles
-
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}
+nix-shell '<home-manager>' -A install
+home-manager switch
 ```
-ln -s $(pwd)/.vim/vimrc ~/.vim/vimrc
-mkdir -p ~/.config/nvim
-ln -s $(pwd)/nvim/init.lua ~/.config/nvim/init.lua
-```
-
 
 ### Symlink .gitconfig and .gitignore
 From ~/dev/dotfiles
 
 ```
-ln -s $(pwd)/git/.gitconfig ~/.gitconfig
-ln -s $(pwd)/git/.gitignore ~/.gitignore
 ln -s $(pwd)/.iex.exs ~/.iex.exs
 ```
 
@@ -75,13 +43,6 @@ git config --local user.email matt@work.com
 `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
     - in nvim, `:PlugInstall`
-- `install oh-my-zsh`
-    add `ZSH_CUSTOM=~/dev/dotfiles/zsh_custom`
-
-- install npm-merge-driver
-    - `npx npm-merge-driver install --global`
-- install elm
-    https://guide.elm-lang.org/install/elm.html
 
 ## Mac Setup (misc)
 - create ~/dev dir
