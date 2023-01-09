@@ -29,20 +29,20 @@
     };
   };
 
-  home.packages = [
-    pkgs.tldr
-    pkgs.ripgrep
-    pkgs.gh
-    pkgs.fd
-    pkgs.erlangR25
-    pkgs.elixir_1_14
-    pkgs.python2
-    pkgs.python311
-    pkgs.nodejs
-    pkgs.elmPackages.elm
-    pkgs.docker
-    pkgs.postgresql
-    pkgs.vimPlugins.vim-plug
+  home.packages = with pkgs; [
+    tldr
+    ripgrep
+    gh
+    fd
+    erlangR25
+    elixir_1_14
+    python2
+    python311
+    nodejs
+    elmPackages.elm
+    docker
+    postgresql
+    vimPlugins.vim-plug
   ];
 
   programs.git = {
