@@ -1,5 +1,8 @@
 # Dotfiles
 
+- create ~/dev dir
+- clone this repo into ~/dev
+
 
 ## Terminal Setup
 - terminal
@@ -38,7 +41,6 @@ git config --local user.email matt@work.com
     - in nvim, `:PlugInstall`
 
 ## Mac Setup (misc)
-- create ~/dev dir
 
 - settings
 
