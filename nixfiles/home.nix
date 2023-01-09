@@ -42,6 +42,7 @@
     pkgs.elmPackages.elm
     pkgs.docker
     pkgs.postgresql
+    pkgs.vimPlugins.vim-plug
   ];
 
   programs.git = {

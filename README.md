@@ -35,10 +35,8 @@ git config --local user.name "Matt Savoia"
 git config --local user.email matt@work.com
 ```
 
-- install Plug
-`sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
-    - in nvim, `:PlugInstall`
+- install vim plugins
+in nvim, `:PlugInstall`
 
 ## Mac Setup (misc)
 
