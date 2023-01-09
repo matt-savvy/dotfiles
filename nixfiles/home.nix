@@ -41,7 +41,6 @@
     nodejs
     elmPackages.elm
     docker
-    postgresql
     vimPlugins.vim-plug
   ];
 

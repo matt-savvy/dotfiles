@@ -38,6 +38,13 @@ git config --local user.email matt@work.com
 - install vim plugins
 in nvim, `:PlugInstall`
 
+## setup postgres
+
+- install homebrew
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+- install postgres
+`brew install postgres`
+
 ## Mac Setup (misc)
 
 - settings
