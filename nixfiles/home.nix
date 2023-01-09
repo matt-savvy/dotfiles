@@ -44,6 +44,13 @@
     pkgs.postgresql
   ];
 
+  programs.git = {
+    enable = true;
+  };
+
+  home.file.".gitconfig".source = ../git/.gitconfig;
+  home.file.".gitignore".source = ../git/.gitignore;
+
   programs.neovim = {
     enable = true;
     vimAlias = true;
