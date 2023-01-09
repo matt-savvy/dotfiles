@@ -51,6 +51,8 @@
   home.file.".gitconfig".source = ../git/.gitconfig;
   home.file.".gitignore".source = ../git/.gitignore;
 
+  home.file.".iex.exs".source = ../.iex.exs;
+
   programs.neovim = {
     enable = true;
     vimAlias = true;
