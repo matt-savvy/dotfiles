@@ -29,4 +29,29 @@
     };
   };
 
+  home.packages = [
+    pkgs.tldr
+    pkgs.ripgrep
+    pkgs.gh
+    pkgs.fd
+    pkgs.elixir_1_14
+    pkgs.python2
+    pkgs.python311
+    pkgs.nodejs
+    pkgs.elmPackages.elm
+    pkgs.docker
+    pkgs.postgresql
+  ];
+
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-nix
+    ];
+    extraConfig = ''
+        luafile ${../nvim/init.lua}
+    '';
+  };
+
 }
