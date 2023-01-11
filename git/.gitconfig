@@ -27,3 +27,5 @@
 	detachedHead = false
 [init]
 	defaultBranch = master
+[credential]
+	helper = osxkeychain
