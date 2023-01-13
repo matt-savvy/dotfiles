@@ -167,6 +167,9 @@ Plug('L3MON4D3/LuaSnip')
 -- temporary fix for https://github.com/elixir-editors/vim-elixir/issues/562
 vim.cmd("au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir")
 
+-- graphQL
+Plug('jparise/vim-graphql')
+
 vim.call('plug#end')
 
 vim.cmd('colorscheme gruvbox')
