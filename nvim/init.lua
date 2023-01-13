@@ -107,6 +107,10 @@ vim.keymap.set({'n', 'x'}, 'gs', '<plug>(GrepperOperator)')
 -- Shortcut to open :Grepper
 vim.keymap.set('n', '<Leader>gg', ':Grepper<CR>', { silent = true })
 
+-- keymaps to yank file name
+vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
+vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
+
 -- JS Doc
 Plug('heavenshell/vim-jsdoc', {
   ['for'] = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact'},
