@@ -16,6 +16,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# gh cli
+export GH_EDITOR="nvim"
+
 # elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
 
@@ -36,3 +39,4 @@ function mix_test() {
       return 0
   fi
 }
+
