@@ -5,3 +5,5 @@ alias gcc="git rev-parse --short HEAD | tr -d '\n' | pbcopy"
 
 alias diff="colordiff"
 alias vim="nvim"
+
+alias mt="mix_test"

@@ -18,3 +18,16 @@ eval "$(pyenv init -)"
 
 # elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+function mix_test() {
+  FILES=`fd $1 test | head`
+
+  if [[ -z $FILES ]]; then
+      echo "No tests found."
+      return 1
+  else
+      echo "tests found: \n$FILES\n"
+      echo $FILES | xargs mix test
+      return 0
+  fi
+}
