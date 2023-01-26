@@ -25,9 +25,16 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 function mix_test() {
   QUERY=$1
 
+  # no query
   if [[ -z $QUERY ]]; then
     mix test
     return 0
+  fi
+
+  # query begins with test/
+  if [[ ${QUERY:0:5} == "test/" ]]; then
+      mix test $QUERY
+      return 0
   fi
 
   # does this include a line number?
