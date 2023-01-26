@@ -23,12 +23,28 @@ export GH_EDITOR="nvim"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 function mix_test() {
-  if [[ -z $1 ]]; then
+  QUERY=$1
+
+  if [[ -z $QUERY ]]; then
     mix test
     return 0
   fi
 
-  FILES=`fd $1 test | head`
+  # does this include a line number?
+  if test "${QUERY#*:}" != $QUERY; then
+      LINE_NUMBER=${QUERY#*:}
+      QUERY=${QUERY%%:*}
+      FILE=`fd -p $QUERY test | head -n 1`
+      if [[ -z $FILE ]]; then
+          echo "No tests found."
+          return 1
+      fi
+      FILES=$FILE:$LINE_NUMBER
+  else
+      FILES=`fd -p $QUERY test | head`
+  fi
+
+  # if $1 starts with test, use it as is, don't call fd
 
   if [[ -z $FILES ]]; then
       echo "No tests found."
