@@ -20,6 +20,11 @@ eval "$(pyenv init -)"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 function mix_test() {
+  if [[ -z $1 ]]; then
+    mix test
+    return 0
+  fi
+
   FILES=`fd $1 test | head`
 
   if [[ -z $FILES ]]; then
