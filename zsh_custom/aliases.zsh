@@ -7,3 +7,4 @@ alias diff="colordiff"
 alias vim="nvim"
 
 alias mt="mix_test"
+alias mtf="mix test --failed"
