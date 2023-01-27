@@ -25,6 +25,7 @@
 	prune = true
 [advice]
 	detachedHead = false
+	skippedCherryPicks = false
 [init]
 	defaultBranch = master
 [credential]
