@@ -24,6 +24,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 function mix_test() {
   QUERY=$1
+  TEST_DIR=$2
 
   # no query
   if [[ -z $QUERY ]]; then
@@ -37,18 +38,22 @@ function mix_test() {
       return 0
   fi
 
+  if [[ -z $TEST_DIR ]]; then
+      TEST_DIR="test"
+  fi;
+
   # does this include a line number?
   if test "${QUERY#*:}" != $QUERY; then
       LINE_NUMBER=${QUERY#*:}
       QUERY=${QUERY%%:*}
-      FILE=`fd -p $QUERY test | head -n 1`
+      FILE=`fd -p $QUERY $TEST_DIR | head -n 1`
       if [[ -z $FILE ]]; then
           echo "No tests found."
           return 1
       fi
       FILES=$FILE:$LINE_NUMBER
   else
-      FILES=`fd -p $QUERY test | head`
+      FILES=`fd -p $QUERY $TEST_DIR | head`
   fi
 
   # if $1 starts with test, use it as is, don't call fd
