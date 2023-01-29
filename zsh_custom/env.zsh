@@ -4,12 +4,6 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTCONTROL=ignoreboth:erasedups
 
 export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-
-## for pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # gh cli
 export GH_EDITOR="nvim"
