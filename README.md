@@ -71,6 +71,10 @@ git config --local user.email matt@work.com
     - `pyenv install <version>`
 - install elixir
     - `brew install elixir`
+- install colima docker docker-compose
+    - `brew install colima docker docker-compose`
+    - use `colima start` to fire up the daemon
+
 
 ## Mac Setup (misc)
 - create ~/dev dir
@@ -162,7 +166,6 @@ killall Finder
 - install marp
     - https://marp.app/
 - install VLC
-- install docker
 - clear everything from dock except finder, terminal, brave, spotify, calendar
     - remove downloads folder, may need to have something in it
 
