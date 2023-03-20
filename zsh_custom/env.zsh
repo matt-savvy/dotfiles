@@ -28,7 +28,7 @@ function mix_test() {
   fi
 
   if [[ -z $TEST_DIR ]]; then
-      TEST_DIR="test"
+      TEST_DIR=(`fd test -t d`)
   fi;
 
   # does this include a line number?
