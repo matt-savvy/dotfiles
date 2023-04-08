@@ -86,7 +86,7 @@ vim.opt.diffopt:remove({ 'vertical' })
 -- treesitter configs and abstraction layer
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 
--- Needed for telescope
+-- Needed for telescope, harpoon
 Plug('nvim-lua/plenary.nvim')
 
 -- Fuzzy finder
@@ -94,6 +94,9 @@ Plug('nvim-telescope/telescope.nvim')
 
 -- open telescope file finder on cmd-P
 vim.keymap.set('n', '<C-p>', '<cmd>Telescope git_files<cr>', { noremap = true })
+
+-- Quick buffer/location navigator
+Plug('ThePrimeagen/harpoon')
 
 -- Grep within working dir or repo
 Plug('mhinz/vim-grepper')
@@ -199,6 +202,17 @@ vim.keymap.set('n', '[a', ':e #<CR>', { noremap = true, silent = true })
 -- Shortcuts for navigating quickfix list
 vim.keymap.set('n', ']q', ':cnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '[q', ':cprev<CR>', { noremap = true, silent = true })
+
+-- Mappings for harpoon
+vim.keymap.set('n', '<Leader>a', ':lua require("harpoon.mark").add_file()<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>m', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { silent = true })
+
+vim.keymap.set('n', '\'a', ':lua require("harpoon.ui").nav_file(1)<CR>', { silent = true })
+vim.keymap.set('n', '\'b', ':lua require("harpoon.ui").nav_file(2)<CR>', { silent = true })
+vim.keymap.set('n', '\'c', ':lua require("harpoon.ui").nav_file(3)<CR>', { silent = true })
+
+vim.keymap.set('n', ']r', ':lua require("harpoon.ui").nav_next()<CR>', { silent = true })
+vim.keymap.set('n', '[r', ':lua require("harpoon.ui").nav_prev()<CR>', { silent = true })
 
 -- Close all buffers
 vim.keymap.set('n', '<Leader>bd', ':%bd|e#<CR>', { silent = true, noremap = true })
