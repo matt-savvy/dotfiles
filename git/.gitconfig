@@ -30,3 +30,5 @@
 	defaultBranch = master
 [credential]
 	helper = osxkeychain
+[push]
+	autoSetupRemote = true
