@@ -9,4 +9,7 @@ nixpkgs.fd \
 nixpkgs.fzf \
 nixpkgs.elixir_1_14 \
 nixpkgs.nodejs \
-nixpkgs.flyctl
+nixpkgs.flyctl \
+nixpkgs.colordiff \
+nixpkgs.tree
+
