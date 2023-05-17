@@ -10,6 +10,7 @@ export GH_EDITOR="nvim"
 
 # elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
+export KERL_BUILD_DOCS="yes"
 
 function mix_test() {
   QUERY=$1
@@ -56,4 +57,3 @@ function mix_test() {
       return 0
   fi
 }
-
