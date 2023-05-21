@@ -11,5 +11,8 @@ nixpkgs.elixir_1_14 \
 nixpkgs.nodejs \
 nixpkgs.flyctl \
 nixpkgs.colordiff \
-nixpkgs.tree
+nixpkgs.tree \
+nixpkgs.elmPackages.elm \
+nixpkgs.elmPackages.elm-test \
+nixpkgs.elmPackages.elm-format
 
