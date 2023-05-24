@@ -207,9 +207,10 @@ vim.keymap.set('n', '[q', ':cprev<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>a', ':lua require("harpoon.mark").add_file()<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>m', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { silent = true })
 
-vim.keymap.set('n', '\'a', ':lua require("harpoon.ui").nav_file(1)<CR>', { silent = true })
-vim.keymap.set('n', '\'b', ':lua require("harpoon.ui").nav_file(2)<CR>', { silent = true })
-vim.keymap.set('n', '\'c', ':lua require("harpoon.ui").nav_file(3)<CR>', { silent = true })
+vim.keymap.set('n', '\'q', ':lua require("harpoon.ui").nav_file(1)<CR>', { silent = true })
+vim.keymap.set('n', '\'w', ':lua require("harpoon.ui").nav_file(2)<CR>', { silent = true })
+vim.keymap.set('n', '\'e', ':lua require("harpoon.ui").nav_file(3)<CR>', { silent = true })
+vim.keymap.set('n', '\'r', ':lua require("harpoon.ui").nav_file(4)<CR>', { silent = true })
 
 vim.keymap.set('n', ']r', ':lua require("harpoon.ui").nav_next()<CR>', { silent = true })
 vim.keymap.set('n', '[r', ':lua require("harpoon.ui").nav_prev()<CR>', { silent = true })
