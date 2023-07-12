@@ -22,7 +22,7 @@ vim.o.hlsearch = false
 vim.o.mouse = "nv"
 
 -- Use system clipboard by default
-vim.o.clipboard = "unnamed"
+vim.o.clipboard = "unnamedplus"
 
 -- TODO: what do these do?
 vim.o.ts = 4
