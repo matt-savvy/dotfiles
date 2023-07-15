@@ -25,10 +25,6 @@ git config --local user.email matt@work.com
 - install homebrew
 - `brew install ngrok`
 
-- install colima docker docker-compose
-    - `brew install colima docker docker-compose`
-    - use `colima start` to fire up the daemon
-
 
 ## Mac Setup (misc)
 - create ~/dev dir
@@ -123,3 +119,5 @@ killall Finder
 - clear everything from dock except finder, terminal, brave, spotify, calendar
     - remove downloads folder, may need to have something in it
 
+
+- use `colima start` to fire up the colima/docker daemon
