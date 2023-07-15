@@ -1,6 +1,5 @@
 # Dotfiles
 
-
 ## Terminal Setup
 - terminal
     - settings
@@ -17,6 +16,7 @@
 From ~/dev/dotfiles
 
 Add custom author gitconfig for work projects if needed. E.g.
+
 ```
 git config --local user.name "Matt Savoia"
 git config --local user.email matt@work.com
@@ -25,12 +25,6 @@ git config --local user.email matt@work.com
 - install homebrew
 - `brew install ngrok`
 
-- brew install mit-scheme
-- install nvm
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-    - `nvm install 16` (or latest stable version)
-- install npm-merge-driver
-    - `npx npm-merge-driver install --global`
 - install colima docker docker-compose
     - `brew install colima docker docker-compose`
     - use `colima start` to fire up the daemon
