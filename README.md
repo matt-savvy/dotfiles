@@ -23,8 +23,6 @@ git config --local user.email matt@work.com
 ```
 
 - install homebrew
-- `install oh-my-zsh`
-    add `ZSH_CUSTOM=~/dev/dotfiles/zsh_custom`
 - `brew install tldr`
 - `brew install ngrok`
 - `brew install rg`
