@@ -12,9 +12,6 @@
 		- scope: repo
 	- from dev dir, git clone https://github.com/matt-savvy/dotfiles
 
-### Symlink .gitconfig and .gitignore
-From ~/dev/dotfiles
-
 Add custom author gitconfig for work projects if needed. E.g.
 
 ```
