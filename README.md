@@ -16,10 +16,6 @@
 ### Symlink .gitconfig and .gitignore
 From ~/dev/dotfiles
 
-```
-ln -s $(pwd)/.iex.exs ~/.iex.exs
-```
-
 Add custom author gitconfig for work projects if needed. E.g.
 ```
 git config --local user.name "Matt Savoia"

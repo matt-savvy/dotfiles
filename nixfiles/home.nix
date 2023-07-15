@@ -96,4 +96,8 @@
          custom = "$HOME/dev/dotfiles/zsh_custom/";
      };
   };
+
+  home.file.".iex".source = ../.iex.exs;
+
+
 }
