@@ -27,6 +27,11 @@
     ripgrep
     tldr
     tree
+    ghc
+    elixir
+    elmPackages.elm
+    elmPackages.elm-test
+    elmPackages.elm-format
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
