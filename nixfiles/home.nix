@@ -67,4 +67,14 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.zsh = {
+     enable = true;
+     oh-my-zsh = {
+         enable = true;
+         plugins = ["git"];
+         theme = "robbyrussell";
+         custom = "$HOME/dev/dotfiles/zsh_custom/";
+     };
+  };
 }
