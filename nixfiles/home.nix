@@ -68,6 +68,13 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.git = {
+    enable = true;
+  };
+
+  home.file.".gitconfig".source = ../git/.gitconfig;
+  home.file.".gitignore".source = ../git/.gitignore;
+
   programs.zsh = {
      enable = true;
      oh-my-zsh = {

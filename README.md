@@ -27,8 +27,6 @@ ln -s $(pwd)/nvim/init.lua ~/.config/nvim/init.lua
 From ~/dev/dotfiles
 
 ```
-ln -s $(pwd)/git/.gitconfig ~/.gitconfig
-ln -s $(pwd)/git/.gitignore ~/.gitignore
 ln -s $(pwd)/.iex.exs ~/.iex.exs
 ```
 
