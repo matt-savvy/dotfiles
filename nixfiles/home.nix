@@ -32,6 +32,7 @@
     elmPackages.elm
     elmPackages.elm-test
     elmPackages.elm-format
+    nodejs
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
