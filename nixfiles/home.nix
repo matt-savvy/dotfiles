@@ -75,6 +75,19 @@
   home.file.".gitconfig".source = ../git/.gitconfig;
   home.file.".gitignore".source = ../git/.gitignore;
 
+  programs.neovim = {
+    enable = true;
+    extraConfig = ''
+      luafile ${../nvim/init.lua}
+    '';
+    defaultEditor = true;
+    vimAlias = true;
+    plugins = with pkgs.vimPlugins; [
+        vim-nix
+        gruvbox
+    ];
+  };
+
   programs.zsh = {
      enable = true;
      oh-my-zsh = {

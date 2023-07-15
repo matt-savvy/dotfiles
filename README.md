@@ -13,16 +13,6 @@
 		- scope: repo
 	- from dev dir, git clone https://github.com/matt-savvy/dotfiles
 
-### Symlink vimrc
-From ~/dev/dotfiles
-
-```
-ln -s $(pwd)/.vim/vimrc ~/.vim/vimrc
-mkdir -p ~/.config/nvim
-ln -s $(pwd)/nvim/init.lua ~/.config/nvim/init.lua
-```
-
-
 ### Symlink .gitconfig and .gitignore
 From ~/dev/dotfiles
 
@@ -37,12 +27,6 @@ git config --local user.email matt@work.com
 ```
 
 - install homebrew
-- install neovim
-- `brew install nvim`
-- install Plug
-`sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
-    - in nvim, `:PlugInstall`
 - `install oh-my-zsh`
     add `ZSH_CUSTOM=~/dev/dotfiles/zsh_custom`
 - `brew install tldr`
