@@ -53,6 +53,10 @@ vim.g.netrw_banner = 0
 vim.g.vimsyn_embed = 'l'
 
 -- Plugins
+
+-- bootstrap vim-plug if needed
+vim.cmd('source', '~/dev/dotfiles/nvim/bootstrap.vim')
+
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.config/nvim/plugged')
