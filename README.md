@@ -19,8 +19,8 @@ git config --local user.name "Matt Savoia"
 git config --local user.email matt@work.com
 ```
 
-- install homebrew
-- `brew install ngrok`
+- install ngrok
+    - `NIXPKGS_ALLOW_UNFREE=1 nix-env -iA nixpkgs.ngrok`
 
 
 ## Mac Setup (misc)
