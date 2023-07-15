@@ -23,13 +23,7 @@ git config --local user.email matt@work.com
 ```
 
 - install homebrew
-- `brew install tldr`
 - `brew install ngrok`
-- `brew install rg`
-- `brew install fzf`
-- `brew install gh`
-    - `gh config set editor vim`
-- `brew install fd`
 
 - brew install mit-scheme
 - install nvm
@@ -37,16 +31,6 @@ git config --local user.email matt@work.com
     - `nvm install 16` (or latest stable version)
 - install npm-merge-driver
     - `npx npm-merge-driver install --global`
-- install elm
-    https://guide.elm-lang.org/install/elm.html
-- install pyenv
-    - `brew install pyenv`
-- identify latest python2
-    - `pyenv install --list | grep 2.7`
-- install python2
-    - `pyenv install <version>`
-- install elixir
-    - `brew install elixir`
 - install colima docker docker-compose
     - `brew install colima docker docker-compose`
     - use `colima start` to fire up the daemon
