@@ -19,6 +19,7 @@
   # environment.
   home.packages = with pkgs; [
     colordiff
+    xclip
     fd
     flyctl
     fzf
