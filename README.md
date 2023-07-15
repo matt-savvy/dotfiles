@@ -12,6 +12,17 @@
 		- scope: repo
 	- from dev dir, git clone https://github.com/matt-savvy/dotfiles
 
+## Nix / Home Manager
+
+- install nix if needed
+- install home manager
+- symlink nixfiles/home.nix
+
+```
+ln -s ~/dev/dotfiles/nixfiles/home.nix ~/.config/home-manager/home.nix
+```
+
+## Misc
 Add custom author gitconfig for work projects if needed. E.g.
 
 ```
