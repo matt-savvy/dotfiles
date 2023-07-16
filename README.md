@@ -19,6 +19,7 @@
 - symlink nixfiles/home.nix
 
 ```
+rm ~/.config/home-manager/home.nix
 ln -s ~/dev/dotfiles/nixfiles/home.nix ~/.config/home-manager/home.nix
 ```
 
