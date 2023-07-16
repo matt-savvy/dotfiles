@@ -85,8 +85,6 @@
     defaultEditor = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
-        # nix language
-        vim-nix
         # gruvbox theme
         gruvbox
         # Deletes trailing whitespace on buffer write
@@ -114,6 +112,8 @@
         mason-lspconfig-nvim
         # Quickstart configs for Nvim LSP
         nvim-lspconfig
+        # Nix syntax
+        vim-nix
         # Elixir syntax
         vim-elixir
         # Graphql syntax
