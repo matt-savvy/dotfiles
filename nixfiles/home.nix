@@ -79,9 +79,7 @@
 
   programs.neovim = {
     enable = true;
-    extraConfig = ''
-      luafile ${../nvim/init.lua}
-    '';
+    extraLuaConfig = builtins.readFile(../nvim/init.lua);
     defaultEditor = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
