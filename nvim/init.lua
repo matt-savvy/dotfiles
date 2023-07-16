@@ -54,57 +54,21 @@ vim.g.vimsyn_embed = 'l'
 
 -- Plugins
 
--- bootstrap vim-plug if needed
-vim.cmd('source', '~/dev/dotfiles/nvim/bootstrap.vim')
-
-local Plug = vim.fn['plug#']
-
-vim.call('plug#begin', '~/.config/nvim/plugged')
-
--- gruvbox theme
-Plug('morhetz/gruvbox')
-
--- Deletes trailing whitespace on buffer write
-Plug('ntpeters/vim-better-whitespace')
-
+-- vim-better-whitespace'
 vim.g.better_whitespace_enabled = 0
 vim.g.strip_whitespace_on_save = 1
 vim.g.strip_whitespace_confirm = 0
-
--- Allows changing the surrounding chars of a string with cs
-Plug('tpope/vim-surround')
-
--- Allows for easy commenting out of lines and motions
-Plug('tpope/vim-commentary')
-
--- Allows . command to repeat plugin actions
-Plug('tpope/vim-repeat')
-
--- Git integration
-Plug('tpope/vim-fugitive')
 
 -- Open diffs in vertical splits by default
 vim.opt.diffopt:append({ internal = false })
 vim.opt.diffopt:remove({ 'vertical' })
 
--- treesitter configs and abstraction layer
-Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 
--- Needed for telescope, harpoon
-Plug('nvim-lua/plenary.nvim')
-
--- Fuzzy finder
-Plug('nvim-telescope/telescope.nvim')
-
+-- telescope
 -- open telescope file finder on cmd-P
 vim.keymap.set('n', '<C-p>', '<cmd>Telescope git_files<cr>', { noremap = true })
 
--- Quick buffer/location navigator
-Plug('ThePrimeagen/harpoon')
-
--- Grep within working dir or repo
-Plug('mhinz/vim-grepper')
-
+-- vim-grepper
 -- use rg and git grep
 vim.g.grepper = {
     tools = {'rg', 'git'}
@@ -118,23 +82,7 @@ vim.keymap.set('n', '<Leader>gg', ':Grepper<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
 vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
 
--- JS Doc
-Plug('heavenshell/vim-jsdoc', {
-  ['for'] = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact'},
-  ['do'] = 'make install'
-})
-
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-
--- Quickstart configs for Nvim LSP
-Plug('neovim/nvim-lspconfig')
-
--- Allow neovim to act as a language server for non-LSP based utils
-Plug('jose-elias-alvarez/null-ls.nvim')
-
--- for autoformat
-Plug('sbdchd/neoformat')
+-- neoformat
 vim.g.neoformat_try_node_exe = 1
 
 function prettierd()
@@ -169,19 +117,10 @@ vim.api.nvim_create_autocmd('FileType', {
 --     end
 -- })
 
--- elixir support
-Plug('elixir-editors/vim-elixir')
 
--- snippets
-Plug('L3MON4D3/LuaSnip')
 
 -- temporary fix for https://github.com/elixir-editors/vim-elixir/issues/562
 vim.cmd("au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir")
-
--- graphQL
-Plug('jparise/vim-graphql')
-
-vim.call('plug#end')
 
 vim.cmd('colorscheme gruvbox')
 

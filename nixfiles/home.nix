@@ -85,8 +85,47 @@
     defaultEditor = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
+        # nix language
         vim-nix
+        # gruvbox theme
         gruvbox
+        # Deletes trailing whitespace on buffer write
+        vim-better-whitespace
+        # Allows changing the surrounding chars of a string with cs
+        vim-surround
+        # Allows for easy commenting out of lines and motions
+        vim-commentary
+        # Allows . command to repeat plugin actions
+        vim-repeat
+        # Git integration
+        vim-fugitive
+        # treesitter configs and abstraction layer
+        nvim-treesitter
+        # Needed for telescope, harpoon
+        plenary-nvim
+        # Fuzzy finder
+        telescope-nvim
+        # Quick buffer/location navigator
+        harpoon
+        # Grep within working dir or repo
+        vim-grepper
+        # LSP
+        mason-nvim
+        mason-lspconfig-nvim
+        # Quickstart configs for Nvim LSP
+        nvim-lspconfig
+        # Allow neovim to act as a language server for non-LSP based utils
+        null-ls-nvim
+        # Elixir syntax
+        vim-elixir
+        # Graphql syntax
+        vim-graphql
+        # Snippets
+        luasnip
+        # For autoformat
+        neoformat
+        # Add JSdoc
+        vim-jsdoc
     ];
   };
 
