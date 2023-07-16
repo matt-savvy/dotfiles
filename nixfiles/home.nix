@@ -122,8 +122,6 @@
         vim-graphql
         # Snippets
         luasnip
-        # For autoformat
-        neoformat
         # Add JSdoc
         vim-jsdoc
     ];
