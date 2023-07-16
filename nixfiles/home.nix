@@ -101,6 +101,4 @@
   };
 
   home.file.".iex".source = ../.iex.exs;
-
-
 }
