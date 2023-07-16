@@ -232,35 +232,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- local null_ls = require('null-ls')
--- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
--- local lsp_formatting = function(bufnr)
---     vim.lsp.buf.formatting({
---         filter = function(client)
---             -- apply whatever logic you want (in this example, we'll only use null-ls)
---             return client.name == "null-ls"
---         end,
---         bufnr = bufnr,
---     })
--- end
-
--- null_ls.setup({
---     on_attach = function(client, bufnr)
---         if client.server_capabilities.documentFormattingProvider then
---             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
---             vim.api.nvim_create_autocmd("BufWritePre", {
---                 group = augroup,
---                 buffer = bufnr,
---                 callback = lsp_formatting
---             })
---         end
---     end,
---     sources = {
---         null_ls.builtins.formatting.prettierd
---     },
--- })
-
 require'nvim-treesitter.configs'.setup {
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

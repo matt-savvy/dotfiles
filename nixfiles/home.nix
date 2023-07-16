@@ -114,8 +114,6 @@
         mason-lspconfig-nvim
         # Quickstart configs for Nvim LSP
         nvim-lspconfig
-        # Allow neovim to act as a language server for non-LSP based utils
-        null-ls-nvim
         # Elixir syntax
         vim-elixir
         # Graphql syntax
