@@ -122,8 +122,6 @@
         vim-graphql
         # Snippets
         luasnip
-        # Add JSdoc
-        vim-jsdoc
     ];
   };
 
