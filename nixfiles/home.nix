@@ -119,6 +119,8 @@
         # Snippets
         luasnip
     ];
+    withNodeJs = true;
+    withPython3 = true;
   };
 
   programs.zsh = {
