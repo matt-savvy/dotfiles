@@ -126,6 +126,8 @@ vim.cmd('colorscheme terafox')
 
 -- Shortcut to open workingMemory.txt
 vim.keymap.set('n', '<Leader>wm', ':e ~/workingMemory.txt<CR>', { silent = false })
+-- Shortcut to open longTermMemory.txt
+vim.keymap.set('n', '<Leader>ltm', ':e ~/longTermMemory.txt<CR>', { silent = false })
 
 -- Try to prevent bad habits like using the arrow keys for movement. This is
 -- not the only possible bad habit. For example, holding down the h/j/k/l keys
