@@ -10,3 +10,5 @@ alias diff="colordiff"
 alias mt="mix_test"
 alias mtf="mix test --failed"
 alias mf="mix format"
+
+alias cds="score_cd"
