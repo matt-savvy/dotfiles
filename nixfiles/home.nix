@@ -197,7 +197,11 @@
   };
 
   home.file.".iex.exs".source = ../.iex.exs;
-
-
   home.file.".cobra.yaml".source = ../cobra.yaml;
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
 }
