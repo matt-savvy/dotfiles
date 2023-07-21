@@ -188,5 +188,10 @@
     extraConfig = builtins.readFile(../kitty/kitty.conf);
   };
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   home.file.".iex".source = ../.iex.exs;
 }
