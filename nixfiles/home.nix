@@ -35,6 +35,7 @@
     elmPackages.elm-format
     nodejs
     docker
+    docker-compose
     colima
   ];
 
