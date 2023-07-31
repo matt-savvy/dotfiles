@@ -45,8 +45,14 @@
     docker-compose
     postgresql
     colima
+    pinentry_mac
+    k9s
+    kubectl
+    kubectx
     google-cloud-sdk
   ];
+
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -192,6 +198,10 @@
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.gpg = {
+    enable = true;
   };
 
   home.file.".iex".source = ../.iex.exs;
