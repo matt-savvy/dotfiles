@@ -56,8 +56,14 @@
     colima
     rlwrap
     oath-toolkit
-    google-cloud-sdk
+    pinentry_mac
+    k9s
+    kubectl
+    kubectx
+    oogle-cloud-sdk
   ];
+
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -205,4 +211,7 @@
     enableZshIntegration = true;
   };
 
+  programs.gpg = {
+    enable = true;
+  };
 }
