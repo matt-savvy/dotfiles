@@ -21,6 +21,7 @@
   # environment.
   home.packages = with pkgs; let scorePackages = [
     pinentry_mac
+    asdf-vm
     k9s
     kubectl
     kubectx
