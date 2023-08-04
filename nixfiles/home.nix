@@ -21,7 +21,7 @@
     colordiff
     xclip
     fd
-    flyctl
+    # flyctl
     fzf
     gh
     ghc
