@@ -25,6 +25,7 @@
     fzf
     gh
     ghc
+    haskellPackages.cabal-install
     ripgrep
     tldr
     tree
