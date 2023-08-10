@@ -65,6 +65,8 @@ vim.opt.diffopt:remove({ 'vertical' })
 
 
 -- telescope
+local telescope = require('telescope')
+telescope.load_extension('fzy_native')
 -- open telescope file finder on cmd-P
 vim.keymap.set('n', '<C-p>', '<cmd>Telescope git_files<cr>', { noremap = true })
 

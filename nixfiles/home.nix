@@ -102,6 +102,7 @@
         plenary-nvim
         # Fuzzy finder
         telescope-nvim
+        telescope-fzy-native-nvim
         # Quick buffer/location navigator
         harpoon
         # Grep within working dir or repo
