@@ -67,8 +67,9 @@ vim.opt.diffopt:remove({ 'vertical' })
 -- telescope
 local telescope = require('telescope')
 telescope.load_extension('fzy_native')
+local telescopeBuiltins = require('telescope.builtin')
 -- open telescope file finder on cmd-P
-vim.keymap.set('n', '<C-p>', '<cmd>Telescope git_files<cr>', { noremap = true })
+vim.keymap.set('n', '<C-p>', telescopeBuiltins.find_files, { noremap = true })
 
 -- vim-grepper
 -- use rg and git grep
