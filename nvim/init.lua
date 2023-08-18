@@ -1,6 +1,8 @@
 -- Shortcut to open this file
 vim.keymap.set('n', '<Leader>v', ':e ~/.config/nvim/init.lua<CR>', { silent = false })
 
+vim.keymap.set('n', '<Leader>ss', '!ip sort<CR>', { silent = false })
+
 -- Don't give the intro message when starting
 vim.opt.shortmess:append({ I = true })
 
