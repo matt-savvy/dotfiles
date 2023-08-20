@@ -66,6 +66,13 @@ vim.opt.diffopt:remove({ 'vertical' })
 
 -- telescope
 local telescope = require('telescope')
+telescope.setup({
+    pickers = {
+        colorscheme = {
+            enable_preview = true
+        }
+    }
+})
 telescope.load_extension('fzy_native')
 local telescopeBuiltins = require('telescope.builtin')
 -- open telescope file finder on cmd-P
