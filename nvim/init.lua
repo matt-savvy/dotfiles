@@ -98,7 +98,14 @@ vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true 
 -- temporary fix for https://github.com/elixir-editors/vim-elixir/issues/562
 vim.cmd("au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir")
 
-vim.cmd('colorscheme gruvbox')
+require("tokyonight").setup({
+    style = "night",
+    styles = {
+        comments = { italic = false },
+        keywords = { italic = false },
+    }
+})
+vim.cmd('colorscheme terafox')
 
 -- Shortcut to open workingMemory.txt
 vim.keymap.set('n', '<Leader>wm', ':e ~/workingMemory.txt<CR>', { silent = false })

@@ -87,6 +87,12 @@
     plugins = with pkgs.vimPlugins; [
         # gruvbox theme
         gruvbox
+        # nord theme
+        nord-vim
+        # tokyo night theme
+        tokyonight-nvim
+        # nightfox theme
+        nightfox-nvim
         # Deletes trailing whitespace on buffer write
         vim-better-whitespace
         # Allows changing the surrounding chars of a string with cs
