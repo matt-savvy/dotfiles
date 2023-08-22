@@ -300,3 +300,6 @@ ls.snippets = {
     }
 }
 
+-- vim-test mappings
+vim.keymap.set('n', '<Leader>t', ':TestNearest<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>T', ':TestFile<CR>', { silent = true })

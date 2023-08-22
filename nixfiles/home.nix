@@ -129,6 +129,8 @@
         vim-graphql
         # Snippets
         luasnip
+        # test runner
+        vim-test
     ];
     withNodeJs = true;
     withPython3 = true;
