@@ -80,8 +80,6 @@ vim.keymap.set('n', '[a', ':e #<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', ']q', ':cnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '[q', ':cprev<CR>', { noremap = true, silent = true })
 
--- TODO: harpoon mappings for global marks
-
 -- Close all buffers
 vim.keymap.set('n', '<Leader>bd', ':%bd|e#<CR>', { silent = true, noremap = true })
 
