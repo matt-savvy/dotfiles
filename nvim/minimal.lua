@@ -56,7 +56,7 @@ vim.opt.diffopt:remove({ 'vertical' })
 vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
 vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
 
-vim.cmd('colorscheme carbonfox')
+vim.cmd('colorscheme default')
 
 -- Shortcut to open workingMemory.txt
 vim.keymap.set('n', '<Leader>wm', ':e ~/workingMemory.txt<CR>', { silent = false })
