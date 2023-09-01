@@ -24,9 +24,10 @@ vim.o.mouse = "nv"
 -- Use system clipboard by default
 vim.o.clipboard = "unnamedplus"
 
--- TODO: what do these do?
-vim.o.ts = 4
-vim.o.sw = 4
+-- Tab counts for 4 spaces
+vim.o.tabstop = 4
+-- Autoindent (>>, <<) will use tabstop value
+vim.o.shiftwidth = 0
 
 -- Disable automatically adding comments to the next line
 vim.api.nvim_create_autocmd('FileType', {
