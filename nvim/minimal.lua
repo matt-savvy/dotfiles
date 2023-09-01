@@ -47,8 +47,8 @@ vim.g.netrw_banner = 0
 vim.opt.diffopt:append({ internal = false })
 vim.opt.diffopt:remove({ 'vertical' })
 
--- TODO: Grepper alternative
-
+-- Grep
+vim.keymap.set('n', '<Leader>gg', ':grep -r ')
 
 -- keymaps to yank file name
 vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
