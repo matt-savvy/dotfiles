@@ -29,11 +29,11 @@ vim.o.expandtab = true
 -- Disable swapfiles
 vim.o.swapfile = false
 
--- Disable automatically adding comments to the next line
+-- Disable automatically adding comment leader to the next line
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = '*',
 	callback = function()
-		vim.opt.formatoptions:remove({'c', 'r', 'o'})
+		vim.opt.formatoptions:remove({'r', 'o'})
 	end
 })
 
