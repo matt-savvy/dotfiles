@@ -23,19 +23,17 @@ vim.o.clipboard = "unnamedplus"
 vim.o.tabstop = 4
 -- Autoindent (>>, <<) will use tabstop value
 vim.o.shiftwidth = 0
+-- Insert 4 spaces instead of a tab char when pressing the tab key in insert modes
+vim.o.expandtab = true
+
+-- Disable swapfiles
+vim.o.swapfile = false
 
 -- Disable automatically adding comments to the next line
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = '*',
 	callback = function()
 		vim.opt.formatoptions:remove({'c', 'r', 'o'})
-
-		-- Disable swapfiles
-		vim.bo.swapfile = false
-
-		-- Insert 4 spaces instead of a tab char when pressing the tab key in insert
-		-- modes
-		vim.bo.expandtab = true
 	end
 })
 
