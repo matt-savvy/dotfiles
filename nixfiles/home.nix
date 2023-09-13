@@ -25,11 +25,10 @@
     fzf
     gh
     ghc
-    haskellPackages.cabal-install
+    stack
     ripgrep
     tldr
     tree
-    ghc
     elixir
     elmPackages.elm
     elmPackages.elm-test
