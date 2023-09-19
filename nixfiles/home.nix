@@ -106,7 +106,7 @@
         # Git integration
         vim-fugitive
         # treesitter configs and abstraction layer
-        (nvim-treesitter.withPlugins (p: [ p.haskell ]))
+        (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
         # Needed for telescope, harpoon
         plenary-nvim
         # Fuzzy finder
