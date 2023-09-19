@@ -36,6 +36,7 @@
     nodejs
     docker
     docker-compose
+    postgresql
     colima
     tmux
   ];
