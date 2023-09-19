@@ -12,6 +12,13 @@
 		- scope: repo
 	- from dev dir, git clone https://github.com/matt-savvy/dotfiles
 
+- gnome keyboard shortcuts
+    - launchers
+        - disable super+T
+    - custom shortcuts
+        - add kitty as shortcut
+            nixGL kitty
+
 ## Nix / Home Manager
 
 - install nix if needed
