@@ -147,6 +147,7 @@
      };
   };
 
+  home.file.".config/kitty/Terafox.conf".source = ../terafox_kitty.conf;
   programs.kitty = {
     enable = true;
     extraConfig = builtins.readFile(../kitty.conf);
