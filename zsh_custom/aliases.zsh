@@ -2,6 +2,7 @@
 alias glm="git log --oneline master.."
 alias gld="git log --oneline develop.."
 alias gccp="git rev-parse --short HEAD | tr -d '\n' | pbcopy"
+alias gbc=git_branch
 alias gbb=brancher
 alias gbt=tagger
 alias gn=git_next
