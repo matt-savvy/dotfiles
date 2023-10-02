@@ -37,6 +37,9 @@
   programs.kitty = {
     extraConfig = ''
       font_size 14.0
+      # Jump by word
+      map alt+left send_text all \x1b\x62
+      map alt+right send_text all \x1b\x66
     '';
   };
 
