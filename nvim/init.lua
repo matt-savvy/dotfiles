@@ -96,7 +96,9 @@ vim.keymap.set('n', '<Leader>gg', ':Grepper<CR>', { silent = true })
 -- keymaps to yank file name
 vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
 vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
-
+-- keymaps to get and yank github link
+vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
+-- local line vim.api.nvim_win_get_cursor(0)[1]
 
 -- temporary fix for https://github.com/elixir-editors/vim-elixir/issues/562
 vim.cmd("au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir")
