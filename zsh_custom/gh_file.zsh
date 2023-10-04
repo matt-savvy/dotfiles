@@ -11,5 +11,12 @@ function gh_file() {
    fi;
    FILEPATH=$1
 
-   echo "$TRIMMED_URL/blob/$COMMIT_ISH/$FILEPATH"
+   # is there a line number in this filepath?
+   if test "${FILEPATH#*:}" != $FILEPATH; then
+       LINE_NUMBER=${FILEPATH#*:}
+       FILEPATH=${FILEPATH%%:*}
+       echo "$TRIMMED_URL/blob/$COMMIT_ISH/$FILEPATH#L$LINE_NUMBER"
+   else
+       echo "$TRIMMED_URL/blob/$COMMIT_ISH/$FILEPATH"
+   fi
 }
