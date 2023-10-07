@@ -225,7 +225,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver', 'elmls', 'eslint', 'elixirls', 'hls' }
+local servers = { 'tsserver', 'elmls', 'eslint', 'elixirls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -234,6 +234,17 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+nvim_lsp['hls'].setup {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    settings = {
+        haskell = {
+            formattingProvider = "fourmolu"
+        }
+    }
+}
 
 vim.diagnostic.config({
   virtual_text = false,
