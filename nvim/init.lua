@@ -176,7 +176,7 @@ vim.keymap.set('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { ex
 vim.keymap.del('n', 'Y')
 
 require('mason').setup()
-require("mason-lspconfig").setup({ automatic_installation = true })
+require("mason-lspconfig").setup({ automatic_installation = false })
 
 -- from nvim-lspconfig
 local nvim_lsp = require('lspconfig')
@@ -225,7 +225,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver', 'elmls', 'eslint', 'elixirls' }
+local servers = { 'tsserver', 'elmls', 'eslint', 'elixirls', 'hls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

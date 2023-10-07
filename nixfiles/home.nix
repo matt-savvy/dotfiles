@@ -26,6 +26,8 @@
     gh
     ghc
     stack
+    haskellPackages.fourmolu
+    haskellPackages.haskell-language-server
     ripgrep
     tldr
     tree
