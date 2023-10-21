@@ -83,6 +83,10 @@
   home.file.".gitignore".source = ../git/.gitignore;
   home.file.".tmux.conf".source = ../.tmux.conf;
 
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
   programs.neovim = {
     enable = true;
     extraLuaConfig = builtins.readFile(../nvim/init.lua);
