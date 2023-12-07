@@ -7,14 +7,14 @@ function mix_test() {
   # no query
   if [[ -z $QUERY ]]; then
     mix test
-    return 0
+    return $?
   fi
 
   # query begins with test/
   # if $1 starts with test, use it as is, don't call fd
   if [[ ${QUERY:0:5} == "test/" ]]; then
       mix test $QUERY
-      return 0
+      return $?
   fi
 
   if [[ -z $TEST_DIRS ]]; then
@@ -54,6 +54,6 @@ function mix_test() {
   else
       echo "tests found: \n$FILES\n"
       echo $FILES | xargs mix test
-      return 0
+      return $?
   fi
 }
