@@ -133,6 +133,8 @@
         vim-elixir
         # Graphql syntax
         vim-graphql
+        # Gleam
+        gleam-vim
         # Snippets
         luasnip
         # test runner
