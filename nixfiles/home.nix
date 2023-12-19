@@ -40,7 +40,6 @@
     docker-compose
     postgresql
     colima
-    tmux
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -81,7 +80,6 @@
 
   home.file.".gitconfig".source = ../git/.gitconfig;
   home.file.".gitignore".source = ../git/.gitignore;
-  home.file.".tmux.conf".source = ../.tmux.conf;
 
   home.sessionPath = [
     "$HOME/.local/bin"
