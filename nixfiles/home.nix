@@ -32,6 +32,7 @@
     tldr
     tree
     elixir
+    beamPackages.rebar3
     elmPackages.elm
     elmPackages.elm-test
     elmPackages.elm-format
