@@ -24,7 +24,14 @@ function mix_test() {
   if test "${QUERY#*:}" != $QUERY; then
       LINE_NUMBER=${QUERY#*:}
       QUERY=${QUERY%%:*}
-      FILE=`fd -p $QUERY $TEST_DIR | head -n 1`
+
+      COMMAND="fd -p $QUERY"
+      for DIR in "${TEST_DIRS[@]}"; do
+          COMMAND+=" --search-path $DIR"
+      done
+      COMMAND+=" -1"
+
+      FILE=$(eval $COMMAND)
       if [[ -z $FILE ]]; then
           echo "No tests found."
           return 1
