@@ -2,7 +2,7 @@
 
 function mix_test() {
   QUERY=$1
-  TEST_DIR=$2
+  TEST_DIRS=$2
 
   # no query
   if [[ -z $QUERY ]]; then
@@ -11,13 +11,14 @@ function mix_test() {
   fi
 
   # query begins with test/
+  # if $1 starts with test, use it as is, don't call fd
   if [[ ${QUERY:0:5} == "test/" ]]; then
       mix test $QUERY
       return 0
   fi
 
-  if [[ -z $TEST_DIR ]]; then
-      TEST_DIR=(`fd test -t d`)
+  if [[ -z $TEST_DIRS ]]; then
+      TEST_DIRS=(`fd test -t d`)
   fi;
 
   # does this include a line number?
@@ -40,10 +41,12 @@ function mix_test() {
       fi
       FILES=$FILE:$LINE_NUMBER
   else
-      FILES=`fd -p $QUERY $TEST_DIR | head`
+      COMMAND="fd -p $QUERY"
+      for DIR in "${TEST_DIRS[@]}"; do
+          COMMAND+=" --search-path $DIR"
+      done
+      FILES=$(eval $COMMAND)
   fi
-
-  # if $1 starts with test, use it as is, don't call fd
 
   if [[ -z $FILES ]]; then
       echo "No tests found."
