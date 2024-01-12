@@ -25,11 +25,13 @@ function mix_test() {
       LINE_NUMBER=${QUERY#*:}
       QUERY=${QUERY%%:*}
 
-      COMMAND="fd -p $QUERY"
+      # use exs extension since we are looking for a file with this name
+      # use -1 to limit to first match
+      # use one thread so the output is deterministic
+      COMMAND="fd -p $QUERY -e exs -1  --threads 1"
       for DIR in "${TEST_DIRS[@]}"; do
           COMMAND+=" --search-path $DIR"
       done
-      COMMAND+=" -1"
 
       FILE=$(eval $COMMAND)
       if [[ -z $FILE ]]; then
