@@ -15,6 +15,8 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  home.file.".config/nix/nix.conf".source = ./nix.conf;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -111,7 +113,7 @@
         # Git integration
         vim-fugitive
         # treesitter configs and abstraction layer
-        (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
+        # (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
         # Needed for telescope, harpoon
         plenary-nvim
         # Fuzzy finder
