@@ -54,7 +54,7 @@ vim.keymap.set('n', '<Leader>gg', ':grep -r ')
 vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
 vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
 
-vim.cmd('colorscheme default')
+vim.cmd('colorscheme quiet')
 
 -- Shortcut to open workingMemory.txt
 vim.keymap.set('n', '<Leader>wm', ':e ~/workingMemory.txt<CR>', { silent = false })
