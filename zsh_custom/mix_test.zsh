@@ -1,8 +1,23 @@
 #!/bin/zsh
 
+
 function mix_test() {
   QUERY=$1
   TEST_DIRS=($(fd ^test$ -t d))
+  WATCH=0
+
+  # WATCH=1 if -w or --watch is set
+  for arg in $@; do
+      case $arg in
+          -w | --watch )
+              WATCH=1
+              ;;
+      esac
+  done
+
+  if [[ $WATCH -eq 1 ]]; then
+      echo "watch set"
+  fi
 
   # no query
   if [[ -z $QUERY ]]; then
