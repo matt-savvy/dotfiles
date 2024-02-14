@@ -31,6 +31,7 @@
     fd
     # flyctl
     fzf
+    fswatch
     gh
     ghc
     stack
