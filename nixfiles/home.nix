@@ -34,6 +34,7 @@
     fd
     # flyctl
     fzf
+    fswatch
     gh
     # go
     go
