@@ -35,6 +35,7 @@
     tree
     elixir
     beamPackages.rebar3
+    beamPackages.elixir-ls
     elmPackages.elm
     elmPackages.elm-test
     elmPackages.elm-format
@@ -123,9 +124,6 @@
         harpoon
         # Grep within working dir or repo
         vim-grepper
-        # LSP
-        mason-nvim
-        mason-lspconfig-nvim
         # Quickstart configs for Nvim LSP
         nvim-lspconfig
         # Nix syntax
