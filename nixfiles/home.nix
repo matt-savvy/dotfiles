@@ -90,59 +90,86 @@
     "$HOME/.local/bin"
   ];
 
+
   programs.neovim = {
     enable = true;
-    extraLuaConfig = builtins.readFile(../nvim/init.lua);
+    extraLuaConfig = builtins.readFile(../nvim/hardmode.lua);
     defaultEditor = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
-        # gruvbox theme
-        gruvbox
-        # nord theme
-        nord-vim
-        # tokyo night theme
-        tokyonight-nvim
-        # nightfox theme
-        nightfox-nvim
         # Deletes trailing whitespace on buffer write
         vim-better-whitespace
-        # Allows changing the surrounding chars of a string with cs
-        vim-surround
         # Allows for easy commenting out of lines and motions
         vim-commentary
-        # Allows . command to repeat plugin actions
-        vim-repeat
-        # Git integration
-        vim-fugitive
-        # treesitter configs and abstraction layer
-        # (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
-        # Needed for telescope, harpoon
-        plenary-nvim
-        # Fuzzy finder
-        telescope-nvim
-        telescope-fzy-native-nvim
-        # Quick buffer/location navigator
-        harpoon
+	# Needed for telescope, harpoon
+	plenary-nvim
+	# Fuzzy finder
+	telescope-nvim
+	telescope-fzy-native-nvim
         # Grep within working dir or repo
         vim-grepper
-        # Quickstart configs for Nvim LSP
-        nvim-lspconfig
         # Nix syntax
         vim-nix
         # Elixir syntax
         vim-elixir
-        # Graphql syntax
-        vim-graphql
         # Gleam
         gleam-vim
-        # Snippets
-        luasnip
-        # test runner
-        vim-test
     ];
-    withNodeJs = true;
-    withPython3 = true;
   };
+
+  # programs.neovim = {
+  #   enable = true;
+  #   extraLuaConfig = builtins.readFile(../nvim/init.lua);
+  #   defaultEditor = true;
+  #   vimAlias = true;
+  #   plugins = with pkgs.vimPlugins; [
+  #       # gruvbox theme
+  #       gruvbox
+  #       # nord theme
+  #       nord-vim
+  #       # tokyo night theme
+  #       tokyonight-nvim
+  #       # nightfox theme
+  #       nightfox-nvim
+  #       # Deletes trailing whitespace on buffer write
+  #       vim-better-whitespace
+  #       # Allows changing the surrounding chars of a string with cs
+  #       vim-surround
+  #       # Allows for easy commenting out of lines and motions
+  #       vim-commentary
+  #       # Allows . command to repeat plugin actions
+  #       vim-repeat
+  #       # Git integration
+  #       vim-fugitive
+  #       # treesitter configs and abstraction layer
+  #       # (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
+  #       # Needed for telescope, harpoon
+  #       plenary-nvim
+  #       # Fuzzy finder
+  #       telescope-nvim
+  #       telescope-fzy-native-nvim
+  #       # Quick buffer/location navigator
+  #       harpoon
+  #       # Grep within working dir or repo
+  #       vim-grepper
+  #       # Quickstart configs for Nvim LSP
+  #       nvim-lspconfig
+  #       # Nix syntax
+  #       vim-nix
+  #       # Elixir syntax
+  #       vim-elixir
+  #       # Graphql syntax
+  #       vim-graphql
+  #       # Gleam
+  #       gleam-vim
+  #       # Snippets
+  #       luasnip
+  #       # test runner
+  #       vim-test
+  #   ];
+  #   withNodeJs = true;
+  #   withPython3 = true;
+  # };
 
   programs.zsh = {
      enable = true;
