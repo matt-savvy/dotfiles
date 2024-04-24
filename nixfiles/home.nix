@@ -101,11 +101,11 @@
         vim-better-whitespace
         # Allows for easy commenting out of lines and motions
         vim-commentary
-	# Needed for telescope, harpoon
-	plenary-nvim
-	# Fuzzy finder
-	telescope-nvim
-	telescope-fzy-native-nvim
+        # Needed for telescope, harpoon
+        plenary-nvim
+        # Fuzzy finder
+        telescope-nvim
+        telescope-fzy-native-nvim
         # Grep within working dir or repo
         vim-grepper
         # Nix syntax
