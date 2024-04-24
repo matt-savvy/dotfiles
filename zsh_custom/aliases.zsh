@@ -9,3 +9,4 @@ alias diff="colordiff"
 
 alias mt="mix_test"
 alias mtf="mix test --failed"
+alias mf="mix format"
