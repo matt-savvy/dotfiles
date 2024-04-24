@@ -48,6 +48,7 @@ vim.opt.diffopt:append({ internal = false })
 vim.opt.diffopt:remove({ 'vertical' })
 
 -- Grep
+vim.opt.grepprg = 'grep -RIn $* .'
 vim.keymap.set('n', '<Leader>gg', ':grep -r ')
 
 -- keymaps to yank file name
