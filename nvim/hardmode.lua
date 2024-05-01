@@ -102,7 +102,7 @@ vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true 
 -- temporary fix for https://github.com/elixir-editors/vim-elixir/issues/562
 vim.cmd("au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir")
 
-vim.cmd('colorscheme habamax')
+vim.cmd('colorscheme terafox')
 vim.cmd('syntax off')
 
 -- Shortcut to open workingMemory.txt
