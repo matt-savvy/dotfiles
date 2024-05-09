@@ -183,5 +183,5 @@
     extraConfig = builtins.readFile(../kitty/kitty.conf);
   };
 
-  home.file.".iex".source = ../.iex.exs;
+  home.file.".iex.exs".source = ../.iex.exs;
 }
