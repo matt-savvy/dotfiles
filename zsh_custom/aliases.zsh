@@ -7,6 +7,11 @@ alias gbb=brancher
 alias diff="colordiff"
 # alias vim="nvim"
 
+# mix
 alias mt="mix_test"
 alias mtf="mix test --failed"
 alias mf="mix format"
+
+# go
+alias gof="go fmt ./..."
+alias got="go test"
