@@ -21,6 +21,8 @@
     verbose = true
 [pull]
 	rebase = true
+[rebase]
+    updateRefs = true
 [fetch]
 	prune = true
 [advice]
