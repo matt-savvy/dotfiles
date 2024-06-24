@@ -26,6 +26,10 @@
     # flyctl
     fzf
     gh
+    # go
+    go
+    cobra-cli
+    # haskell
     ghc
     stack
     haskellPackages.fourmolu

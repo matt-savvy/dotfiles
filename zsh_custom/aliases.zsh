@@ -15,3 +15,4 @@ alias mf="mix format"
 # go
 alias gof="go fmt ./..."
 alias got="go test"
+alias cobra="cobra-cli"
