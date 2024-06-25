@@ -28,6 +28,8 @@
     gh
     # go
     go
+    gotools
+    go-tools
     cobra-cli
     # haskell
     ghc
