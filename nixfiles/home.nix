@@ -52,6 +52,7 @@
     postgresql
     colima
     oath-toolkit
+    rlwrap
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

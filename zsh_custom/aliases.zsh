@@ -16,3 +16,6 @@ alias mf="mix format"
 alias gof="go fmt ./..."
 alias got="go test ./..."
 alias cobra="cobra-cli"
+
+# sqlite
+alias sqlite3="rlwrap sqlite3"
