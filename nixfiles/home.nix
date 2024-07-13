@@ -165,6 +165,8 @@
         vim-graphql
         # Gleam
         gleam-vim
+        # Go
+        vim-go
         # Snippets
         luasnip
         # test runner
