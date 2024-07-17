@@ -27,6 +27,7 @@
     k9s
     kubectl
     kubectx
+    buf
     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
   ]; in [
     colordiff
