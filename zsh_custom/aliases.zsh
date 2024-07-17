@@ -7,6 +7,7 @@ alias gbc=git_branch
 alias gbb=brancher
 
 alias diff="colordiff"
+alias sdiff="diff --side-by-side --width 200"
 # alias vim="nvim"
 
 # mix
