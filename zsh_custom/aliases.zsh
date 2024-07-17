@@ -9,6 +9,7 @@ alias gbt=tagger
 alias gn=git_next
 
 alias diff="colordiff"
+alias sdiff="diff --side-by-side --width 200"
 # alias vim="nvim"
 
 alias cdd="dev_cd"
