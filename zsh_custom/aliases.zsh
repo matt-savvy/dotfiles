@@ -15,6 +15,7 @@ alias mf="mix format"
 # go
 alias gof="go fmt ./..."
 alias got="go test ./..."
+alias gov="go vet ./..."
 alias cobra="cobra-cli"
 
 # sqlite
