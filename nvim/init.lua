@@ -222,37 +222,49 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'elmls' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
-end
+local servers = {
+    elmls = nil,
+    elixirls = {
+        cmd = { 'elixir-ls' },
+        settings = {
+            autoBuild = false,
+        }
+    },
+    hls = {
+        settings = {
+            haskell = {
+                formattingProvider = "fourmolu"
+            }
+        }
+    },
+}
 
-nvim_lsp['elixirls'].setup {
-    cmd = { 'elixir-ls' },
+local defaults = {
     on_attach = on_attach,
     flags = {
         debounce_text_changes = 150,
-    },
-    settings = {
-        autoBuild = false,
     }
 }
--- nvim_lsp['hls'].setup {
---     on_attach = on_attach,
---     flags = {
---         debounce_text_changes = 150,
---     },
---     settings = {
---         haskell = {
---             formattingProvider = "fourmolu"
---         }
---     }
--- }
+
+function merge(t_1, t_2)
+    local t_3 = {}
+    for k, v in pairs(t_1) do
+        t_3[k] = v
+    end
+    for k, v in pairs(t_2) do
+        if type(t_3[k]) == "table" and type(v) == "table" then
+            t_3[k] = merge(t_3[k], v)
+        else
+            t_3[k] = v
+        end
+    end
+    return t_3
+end
+
+for lsp, opts in pairs(servers) do
+    local config = opts and merge(defaults, opts) or defaults
+    nvim_lsp[lsp].setup(config)
+end
 
 vim.diagnostic.config({
   virtual_text = false,
