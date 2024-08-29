@@ -1,5 +1,5 @@
 -- Shortcut to open this file
-vim.keymap.set('n', '<Leader>v', ':e ~/.config/nvim/minimal.lua<CR>', { silent = false })
+vim.keymap.set('n', '<Leader>v', function() vim.cmd.edit('~/.config/nvim/minimal.lua') end, { silent = false })
 
 -- Don't give the intro message when starting
 vim.opt.shortmess:append({ I = true })
@@ -8,16 +8,16 @@ vim.opt.shortmess:append({ I = true })
 vim.o.number = true
 
 -- Disable word wrap
-vim.wo.wrap = false
+vim.o.wrap = false
 
 -- Do not highlight all search hits
 vim.o.hlsearch = false
 
 -- Enable mouse support in normal and visual modes.
-vim.o.mouse = "nv"
+vim.o.mouse = 'nv'
 
 -- Use system clipboard by default
-vim.o.clipboard = "unnamedplus"
+vim.o.clipboard = 'unnamedplus'
 
 -- Tab counts for 4 spaces
 vim.o.tabstop = 4
@@ -55,10 +55,10 @@ vim.keymap.set('n', '<Leader>gg', ':grep -r ')
 vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
 vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
 
-vim.cmd('colorscheme quiet')
+vim.cmd.colorscheme('quiet')
 
 -- Shortcut to open workingMemory.txt
-vim.keymap.set('n', '<Leader>wm', ':e ~/workingMemory.txt<CR>', { silent = false })
+vim.keymap.set('n', '<Leader>wm', function() vim.cmd.edit('~/workingMemory.txt') end, { silent = false })
 
 -- Try to prevent bad habits like using the arrow keys for movement. This is
 -- not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -71,13 +71,15 @@ vim.keymap.set('n', '<Up>',    ':echoe "Use k"<CR>')
 vim.keymap.set('n', '<Down>',  ':echoe "Use j"<CR>')
 
 -- Shortcuts to navigate the buffer list
-vim.keymap.set('n', ']b', ':bnext<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '[b', ':bprev<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '[a', ':e #<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ']b', vim.cmd.bnext, { noremap = true, silent = true })
+vim.keymap.set('n', '[b', vim.cmd.bprev, { noremap = true, silent = true })
+
+-- Open the altfile
+vim.keymap.set('n', '[a', function() vim.cmd.edit("#") end, { noremap = true, silent = true })
 
 -- Shortcuts for navigating quickfix list
-vim.keymap.set('n', ']q', ':cnext<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '[q', ':cprev<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ']q', ":cnext<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', '[q', ":cprev<CR>", { noremap = true, silent = true })
 
 -- Close all buffers
 vim.keymap.set('n', '<Leader>bd', ':%bd|e#<CR>', { silent = true, noremap = true })
