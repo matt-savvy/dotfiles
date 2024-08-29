@@ -244,7 +244,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
-    elmls = nil,
+    elmls = {},
     elixirls = {
         cmd = { 'elixir-ls' },
         settings = {
@@ -283,7 +283,7 @@ function merge(t_1, t_2)
 end
 
 for lsp, opts in pairs(servers) do
-    local config = opts and merge(defaults, opts) or defaults
+    local config = merge(defaults, opts)
     nvim_lsp[lsp].setup(config)
 end
 
