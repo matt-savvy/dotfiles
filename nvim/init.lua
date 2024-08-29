@@ -155,8 +155,16 @@ vim.keymap.set('n', '\'r', ':lua require("harpoon.ui").nav_file(4)<CR>', { silen
 vim.keymap.set('n', ']r', ':lua require("harpoon.ui").nav_next()<CR>', { silent = true })
 vim.keymap.set('n', '[r', ':lua require("harpoon.ui").nav_prev()<CR>', { silent = true })
 
--- Close all buffers
-vim.keymap.set('n', '<Leader>bd', ':%bd|e#<CR>', { silent = true, noremap = true })
+-- Close hidden buffers
+local function clear_hidden_buffers()
+    for _, buffer in pairs(vim.fn.getbufinfo()) do
+        if buffer.hidden == 1 then
+            vim.cmd.bd(buffer.bufnr)
+        end
+    end
+end
+
+vim.keymap.set('n', '<Leader>bd', clear_hidden_buffers, { silent = false, noremap = true })
 
 -- Git conflict marker shortcuts
 vim.keymap.set('n', '<Leader><', '/<<<<<<<<CR>', { silent = true })
