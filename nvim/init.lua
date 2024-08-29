@@ -135,8 +135,8 @@ vim.keymap.set('n', '<Up>',    ':echoe "Use k"<CR>')
 vim.keymap.set('n', '<Down>',  ':echoe "Use j"<CR>')
 
 -- Shortcuts to navigate the buffer list
-vim.keymap.set('n', ']b', ':bnext<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '[b', ':bprev<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ']b', vim.cmd.bnext, { noremap = true, silent = true })
+vim.keymap.set('n', '[b', vim.cmd.bprev, { noremap = true, silent = true })
 vim.keymap.set('n', '[a', ':e #<CR>', { noremap = true, silent = true })
 
 -- Shortcuts for navigating quickfix list
