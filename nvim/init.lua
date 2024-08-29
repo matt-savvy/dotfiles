@@ -79,7 +79,7 @@ local telescopeBuiltins = require('telescope.builtin')
 -- open telescope file finder on cmd-P
 vim.keymap.set('n', '<C-p>', telescopeBuiltins.find_files, { noremap = true })
 -- open live grepper
-vim.keymap.set('n', '<Leader>lg', '<cmd>Telescope live_grep<cr>', { noremap = true })
+vim.keymap.set('n', '<Leader>lg', telescopeBuiltins.live_grep, { noremap = true })
 
 -- vim-grepper
 -- use rg and git grep
