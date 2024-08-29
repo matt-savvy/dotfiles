@@ -228,10 +228,10 @@ local on_attach = function(client, bufnr)
 
     -- format on save if available
     if client.server_capabilities.documentFormattingProvider then
-        vim.cmd [[augroup Format]]
-        vim.cmd [[autocmd! * <buffer>]]
-        vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-        vim.cmd [[augroup END]]
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "<buffer>",
+            callback = vim.lsp.buf.format
+        })
     end
     function restartLsp()
         vim.cmd('LspStop')
