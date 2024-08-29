@@ -89,7 +89,7 @@ vim.g.grepper = {
 -- Use gs to take any motion and populate the search prompt
 vim.keymap.set({'n', 'x'}, 'gs', '<plug>(GrepperOperator)')
 -- Shortcut to open :Grepper
-vim.keymap.set('n', '<Leader>gg', ':Grepper<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>gg', function() vim.cmd("Grepper") end, { silent = true })
 
 -- keymaps to yank file name
 function filename_with_line()
