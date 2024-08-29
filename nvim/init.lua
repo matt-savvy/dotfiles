@@ -140,8 +140,8 @@ vim.keymap.set('n', '[b', vim.cmd.bprev, { noremap = true, silent = true })
 vim.keymap.set('n', '[a', ':e #<CR>', { noremap = true, silent = true })
 
 -- Shortcuts for navigating quickfix list
-vim.keymap.set('n', ']q', ':cnext<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '[q', ':cprev<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ']q', vim.cmd.cnext, { noremap = true, silent = true })
+vim.keymap.set('n', '[q', vim.cmd.cprev, { noremap = true, silent = true })
 
 -- Mappings for harpoon
 vim.keymap.set('n', '<Leader>a', ':lua require("harpoon.mark").add_file()<CR>', { silent = true })
