@@ -199,6 +199,11 @@ vim.keymap.del('n', 'Y')
 -- from nvim-lspconfig
 local nvim_lsp = require('lspconfig')
 
+local function restartLsp(id)
+    return function()
+        vim.cmd("LspRestart " .. id)
+    end
+end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -233,12 +238,8 @@ local on_attach = function(client, bufnr)
             callback = vim.lsp.buf.format
         })
     end
-    function restartLsp()
-        vim.cmd('LspStop')
-        vim.cmd('LspStart')
-    end
     -- restart the LSP
-    vim.keymap.set('n', '<Leader>ll', restartLsp, bufopts)
+    vim.keymap.set('n', '<Leader>ll', restartLsp(client.id), opts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
