@@ -233,9 +233,12 @@ local on_attach = function(client, bufnr)
 
     -- format on save if available
     if client.server_capabilities.documentFormattingProvider then
+        -- use autocommand group so re-attach will reset
+        local group_id = vim.api.nvim_create_augroup("Format", { clear = true })
         vim.api.nvim_create_autocmd("BufWritePre", {
+            group = group_id,
             pattern = "<buffer>",
-            callback = vim.lsp.buf.format
+            callback = function() vim.lsp.buf.format({bufnr = bufnr}) end
         })
     end
     -- restart the LSP
