@@ -6,3 +6,9 @@ function brancher {
 
     git checkout $BRANCH_NAME
 }
+
+function tagger {
+    TAG_NAME=$(git tag --list $* | fzf)
+
+    git checkout $TAG_NAME
+}
