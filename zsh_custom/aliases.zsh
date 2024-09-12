@@ -3,6 +3,7 @@ alias glm="git log --oneline master.."
 alias gld="git log --oneline develop.."
 alias gccp="git rev-parse --short HEAD | tr -d '\n' | pbcopy"
 alias gbb=brancher
+alias gbt=tagger
 
 alias diff="colordiff"
 # alias vim="nvim"
