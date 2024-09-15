@@ -8,6 +8,8 @@ alias gbt=tagger
 alias diff="colordiff"
 # alias vim="nvim"
 
+alias cdd="dev_cd"
+
 # mix
 alias mt="mix_test"
 alias mtf="mix test --failed"
