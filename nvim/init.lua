@@ -105,11 +105,14 @@ vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true }
 vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
 
 -- temporary fix for https://github.com/elixir-editors/vim-elixir/issues/562
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-	pattern = {"*.eex", "*.heex", "*.leex", "*.sface", "*.lexs"},
-	callback = function()
-		vim.opt.filetype("eelixir")
-	end
+vim.filetype.add({
+    extension = {
+        heex = "eelixir",
+        eex = "eelixir",
+        leex = "eelixir",
+        sface = "eelixir",
+        lexs = "eelixir",
+    }
 })
 
 require("tokyonight").setup({
