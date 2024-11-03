@@ -12,3 +12,9 @@ function tagger {
 
     git checkout $TAG_NAME
 }
+
+function git_next {
+    NEXT_COMMIT=$(git rev-list --reverse HEAD..$1 | head -n 1)
+
+    git checkout $NEXT_COMMIT
+}
