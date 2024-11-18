@@ -259,13 +259,13 @@ local servers = {
             autoBuild = false,
         }
     },
-    hls = {
-        settings = {
-            haskell = {
-                formattingProvider = "fourmolu"
-            }
-        }
-    },
+    -- hls = {
+    --     settings = {
+    --         haskell = {
+    --             formattingProvider = "fourmolu"
+    --         }
+    --     }
+    -- },
 }
 
 local defaults = {
