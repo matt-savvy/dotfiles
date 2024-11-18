@@ -42,7 +42,7 @@
     ripgrep
     tldr
     tree
-    beam.packages.erlang_26.elixir_1_16
+    beam.packages.erlang_27.elixir_1_17
     beamPackages.rebar3
     beamPackages.elixir-ls
     elmPackages.elm
