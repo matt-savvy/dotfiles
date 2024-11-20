@@ -30,6 +30,8 @@
 rm ~/.config/home-manager/home.nix
 # for personal
 ln -s ~/dev/dotfiles/nixfiles/personal.nix ~/.config/home-manager/home.nix
+# for work
+ln -s ~/dev/dotfiles/nixfiles/thescore.nix ~/.config/home-manager/home.nix
 ```
 
 ## Misc
@@ -136,6 +138,5 @@ killall Finder
 - install VLC
 - clear everything from dock except finder, terminal, brave, spotify, calendar
     - remove downloads folder, may need to have something in it
-
 
 - use `colima start` to fire up the colima/docker daemon
