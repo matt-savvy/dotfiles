@@ -17,21 +17,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; let scorePackages = [
-    argocd
-    jq
-    openssl
-    protobuf
-    prototool
-    kubernetes-helm
-    pinentry_mac
-    k9s
-    kubectl
-    kubectx
-    vault
-    buf
-    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
-  ]; in [
+  home.packages = with pkgs; [
     colordiff
     xclip
     inotify-tools
@@ -76,7 +62,7 @@
     colima
     rlwrap
     oath-toolkit
-  ] ++ scorePackages;
+  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
