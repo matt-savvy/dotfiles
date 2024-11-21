@@ -20,10 +20,8 @@
   home.packages = with pkgs; [
     colordiff
     xclip
-    inotify-tools
     asciinema
     fd
-    gdb
     util-linux
     # flyctl
     fzf
