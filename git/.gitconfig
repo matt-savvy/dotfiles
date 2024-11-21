@@ -1,31 +1,31 @@
 # This is Git's per-user configuration file.
 [user]
-	name = Matt Savoia
-	email = matt@1-800-rad-dude.com
+    name = Matt Savoia
+    email = matt@1-800-rad-dude.com
 [diff]
     tool = default-difftool
-	colorMoved = default
+    colorMoved = default
 [core]
-	excludesfile = ~/.gitignore
-	editor = nvim
+    excludesfile = ~/.gitignore
+    editor = nvim
 [blame]
     date = short
 [alias]
-	co = checkout
-	br = branch
-	st = status
+    co = checkout
+    br = branch
+    st = status
 [commit]
     verbose = true
 [pull]
-	rebase = true
+    rebase = true
 [fetch]
-	prune = true
+    prune = true
 [advice]
-	detachedHead = false
-	skippedCherryPicks = false
+    detachedHead = false
+    skippedCherryPicks = false
 [init]
-	defaultBranch = master
+    defaultBranch = master
 [credential]
-	helper = store
+    helper = store
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
