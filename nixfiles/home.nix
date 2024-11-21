@@ -20,7 +20,11 @@
   home.packages = with pkgs; [
     colordiff
     xclip
+    inotify-tools
+    asciinema
     fd
+    gdb
+    util-linux
     # flyctl
     fzf
     gh
@@ -29,6 +33,8 @@
     gotools
     go-tools
     cobra-cli
+    sqlite
+    lua51Packages.lua
     # haskell
     ghc
     stack
@@ -37,14 +43,17 @@
     ripgrep
     tldr
     tree
+    gleam
+    beam.packages.erlang_27.erlang
     beam.packages.erlang_27.elixir_1_17
-    beamPackages.rebar3
-    beamPackages.elixir-ls
+    beam.packages.erlang_27.elixir-ls
+    beam.packages.erlang_27.rebar3
     elmPackages.elm
     elmPackages.elm-test
     elmPackages.elm-format
     elmPackages.elm-language-server
     nodejs
+    deno
     docker
     docker-compose
     postgresql
