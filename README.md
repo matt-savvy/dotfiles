@@ -24,6 +24,7 @@
 - install nix if needed
 - install home manager
 - symlink nixfiles/home.nix
+- install https://github.com/nix-community/nixGL
 
 ```
 rm ~/.config/home-manager/home.nix
