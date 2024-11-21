@@ -67,16 +67,11 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    ".gitconfig".source = ../git/.gitconfig;
+    ".gitignore".source = ../git/.gitignore;
+    ".config/kitty/Terafox.conf".source = ../kitty/terafox_kitty.conf;
+    ".iex.exs".source = ../.iex.exs;
+    ".cobra.yaml".source = ../cobra.yaml;
   };
 
   # You can also manage environment variables but you will have to manually
@@ -100,8 +95,6 @@
     enable = true;
   };
 
-  home.file.".gitconfig".source = ../git/.gitconfig;
-  home.file.".gitignore".source = ../git/.gitignore;
 
   home.sessionPath = [
     "$HOME/.local/bin"
@@ -196,14 +189,10 @@
      };
   };
 
-  home.file.".config/kitty/Terafox.conf".source = ../kitty/terafox_kitty.conf;
   programs.kitty = {
     enable = true;
     extraConfig = builtins.readFile(../kitty/kitty.conf);
   };
-
-  home.file.".iex.exs".source = ../.iex.exs;
-  home.file.".cobra.yaml".source = ../cobra.yaml;
 
   programs.gpg = {
     enable = true;
