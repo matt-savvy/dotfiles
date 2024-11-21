@@ -28,7 +28,7 @@
     # flyctl
     fzf
     gh
-    # go
+    # golang
     go
     gotools
     go-tools
