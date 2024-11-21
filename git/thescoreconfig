@@ -1,0 +1,8 @@
+[user]
+	name = Matt Savoia
+	email = matt.savoia@thescore.com
+	signingkey = 41C98C98CC1DB00C
+[commit]
+	gpgsign = true
+[credential]
+	helper = osxkeychain
