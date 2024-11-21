@@ -67,7 +67,6 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".gitconfig".source = ../git/.gitconfig;
     ".gitignore".source = ../git/.gitignore;
     ".config/kitty/Terafox.conf".source = ../kitty/terafox_kitty.conf;
     ".iex.exs".source = ../.iex.exs;
@@ -93,8 +92,8 @@
 
   programs.git = {
     enable = true;
+    includes = [ { path = ../git/.gitconfig; } ];
   };
-
 
   home.sessionPath = [
     "$HOME/.local/bin"
