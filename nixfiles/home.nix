@@ -41,6 +41,7 @@
     stack
     haskellPackages.fourmolu
     # haskellPackages.haskell-language-server
+    shellcheck
     ripgrep
     tldr
     tree
