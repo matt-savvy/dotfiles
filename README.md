@@ -28,7 +28,8 @@
 
 ```
 rm ~/.config/home-manager/home.nix
-ln -s ~/dev/dotfiles/nixfiles/home.nix ~/.config/home-manager/home.nix
+# for personal
+ln -s ~/dev/dotfiles/nixfiles/personal.nix ~/.config/home-manager/home.nix
 ```
 
 ## Misc
