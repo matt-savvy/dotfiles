@@ -1,10 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Matt Savoia
-	email = matt.savoia@thescore.com
-	signingkey = 41C98C98CC1DB00C
-[commit]
-	gpgsign = true
+	email = matt@1-800-rad-dude.com
 [diff]
     tool = default-difftool
     colorMoved = default
@@ -21,8 +18,6 @@
     verbose = true
 [pull]
 	rebase = true
-[rebase]
-    updateRefs = true
 [fetch]
     prune = true
 [advice]
@@ -31,6 +26,6 @@
 [init]
     defaultBranch = master
 [credential]
-	helper = osxkeychain
+	helper = store
 [push]
     autoSetupRemote = true
