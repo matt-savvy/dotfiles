@@ -27,6 +27,7 @@
     util-linux
     # flyctl
     fzf
+    fswatch
     gh
     # golang
     go
