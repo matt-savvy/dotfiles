@@ -8,6 +8,22 @@
   home.username = "matt.savoia";
   home.homeDirectory = "/Users/matt.savoia";
 
+  programs.git = {
+    userEmail = "matt.savoia@thescore.com";
+    signing = {
+      key = "41C98C98CC1DB00C";
+      signByDefault = true;
+    };
+    extraConfig = {
+      credential = {
+        helper = "osxkeychain";
+      };
+    };
+    includes = [
+      { path = ../git/.gitconfig; }
+    ];
+  };
+
   home.packages = with pkgs; [
     argocd
     jq
@@ -30,4 +46,5 @@
     enable = true;
     enableZshIntegration = true;
   };
+
 }
