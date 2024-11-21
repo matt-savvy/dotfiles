@@ -90,7 +90,9 @@
 
   programs.git = {
     enable = true;
-    includes = [ { path = ../git/.gitconfig; } ];
+    includes = [
+      { path = ../git/.gitconfig; }
+    ];
   };
 
   home.sessionPath = [
