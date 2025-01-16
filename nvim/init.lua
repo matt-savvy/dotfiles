@@ -101,7 +101,8 @@ function filename_with_line()
     local filename_with_line = filename .. ":" .. line
     vim.fn.setreg("+", filename_with_line)
 end
-vim.keymap.set('n', '<Leader>ffl', filename_with_line, { silent = false })
+
+vim.keymap.set('n', '<Leader>fl', filename_with_line, { silent = false })
 
 vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
 vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
