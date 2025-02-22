@@ -47,7 +47,7 @@
     tree
     gleam
     beam.packages.erlang_27.erlang
-    beam.packages.erlang_27.elixir_1_17
+    beam.packages.erlang_27.elixir_1_18
     beam.packages.erlang_27.elixir-ls
     beam.packages.erlang_27.rebar3
     elmPackages.elm
