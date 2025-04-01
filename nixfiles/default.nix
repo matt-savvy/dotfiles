@@ -158,6 +158,7 @@
         luasnip
         # test runner
         vim-test
+        dhall-vim
       ];
       withNodeJs = true;
       withPython3 = true;
