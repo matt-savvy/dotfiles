@@ -13,7 +13,7 @@ in
       (import "${home-manager}/nixos")
     ];
 
-  home-manager.users.matt = import ../../personal.nix;
+  home-manager.users.matt = import ./home.nix;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
