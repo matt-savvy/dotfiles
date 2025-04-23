@@ -85,6 +85,7 @@ in
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.matt = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "matt savoia";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -92,6 +93,8 @@ in
     #  thunderbird
     ];
   };
+
+  programs.zsh.enable = true;
 
   console = {
     useXkbConfig = true;
