@@ -32,6 +32,13 @@ rm ~/.config/home-manager/home.nix
 ln -s ~/dev/dotfiles/nixfiles/personal.nix ~/.config/home-manager/home.nix
 ```
 
+```
+# for nixos - after sourcing the configuration
+gsettings reset org.gnome.desktop.input-sources xkb-options
+gsettings reset org.gnome.desktop.input-sources sources
+```
+
+
 ## Misc
 Add custom author gitconfig for work projects if needed. E.g.
 
