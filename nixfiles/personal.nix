@@ -5,6 +5,6 @@
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "mattsavoia";
-  home.homeDirectory = "/home/mattsavoia";
+  home.username = "matt";
+  home.homeDirectory = "/home/matt";
 }

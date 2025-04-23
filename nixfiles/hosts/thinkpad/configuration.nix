@@ -9,10 +9,11 @@ let
 in
 {
   imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+    [
       (import "${home-manager}/nixos")
     ];
+
+  home-manager.users.matt = import ../../personal.nix;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -91,8 +92,6 @@ in
     #  thunderbird
     ];
   };
-
-  home-manager.users.matt = import ~/dev/dotfiles/nixfiles/personal.nix;
 
   console = {
     useXkbConfig = true;

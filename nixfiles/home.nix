@@ -8,62 +8,62 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "24.11"; # Please read the comment before changing.
 
-  nix = {
-    package = pkgs.nix;
-    settings.experimental-features = ["nix-command" "flakes"];
-  };
+  # nix = {
+  #  package = pkgs.nix;
+  #  settings.experimental-features = ["nix-command" "flakes"];
+  #};
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    colordiff
-    xclip
-    inotify-tools
-    asciinema
+    # colordiff
+    # xclip
+    # inotify-tools
+    # asciinema
     fd
-    gdb
+    # gdb
     util-linux
     # flyctl
     fzf
     fswatch
     gh
     # golang
-    go
-    gotools
-    go-tools
-    cobra-cli
-    sqlite
+    # go
+    # gotools
+    # go-tools
+    # cobra-cli
+    # sqlite
     lua51Packages.lua
     # haskell
-    ghc
-    stack
-    haskellPackages.fourmolu
+    # ghc
+    # stack
+    # haskellPackages.fourmolu
     # haskellPackages.haskell-language-server
-    shellcheck
+    # shellcheck
     ripgrep
     tldr
     tree
-    gleam
-    beam.packages.erlang_27.erlang
-    beam.packages.erlang_27.elixir_1_18
-    beam.packages.erlang_27.elixir-ls
-    beam.packages.erlang_27.rebar3
-    elmPackages.elm
-    elmPackages.elm-test
-    elmPackages.elm-format
-    elmPackages.elm-language-server
-    nodejs
-    deno
-    docker
-    docker-compose
-    postgresql
-    colima
-    oath-toolkit
+    # gleam
+    # beam.packages.erlang_27.erlang
+    # beam.packages.erlang_27.elixir_1_18
+    # beam.packages.erlang_27.elixir-ls
+    # beam.packages.erlang_27.rebar3
+    # elmPackages.elm
+    # elmPackages.elm-test
+    # elmPackages.elm-format
+    # elmPackages.elm-language-server
+    # nodejs
+    # deno
+    # docker
+    # docker-compose
+    # postgresql
+    # colima
+    # oath-toolkit
     rlwrap
-    screenkey
-    imagemagick
+    # screenkey
+    # imagemagick
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -90,7 +90,7 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  # programs.home-manager.enable = true;
 
   programs.git = {
     enable = true;
