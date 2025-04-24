@@ -28,7 +28,8 @@
 $ mkdir ~/dev && cd ~/dev
 $ nix-shell -p git vim
 [nix-shell ...] $ git clone https://github.com/matt-savvy/dotfiles
-$ sudo nixos-rebuild switch --flake ~/dev/dotfiles/dotfiles/nixfiles#thinkpad --verbose --show-trace
+# $HOSTNAME thinkpad-x13 or thinkpad-x260
+$ sudo nixos-rebuild switch --flake ~/dev/dotfiles/dotfiles/nixfiles#$HOSTNAME --verbose --show-trace
 ```
 
 Then, after after sourcing the configuration:
