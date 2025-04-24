@@ -12,7 +12,7 @@
 
   programs.git = {
     includes = [
-      { path = ../git/thescoreconfig; }
+      { path = ../../../git/thescoreconfig; }
     ];
   };
 
