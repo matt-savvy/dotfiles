@@ -28,34 +28,7 @@
 $ mkdir ~/dev && cd ~/dev
 $ nix-shell -p git vim
 [nix-shell ...] $ git clone https://github.com/matt-savvy/dotfiles
-[nix-shell ...] $ sudo vim /etc/nixos/configuration.nix
-```
-
-Make the /etc/nixos/configuration.nix look basically like this, importing the configuration.nix for this host.
-
-```nix
-{ config, pkgs, ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ~/dev/dotfiles/nixfiles/hosts/thinkpad/configuration.nix
-    ];
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
-}
-```
-
-Source the config
-```sh
-nixos-rebuild switch --use-remote-sudo
+$ sudo nixos-rebuild switch --flake ~/dev/dotfiles/dotfiles/nixfiles#thinkpad --verbose --show-trace
 ```
 
 Then, after after sourcing the configuration:
