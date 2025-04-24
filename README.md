@@ -7,9 +7,10 @@
 		- theme: One Dark.terminal
         - advanced: uncheck audible bell
         - window: columns 120, rows 40
-	- create new github auth token https://github.com/settings/tokens
+	- create new github auth token (classic token) https://github.com/settings/tokens
 		- expiration one year from now
-		- scope: repo
+		- scope: repo, user:read
+        - git push, enter username, paste token as password
 	- from dev dir, git clone https://github.com/matt-savvy/dotfiles
 
 - gnome keyboard shortcuts
@@ -25,6 +26,10 @@
 - install home manager
 - symlink nixfiles/home.nix
 - install https://github.com/nix-community/nixGL
+
+### TODO
+Fix symlink / creation instructions
+
 
 ```
 rm ~/.config/home-manager/home.nix
