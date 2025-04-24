@@ -12,6 +12,7 @@
     inotify-tools
     gdb
     util-linux
+    screenkey
   ];
 
   # This value determines the Home Manager release that your configuration is

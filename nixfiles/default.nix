@@ -49,7 +49,6 @@
     colima
     oath-toolkit
     rlwrap
-    screenkey
     imagemagick
   ];
 
