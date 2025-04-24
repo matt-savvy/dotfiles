@@ -20,31 +20,64 @@
         - add kitty as shortcut
             nixGL kitty
 
-## Nix / Home Manager
+## Nix Configs
 
-- install nix if needed
-- install home manager
-- symlink nixfiles/home.nix
-- install https://github.com/nix-community/nixGL
+### For NixOS
 
-### TODO
-Fix symlink / creation instructions
-
-
-```
-rm ~/.config/home-manager/home.nix
-# for personal
-ln -s ~/dev/dotfiles/nixfiles/personal.nix ~/.config/home-manager/home.nix
-# for work
-ln -s ~/dev/dotfiles/nixfiles/thescore.nix ~/.config/home-manager/home.nix
+```sh
+$ mkdir ~/dev && cd ~/dev
+$ nix-shell -p git vim
+[nix-shell ...] $ git clone https://github.com/matt-savvy/dotfiles
+[nix-shell ...] $ sudo vim /etc/nixos/configuration.nix
 ```
 
+Make the /etc/nixos/configuration.nix look basically like this, importing the configuration.nix for this host.
+
+```nix
+{ config, pkgs, ... }:
+
+{
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      ~/dev/dotfiles/nixfiles/hosts/thinkpad/configuration.nix
+    ];
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "24.11"; # Did you read the comment?
+}
 ```
-# for nixos - after sourcing the configuration
+
+Source the config
+```sh
+nixos-rebuild switch --use-remote-sudo
+```
+
+Then, after after sourcing the configuration:
+
+```sh
 gsettings reset org.gnome.desktop.input-sources xkb-options
 gsettings reset org.gnome.desktop.input-sources sources
 ```
 
+Reboot.
+
+### For Home Manager Only
+
+- install nix if needed
+- install home manager
+- symlink nixfiles/hosts/$HOSTNAME/home.nix
+- install https://github.com/nix-community/nixGL
+
+```sh
+rm ~/.config/home-manager/home.nix
+ln -s ~/dev/dotfiles/nixfiles/hosts/$HOSTNAME/home.nix ~/.config/home-manager/home.nix
+```
 
 ## Misc
 Add custom author gitconfig for work projects if needed. E.g.
