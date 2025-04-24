@@ -45,4 +45,5 @@
     enableZshIntegration = true;
   };
 
+  home.stateVersion = "24.11";
 }
