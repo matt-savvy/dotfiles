@@ -34,6 +34,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.kitty = {
+    extraConfig = ''
+      font_size 14.0
+    '';
+  };
+
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
