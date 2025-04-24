@@ -24,5 +24,20 @@
         }
       ];
     };
+
+    nixosConfigurations.thinkpad-x260 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/thinkpad/x260-hardware-configuration.nix
+        ./hosts/thinkpad/configuration.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.matt = import ./hosts/thinkpad/home.nix;
+        }
+      ];
+    };
   };
 }
