@@ -41,6 +41,7 @@
     elmPackages.elm-language-server
     nodejs
     deno
+    zig
     docker
     docker-compose
     postgresql
