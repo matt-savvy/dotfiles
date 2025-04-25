@@ -3,13 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     home-manager = {
       url =  "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ...}@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, ...}@inputs: {
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -41,7 +42,7 @@
     };
 
     homeConfigurations."matt.savoia" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+      pkgs = nixpkgs-darwin.legacyPackages."aarch64-darwin";
       modules = [ ./hosts/macbook_pro_thescore/home.nix ];
     };
   };
