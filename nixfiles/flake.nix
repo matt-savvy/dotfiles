@@ -21,7 +21,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.matt = import ./hosts/thinkpad/home.nix;
+          home-manager.users.matt = ./hosts/thinkpad/home.nix;
         }
       ];
     };
@@ -36,7 +36,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.matt = import ./hosts/thinkpad/home.nix;
+          home-manager.users.matt = ./hosts/thinkpad/home.nix;
         }
       ];
     };
