@@ -39,5 +39,10 @@
         }
       ];
     };
+
+    homeConfigurations."matt.savoia" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+      modules = [ ./hosts/macbook_pro_thescore/home.nix ];
+    };
   };
 }
