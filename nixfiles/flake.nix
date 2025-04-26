@@ -24,7 +24,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.matt = ./hosts/thinkpad/home.nix;
           home-manager.extraSpecialArgs = {
-            nixpkgs-unstable = import nixpkgs-unstable { inherit system; };
+            nixpkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
           };
         }
       ];
@@ -42,7 +42,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.matt = ./hosts/thinkpad/home.nix;
           home-manager.extraSpecialArgs = {
-            nixpkgs-unstable = import nixpkgs-unstable { inherit system; };
+            nixpkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
           };
         }
       ];
