@@ -17,6 +17,7 @@
     obs-studio
     kdePackages.kdenlive
     gimp
+    vlc
   ];
 
   # This value determines the Home Manager release that your configuration is
