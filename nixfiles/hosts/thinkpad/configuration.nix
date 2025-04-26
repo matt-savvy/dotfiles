@@ -100,6 +100,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      brave
+     gnome-tweaks
   ];
 
   environment.gnome.excludePackages = with pkgs; [
