@@ -14,6 +14,9 @@
     util-linux
     screenkey
     foliate
+    obs-studio
+    kdePackages.kdenlive
+    gimp
   ];
 
   # This value determines the Home Manager release that your configuration is
