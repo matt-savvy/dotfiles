@@ -49,8 +49,20 @@ Reboot.
 - install https://github.com/nix-community/nixGL
 
 ```sh
+# install home-manager
+
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+
+# remove the initial config
 rm ~/.config/home-manager/home.nix
-ln -s ~/dev/dotfiles/nixfiles/hosts/$HOSTNAME/home.nix ~/.config/home-manager/home.nix
+
+# initial generation
+home-manager switch --flake ~/dev/dotfiles/nixfiles --extra-experimental-features nix-command --extra-experimental-features flakes
+
+# future generations no longer need the flags
+home-manager switch --flake ~/dev/dotfiles/nixfiles
 ```
 
 Periodically run
