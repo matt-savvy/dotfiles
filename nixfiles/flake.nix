@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, ...}@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, ...}: {
     nixosConfigurations.thinkpad-x13 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
