@@ -13,6 +13,7 @@
     gdb
     util-linux
     screenkey
+    foliate
   ];
 
   # This value determines the Home Manager release that your configuration is
