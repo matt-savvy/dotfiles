@@ -53,6 +53,12 @@ rm ~/.config/home-manager/home.nix
 ln -s ~/dev/dotfiles/nixfiles/hosts/$HOSTNAME/home.nix ~/.config/home-manager/home.nix
 ```
 
+Periodically run
+```sh
+nix-env --delete-generations +5
+nix-collect-garbage
+```
+
 ## Misc
 Add custom author gitconfig for work projects if needed. E.g.
 
