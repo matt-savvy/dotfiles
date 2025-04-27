@@ -38,6 +38,12 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
