@@ -1,7 +1,7 @@
-{ config, pkgs, nixpkgs-unstable, ... }:
+{ config, pkgs, lib, nixpkgs-unstable, ... }:
 
 {
-  options = { };
+  options = { hardMode = lib.mkEnableOption "hardMode"; };
   config = {
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -89,84 +89,71 @@
       "$HOME/.local/bin"
     ];
 
-    #  programs.neovim = {
-    #    enable = true;
-    #    extraLuaConfig = builtins.readFile(../nvim/hardmode.lua);
-    #    defaultEditor = true;
-    #    vimAlias = true;
-    #    plugins = with pkgs.vimPlugins; [
-    #        # Deletes trailing whitespace on buffer write
-    #        vim-better-whitespace
-    #        # Allows for easy commenting out of lines and motions
-    #        vim-commentary
-    #        # Needed for telescope
-    #        plenary-nvim
-    #        # Fuzzy finder
-    #        telescope-nvim
-    #        telescope-fzy-native-nvim
-    #        # Grep within working dir or repo
-    #        vim-grepper
-    #        # nightfox theme
-    #        nightfox-nvim
-    #    ];
-    #  };
-
-    programs.neovim = {
+    programs.neovim = lib.mkMerge [{
       enable = true;
-      extraLuaConfig = builtins.readFile (../nvim/init.lua);
       defaultEditor = true;
       vimAlias = true;
+      withNodeJs = true;
+      withPython3 = true;
       plugins = with pkgs.vimPlugins; [
-        # gruvbox theme
-        gruvbox
-        # nord theme
-        nord-vim
-        # tokyo night theme
-        tokyonight-nvim
-        # nightfox theme
-        nightfox-nvim
         # Deletes trailing whitespace on buffer write
         vim-better-whitespace
-        # Allows changing the surrounding chars of a string with cs
-        vim-surround
         # Allows for easy commenting out of lines and motions
         vim-commentary
-        # Allows . command to repeat plugin actions
-        vim-repeat
-        # Git integration
-        vim-fugitive
-        # treesitter configs and abstraction layer
-        # (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
-        # Needed for telescope, harpoon
+        # Needed for telescope
         plenary-nvim
         # Fuzzy finder
         telescope-nvim
         telescope-fzy-native-nvim
-        # Quick buffer/location navigator
-        harpoon
         # Grep within working dir or repo
         vim-grepper
-        # Quickstart configs for Nvim LSP
-        nvim-lspconfig
-        # Nix syntax
-        vim-nix
-        # Elixir syntax
-        vim-elixir
-        # Graphql syntax
-        vim-graphql
-        # Gleam
-        gleam-vim
-        # Go
-        vim-go
-        # Snippets
-        luasnip
-        # test runner
-        vim-test
-        dhall-vim
+        # nightfox theme
+        nightfox-nvim
       ];
-      withNodeJs = true;
-      withPython3 = true;
-    };
+    }
+      # hardmode config
+      (lib.mkIf config.hardMode {
+        extraLuaConfig = builtins.readFile (../nvim/hardmode.lua);
+      })
+      # normal config
+      (lib.mkIf (!config.hardMode) {
+        extraLuaConfig = builtins.readFile (../nvim/init.lua);
+        plugins = with pkgs.vimPlugins; [
+          # gruvbox theme
+          gruvbox
+          # nord theme
+          nord-vim
+          # tokyo night theme
+          tokyonight-nvim
+          # Allows changing the surrounding chars of a string with cs
+          vim-surround
+          # Allows for easy commenting out of lines and motions
+          vim-repeat
+          # Git integration
+          vim-fugitive
+          # treesitter configs and abstraction layer
+          # (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
+          # Quick buffer/location navigator
+          harpoon
+          # Quickstart configs for Nvim LSP
+          nvim-lspconfig
+          # Nix syntax
+          vim-nix
+          # Elixir syntax
+          vim-elixir
+          # Graphql syntax
+          vim-graphql
+          # Gleam
+          gleam-vim
+          # Go
+          vim-go
+          # Snippets
+          luasnip
+          # test runner
+          vim-test
+          dhall-vim
+        ];
+      })];
 
     programs.zsh = {
       enable = true;
