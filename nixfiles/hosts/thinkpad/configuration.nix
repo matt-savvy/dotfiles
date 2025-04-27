@@ -44,6 +44,11 @@
     options = "--delete-older-than 30d";
   };
 
+  nix.optimise = {
+    automatic = true;
+    dates = ["weekly"];
+  };
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
