@@ -46,7 +46,7 @@
 
   nix.optimise = {
     automatic = true;
-    dates = ["weekly"];
+    dates = [ "weekly" ];
   };
 
   # Enable the X11 windowing system.
@@ -110,8 +110,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     brave
-     gnome-tweaks
+    brave
+    gnome-tweaks
   ];
 
   environment.gnome.excludePackages = with pkgs; [

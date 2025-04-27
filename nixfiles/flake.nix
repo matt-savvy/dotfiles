@@ -6,12 +6,12 @@
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
-      url =  "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-darwin, nixpkgs-unstable, home-manager, ...}: {
+  outputs = { self, nixpkgs, nixpkgs-darwin, nixpkgs-unstable, home-manager, ... }: {
     nixosConfigurations.thinkpad-x13 = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
@@ -48,16 +48,17 @@
       ];
     };
 
-    homeConfigurations."matt.savoia" = let
-      system = "aarch64-darwin";
-    in
-    home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs-darwin.legacyPackages.${system};
-      modules = [ ./hosts/macbook_pro_thescore/home.nix ];
-      extraSpecialArgs = {
-        nixpkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    homeConfigurations."matt.savoia" =
+      let
+        system = "aarch64-darwin";
+      in
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-darwin.legacyPackages.${system};
+        modules = [ ./hosts/macbook_pro_thescore/home.nix ];
+        extraSpecialArgs = {
+          nixpkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+        };
       };
-    };
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
   };

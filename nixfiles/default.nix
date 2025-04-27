@@ -1,7 +1,7 @@
 { config, pkgs, nixpkgs-unstable, ... }:
 
 {
-  nix.settings.experimental-features = ["nix-command" "flakes"] ;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -80,106 +80,106 @@
 
   programs.git = {
     enable = true;
-    includes = [ { path = ../git/.gitconfig; } ];
+    includes = [{ path = ../git/.gitconfig; }];
   };
 
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
 
- #  programs.neovim = {
- #    enable = true;
- #    extraLuaConfig = builtins.readFile(../nvim/hardmode.lua);
- #    defaultEditor = true;
- #    vimAlias = true;
- #    plugins = with pkgs.vimPlugins; [
- #        # Deletes trailing whitespace on buffer write
- #        vim-better-whitespace
- #        # Allows for easy commenting out of lines and motions
- #        vim-commentary
- #        # Needed for telescope
- #        plenary-nvim
- #        # Fuzzy finder
- #        telescope-nvim
- #        telescope-fzy-native-nvim
- #        # Grep within working dir or repo
- #        vim-grepper
- #        # nightfox theme
- #        nightfox-nvim
- #    ];
- #  };
+  #  programs.neovim = {
+  #    enable = true;
+  #    extraLuaConfig = builtins.readFile(../nvim/hardmode.lua);
+  #    defaultEditor = true;
+  #    vimAlias = true;
+  #    plugins = with pkgs.vimPlugins; [
+  #        # Deletes trailing whitespace on buffer write
+  #        vim-better-whitespace
+  #        # Allows for easy commenting out of lines and motions
+  #        vim-commentary
+  #        # Needed for telescope
+  #        plenary-nvim
+  #        # Fuzzy finder
+  #        telescope-nvim
+  #        telescope-fzy-native-nvim
+  #        # Grep within working dir or repo
+  #        vim-grepper
+  #        # nightfox theme
+  #        nightfox-nvim
+  #    ];
+  #  };
 
- programs.neovim = {
-   enable = true;
-   extraLuaConfig = builtins.readFile(../nvim/init.lua);
-   defaultEditor = true;
-   vimAlias = true;
-   plugins = with pkgs.vimPlugins; [
-        # gruvbox theme
-        gruvbox
-        # nord theme
-        nord-vim
-        # tokyo night theme
-        tokyonight-nvim
-        # nightfox theme
-        nightfox-nvim
-        # Deletes trailing whitespace on buffer write
-        vim-better-whitespace
-        # Allows changing the surrounding chars of a string with cs
-        vim-surround
-        # Allows for easy commenting out of lines and motions
-        vim-commentary
-        # Allows . command to repeat plugin actions
-        vim-repeat
-        # Git integration
-        vim-fugitive
-        # treesitter configs and abstraction layer
-        # (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
-        # Needed for telescope, harpoon
-        plenary-nvim
-        # Fuzzy finder
-        telescope-nvim
-        telescope-fzy-native-nvim
-        # Quick buffer/location navigator
-        harpoon
-        # Grep within working dir or repo
-        vim-grepper
-        # Quickstart configs for Nvim LSP
-        nvim-lspconfig
-        # Nix syntax
-        vim-nix
-        # Elixir syntax
-        vim-elixir
-        # Graphql syntax
-        vim-graphql
-        # Gleam
-        gleam-vim
-        # Go
-        vim-go
-        # Snippets
-        luasnip
-        # test runner
-        vim-test
-        dhall-vim
-      ];
-      withNodeJs = true;
-      withPython3 = true;
-    };
+  programs.neovim = {
+    enable = true;
+    extraLuaConfig = builtins.readFile (../nvim/init.lua);
+    defaultEditor = true;
+    vimAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      # gruvbox theme
+      gruvbox
+      # nord theme
+      nord-vim
+      # tokyo night theme
+      tokyonight-nvim
+      # nightfox theme
+      nightfox-nvim
+      # Deletes trailing whitespace on buffer write
+      vim-better-whitespace
+      # Allows changing the surrounding chars of a string with cs
+      vim-surround
+      # Allows for easy commenting out of lines and motions
+      vim-commentary
+      # Allows . command to repeat plugin actions
+      vim-repeat
+      # Git integration
+      vim-fugitive
+      # treesitter configs and abstraction layer
+      # (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
+      # Needed for telescope, harpoon
+      plenary-nvim
+      # Fuzzy finder
+      telescope-nvim
+      telescope-fzy-native-nvim
+      # Quick buffer/location navigator
+      harpoon
+      # Grep within working dir or repo
+      vim-grepper
+      # Quickstart configs for Nvim LSP
+      nvim-lspconfig
+      # Nix syntax
+      vim-nix
+      # Elixir syntax
+      vim-elixir
+      # Graphql syntax
+      vim-graphql
+      # Gleam
+      gleam-vim
+      # Go
+      vim-go
+      # Snippets
+      luasnip
+      # test runner
+      vim-test
+      dhall-vim
+    ];
+    withNodeJs = true;
+    withPython3 = true;
+  };
 
   programs.zsh = {
-     enable = true;
-     autocd = false;
-     oh-my-zsh = {
-         enable = true;
-         plugins = ["git"];
-         theme = "robbyrussell";
-         custom = "$HOME/dev/dotfiles/zsh_custom/";
-     };
+    enable = true;
+    autocd = false;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "robbyrussell";
+      custom = "$HOME/dev/dotfiles/zsh_custom/";
+    };
   };
 
   programs.kitty = {
     enable = true;
-    extraConfig = builtins.readFile(../kitty/kitty.conf);
+    extraConfig = builtins.readFile (../kitty/kitty.conf);
   };
 
   programs.gpg = {
