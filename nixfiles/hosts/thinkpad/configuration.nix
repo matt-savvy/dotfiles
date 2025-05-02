@@ -112,6 +112,7 @@
   environment.systemPackages = with pkgs; [
     brave
     gnome-tweaks
+    spotify
   ];
 
   environment.gnome.excludePackages = with pkgs; [
