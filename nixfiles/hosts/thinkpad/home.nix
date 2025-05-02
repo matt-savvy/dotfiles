@@ -18,6 +18,8 @@
     kdePackages.kdenlive
     gimp
     vlc
+    bitwarden-desktop
+    protonvpn-gui
   ];
 
   # This value determines the Home Manager release that your configuration is
