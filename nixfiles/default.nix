@@ -136,8 +136,6 @@
           gleam-vim
           # Go
           vim-go
-          # Snippets
-          luasnip
           # test runner
           vim-test
           dhall-vim
