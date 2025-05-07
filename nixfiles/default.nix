@@ -25,9 +25,6 @@
       lua51Packages.lua
       ## haskell
       ghc
-      stack
-      haskellPackages.fourmolu
-      # haskellPackages.haskell-language-server
       shellcheck
       ripgrep
       tldr
@@ -128,7 +125,7 @@
           # Git integration
           vim-fugitive
           # treesitter configs and abstraction layer
-          # (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
+          # (nvim-treesitter.withPlugins (p: [ p.lua ]))
           # Quickstart configs for Nvim LSP
           nvim-lspconfig
           # Nix syntax
