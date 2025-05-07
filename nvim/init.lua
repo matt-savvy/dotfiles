@@ -103,9 +103,11 @@ function filename_with_line()
     vim.fn.setreg("+", filename_with_line)
 end
 
+-- yank filename with line number of cursor
 vim.keymap.set('n', '<Leader>fl', filename_with_line, { silent = false })
-
+-- yank filename (with path)
 vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
+-- yank filename (without path)
 vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
 
 -- temporary fix for https://github.com/elixir-editors/vim-elixir/issues/562
