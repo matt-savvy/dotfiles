@@ -1,6 +1,7 @@
 -- Shortcut to open this file
 vim.keymap.set('n', '<Leader>v', ':e ~/dev/dotfiles/nvim/init.lua<CR>', { silent = false })
 
+-- Keymap to sort inside paragraph
 vim.keymap.set('n', '<Leader>ss', '!ip sort<CR>', { silent = false })
 
 -- Don't give the intro message when starting
