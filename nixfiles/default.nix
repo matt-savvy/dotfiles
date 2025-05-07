@@ -121,12 +121,6 @@
       (lib.mkIf (!config.hardMode) {
         extraLuaConfig = builtins.readFile (../nvim/init.lua);
         plugins = with pkgs.vimPlugins; [
-          # gruvbox theme
-          gruvbox
-          # nord theme
-          nord-vim
-          # tokyo night theme
-          tokyonight-nvim
           # Allows changing the surrounding chars of a string with cs
           vim-surround
           # Allows for easy commenting out of lines and motions
