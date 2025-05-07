@@ -147,18 +147,6 @@ vim.keymap.set('n', '[a', ':e #<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', ']q', ":cnext<CR>", { noremap = true, silent = true })
 vim.keymap.set('n', '[q', ":cprev<CR>", { noremap = true, silent = true })
 
--- Mappings for harpoon
-vim.keymap.set('n', '<Leader>a', ':lua require("harpoon.mark").add_file()<CR>', { silent = true })
-vim.keymap.set('n', '<Leader>m', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { silent = true })
-
-vim.keymap.set('n', '\'q', ':lua require("harpoon.ui").nav_file(1)<CR>', { silent = true })
-vim.keymap.set('n', '\'w', ':lua require("harpoon.ui").nav_file(2)<CR>', { silent = true })
-vim.keymap.set('n', '\'e', ':lua require("harpoon.ui").nav_file(3)<CR>', { silent = true })
-vim.keymap.set('n', '\'r', ':lua require("harpoon.ui").nav_file(4)<CR>', { silent = true })
-
-vim.keymap.set('n', ']r', ':lua require("harpoon.ui").nav_next()<CR>', { silent = true })
-vim.keymap.set('n', '[r', ':lua require("harpoon.ui").nav_prev()<CR>', { silent = true })
-
 -- Close hidden buffers
 local function clear_hidden_buffers()
     for _, buffer in pairs(vim.fn.getbufinfo()) do

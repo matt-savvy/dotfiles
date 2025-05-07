@@ -129,8 +129,6 @@
           vim-fugitive
           # treesitter configs and abstraction layer
           # (nvim-treesitter.withPlugins (p: [ p.haskell p.lua ]))
-          # Quick buffer/location navigator
-          harpoon
           # Quickstart configs for Nvim LSP
           nvim-lspconfig
           # Nix syntax
