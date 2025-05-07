@@ -136,9 +136,6 @@
           gleam-vim
           # Go
           vim-go
-          # test runner
-          vim-test
-          dhall-vim
         ];
       })];
 
