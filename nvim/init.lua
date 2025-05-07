@@ -173,7 +173,7 @@ end
 function InsertTab()
 	if (has_words_before()) then
 		-- There's an identifier before the cursor, so complete the identifier.
-		return "<c-p>"
+		return "<c-n>"
     end
 
     return "<tab>"
