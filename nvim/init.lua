@@ -1,5 +1,5 @@
 -- Shortcut to open this file
-vim.keymap.set('n', '<Leader>v', ':e ~/.config/nvim/init.lua<CR>', { silent = false })
+vim.keymap.set('n', '<Leader>v', ':e ~/dev/dotfiles/nvim/init.lua<CR>', { silent = false })
 
 vim.keymap.set('n', '<Leader>ss', '!ip sort<CR>', { silent = false })
 
