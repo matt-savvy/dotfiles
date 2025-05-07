@@ -124,8 +124,6 @@
           vim-repeat
           # Git integration
           vim-fugitive
-          # treesitter configs and abstraction layer
-          # (nvim-treesitter.withPlugins (p: [ p.lua ]))
           # Quickstart configs for Nvim LSP
           nvim-lspconfig
           # Nix syntax
