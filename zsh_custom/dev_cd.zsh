@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 function dev_cd {
-    DIR=$(cd ~/dev && ls -d * | fzf)
+    DIR=$(fd . -d 1 -t d --threads 1 --format {/} ~/dev | fzf)
 
     if [[ $? -eq 0 && -n ~/dev/$DIR ]]; then
         cd ~/dev/$DIR
