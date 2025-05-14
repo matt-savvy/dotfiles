@@ -50,6 +50,7 @@
       oath-toolkit
       rlwrap
       imagemagick
+      nixpkgs-fmt
     ];
 
 
