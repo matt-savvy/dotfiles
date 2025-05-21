@@ -130,6 +130,16 @@
     gnome-tour
   ];
 
+  systemd.services.configure-sound-leds = rec {
+    wantedBy = [ "sound.target" ];
+    after = wantedBy;
+    serviceConfig.Type = "oneshot";
+    script = ''
+      echo follow-route > /sys/class/sound/ctl-led/mic/mode
+      echo off > /sys/class/sound/ctl-led/speaker/mode # follow-route pending https://discourse.nixos.org/t/20480
+    '';
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
