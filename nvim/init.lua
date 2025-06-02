@@ -103,12 +103,35 @@ function filename_with_line()
     return filename .. ":" .. line
 end
 
+local function remote_filename_with_line(mode)
+	local repo_url = vim.fn.system("git remote get-url origin"):gsub("^git@(.*):(.*)%.git.*", "https://%1/%2"):gsub("%s+", "")
+	local rev = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("%s+", "")
+    if rev == "HEAD" then
+        rev = vim.fn.system("git rev-parse --short HEAD`"):gsub("%s+", "")
+    end
+    local filename = vim.fn.expand("%")
+	local remote_filename = repo_url .. "/blob/" .. rev .. "/" .. filename
+
+    if mode == "n" then
+        local line, _ = unpack(vim.api.nvim_win_get_cursor(0))
+        return remote_filename .. "#L" .. line
+    elseif mode == "v" then
+        local start_line = math.min(vim.fn.line("v"), vim.fn.line("."))
+        local end_line = math.max(vim.fn.line("v"), vim.fn.line("."))
+        return remote_filename .. "#L" .. start_line .. "-L" .. end_line
+    end
+end
+
 -- yank filename with line number of cursor
 vim.keymap.set('n', '<Leader>fl', function() vim.fn.setreg("+", filename_with_line()) end , { silent = false })
 -- yank filename (with path)
 vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
 -- yank filename (without path)
 vim.keymap.set('n', '<Leader>f', ':let @+ = expand("%:t")<cr>', { silent = true })
+-- yank remote filename with line number of cursor
+vim.keymap.set('n', '<Leader>fr', function() vim.fn.setreg("+", remote_filename_with_line('n')) end , { silent = false })
+-- yank remote filename with line number of cursor
+vim.keymap.set('v', '<Leader>fr', function() vim.fn.setreg("+", remote_filename_with_line('v')) end , { silent = false })
 
 -- temporary fix for https://github.com/elixir-editors/vim-elixir/issues/562
 vim.filetype.add({
