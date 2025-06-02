@@ -95,16 +95,16 @@ vim.keymap.set({'n', 'x'}, 'gs', '<plug>(GrepperOperator)')
 vim.keymap.set('n', '<Leader>gg', function() vim.cmd("Grepper") end, { silent = true })
 
 -- keymaps to yank file name
+
 function filename_with_line()
     local line, _ = unpack(vim.api.nvim_win_get_cursor(0))
 
     local filename = vim.fn.expand("%")
-    local filename_with_line = filename .. ":" .. line
-    vim.fn.setreg("+", filename_with_line)
+    return filename .. ":" .. line
 end
 
 -- yank filename with line number of cursor
-vim.keymap.set('n', '<Leader>fl', filename_with_line, { silent = false })
+vim.keymap.set('n', '<Leader>fl', function() vim.fn.setreg("+", filename_with_line()) end , { silent = false })
 -- yank filename (with path)
 vim.keymap.set('n', '<Leader>ff', ':let @+ = expand("%")<cr>', { silent = true })
 -- yank filename (without path)
