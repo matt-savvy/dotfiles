@@ -93,6 +93,13 @@
     #media-session.enable = true;
   };
 
+  hardware.bluetooth.settings = {
+    General = {
+      Experimental = true;
+      UserspaceHID = true;
+    };
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
