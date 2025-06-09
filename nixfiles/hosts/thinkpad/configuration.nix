@@ -100,6 +100,9 @@
     };
   };
 
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="10ab", ATTR{idProduct}=="9309", ATTR{power/autosuspend}="-1"
+  '';
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
