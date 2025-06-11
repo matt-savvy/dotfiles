@@ -1,5 +1,5 @@
 # git
-alias glm="git log --oneline master.."
+alias glm='git log --oneline $(git_main_branch)..'
 alias gld="git log --oneline develop.."
 alias gccp="git rev-parse --short HEAD | tr -d '\n' | pbcopy"
 alias gccl="gh_commit | tr -d '\n' | pbcopy"
