@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, nixpkgs-unstable, pkgs, ... }:
 
 {
   imports = [ ../../default.nix ];
@@ -18,7 +18,7 @@
     kdePackages.kdenlive
     gimp
     vlc
-    bitwarden-desktop
+    nixpkgs-unstable.bitwarden-desktop
     protonvpn-gui
     zeal
   ];
