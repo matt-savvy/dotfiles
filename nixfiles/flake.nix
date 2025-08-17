@@ -9,9 +9,13 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-darwin, nixpkgs-unstable, home-manager, ... }: {
+  outputs = { self, nixpkgs, nixpkgs-darwin, nixpkgs-unstable, home-manager, agenix, ... }: {
     nixosConfigurations.thinkpad-x13 = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
@@ -27,6 +31,7 @@
             nixpkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
           };
         }
+        agenix.nixosModules.default
       ];
     };
 
@@ -45,6 +50,7 @@
             nixpkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
           };
         }
+        agenix.nixosModules.default
       ];
     };
 
