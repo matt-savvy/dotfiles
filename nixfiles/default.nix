@@ -45,7 +45,7 @@
       nixpkgs-unstable.zig
       docker
       docker-compose
-      postgresql
+      postgresql_17
       colima
       oath-toolkit
       rlwrap
