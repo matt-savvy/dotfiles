@@ -43,23 +43,11 @@ Reboot.
 
 ### For Home Manager Only
 
-- install nix if needed
-- install home manager
-- symlink nixfiles/hosts/$HOSTNAME/home.nix
-- install https://github.com/nix-community/nixGL
+- install nix
 
 ```sh
-# install home-manager
-
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
-nix-channel --update
-nix-shell '<home-manager>' -A install
-
-# remove the initial config
-rm ~/.config/home-manager/home.nix
-
 # initial generation
-home-manager switch --flake ~/dev/dotfiles/nixfiles --extra-experimental-features nix-command --extra-experimental-features flakes
+nix run --extra-experimental-features nix-command --extra-experimental-features flakes home-manager/release-25.05 -- switch --flake ~/dev/dotfiles/nixfiles
 
 # future generations no longer need the flags
 home-manager switch --flake ~/dev/dotfiles/nixfiles
