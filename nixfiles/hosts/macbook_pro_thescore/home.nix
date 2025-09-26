@@ -12,7 +12,14 @@
 
   programs.git = {
     includes = [
-      { path = ../../../git/thescoreconfig; }
+      {
+        condition = "gitdir:~/scorebet/";
+        path = ../../../git/thescoreconfig;
+      }
+      {
+        condition = "gitdir:~/scoremedia/";
+        path = ../../../git/thescoreconfig;
+      }
     ];
   };
 
