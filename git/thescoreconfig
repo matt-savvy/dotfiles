@@ -6,3 +6,6 @@
 	gpgsign = true
 [credential]
 	helper = osxkeychain
+[url "git@github.com-penn-interactive"]
+	insteadOf = git@github.com:penn-interactive
+	insteadOf = https://github.com/penn-interactive
