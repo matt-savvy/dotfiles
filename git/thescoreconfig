@@ -4,5 +4,7 @@
 	signingkey = 41C98C98CC1DB00C
 [commit]
 	gpgsign = true
+[tag]
+	gpgsign = true
 [credential]
 	helper = osxkeychain
