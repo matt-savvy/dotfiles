@@ -20,6 +20,18 @@
         condition = "gitdir:~/scoremedia/";
         path = ../../../git/thescoreconfig;
       }
+      {
+        condition = "hasconfig:remote.*.url:git@github.com:penn-interactive/*";
+        path = ../../../git/penn-interactive-config;
+      }
+      {
+        condition = "hasconfig:remote.*.url:https://github.com/penn-interactive/*";
+        path = ../../../git/penn-interactive-config;
+      }
+      {
+        condition = "hasconfig:remote.*.url:git@github.com-penn-interactive:penn-interactive/*";
+        path = ../../../git/penn-interactive-config;
+      }
     ];
   };
 
