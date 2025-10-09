@@ -1,5 +1,5 @@
 -- Shortcut to open this file
-vim.keymap.set('n', '<Leader>v', function() vim.cmd.edit('~/.config/nvim/minimal.lua') end, { silent = false })
+vim.keymap.set('n', '<Leader>v', function() vim.cmd.edit('~/dev/dotfiles/nvim/minimal.lua') end, { silent = false })
 
 -- Don't give the intro message when starting
 vim.opt.shortmess:append({ I = true })
