@@ -1,5 +1,56 @@
 # Dotfiles
 
+## Fedora
+
+- gnome-tweaks
+    - caps lock to ctrl
+    - touchpad natural scroll direction
+
+- nvim
+    - download appimage, chmod u+x and move to ~/.local/bin/nvim
+    - plugins
+        - mkdir ~/.local/share/nvim/site/pack
+        - cd ~/.local/share/nvim/site/pack
+        mkdir vim-better-whitespace && git clone git@github.com:ntpeters/vim-better-whitespace vim-better-whitespace/start/vim-better-whitespace
+        mkdir plenary && git clone git@github.com:nvim-lua/plenary.nvim plenary/start/plenary
+        mkdir telescope && git clone git@github.com:nvim-telescope/telescope.nvim telescope/start/telescope
+        mkdir telescope-fzy-native && git clone git@github.com:nvim-telescope/telescope-fzy-native.nvim telescope-fzy-native/start/telescope-fzy-native
+            - cd deps/fzy-lua-native
+            - git submodule init
+            - git submodule update
+
+        mkdir vim-elixir && git clone git@github.com:elixir-editors/vim-elixir vim-elixir/start/vim-elixir
+        mkdir nightfox && git clone git@github.com:EdenEast/nightfox.nvim nightfox/start/nightfox
+
+        mkdir vim-grepper && git clone git@github.com:mhinz/vim-grepper vim-grepper/start/vim-grepper
+
+        mkdir vim-surround && git clone git@github.com:tpope/vim-surround vim-surround/start/vim-surround
+        mkdir vim-repeat && git clone git@github.com:tpope/vim-repeat vim-repeat/start/vim-repeat
+        mkdir vim-fugitive && git clone git@github.com:tpope/vim-fugitive vim-fugitive/start/vim-fugitive
+
+    - setup LSP
+        - elixir-ls needs to be installed elsewhere.
+
+        # TODO update this path
+        mkdir -p elixir-ls/start/elixir-ls && wget https://github.com/elixir-lsp/elixir-ls/releases/download/v0.29.3/elixir-ls-v0.29.3.zip && \
+            unzip elixir-ls-v0.29.3.zip -d elixir-ls && rm elixir-ls-v0.29.3.zip
+
+        wget https://github.com/elixir-lang/expert/releases/download/nightly/expert_linux_amd64 && chmod u+x expert_linux_amd64 && mv expert_linux_amd64 expert
+
+      # Quickstart configs for Nvim LSP
+      nvim-lspconfig
+
+
+- ssh-key
+
+### flatpaks
+
+- brave
+- gnome-tweaks
+
+
+
+
 ## Terminal Setup
 - terminal
     - settings
