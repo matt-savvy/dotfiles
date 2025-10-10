@@ -6,6 +6,12 @@
     - caps lock to ctrl
     - touchpad natural scroll direction
 
+- zsh
+    - install zsh
+    - install omz
+    - add ZSH_CUSTOM=~/dev/dotfiles/zsh_custom to .zshrc
+
+
 - nvim
     - download appimage, chmod u+x and move to ~/.local/bin/nvim
     - plugins
