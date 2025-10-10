@@ -1,3 +1,6 @@
+# nvim
+alias vim=nvim
+
 # git
 alias glm='git log --oneline $(git_main_branch)..'
 alias gld="git log --oneline develop.."
