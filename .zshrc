@@ -102,3 +102,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+function distrobox_prompt_info() {
+    [[ -n $CONTAINER_ID ]] && echo "⬢"
+}
+PROMPT="$(distrobox_prompt_info) $PS1"
