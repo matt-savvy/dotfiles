@@ -11,6 +11,7 @@ RUN sudo dnf --assumeyes install fuse fuse-libs libglvnd-egl libglvnd-opengl lib
 RUN curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64" && sudo install -c -m 0755 devpod /usr/local/bin && rm -f devpod
 
 RUN sudo dnf --assumeyes install elixir
+RUN sudo dnf --assumeyes install caddy
 
 RUN sudo dnf --assumeyes install neovim
 
