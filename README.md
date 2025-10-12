@@ -15,7 +15,7 @@
 - nvim
     - download appimage, chmod u+x and move to ~/.local/bin/nvim
     - plugins
-        - mkdir ~/.local/share/nvim/site/pack
+        - mkdir -p ~/.local/share/nvim/site/pack
         - cd ~/.local/share/nvim/site/pack
         mkdir vim-better-whitespace && git clone git@github.com:ntpeters/vim-better-whitespace vim-better-whitespace/start/vim-better-whitespace
         mkdir plenary && git clone git@github.com:nvim-lua/plenary.nvim plenary/start/plenary
@@ -46,16 +46,16 @@
       # Quickstart configs for Nvim LSP
       nvim-lspconfig
 
+## add github SSH key
+
+## configure Brave
+    - join sync
+    - update sync settings
+    - new tab -> blank
 
 - ssh-key
 
 ### flatpaks
-
-- brave
-- gnome-tweaks
-
-
-
 
 ## Terminal Setup
 - terminal
