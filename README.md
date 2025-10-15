@@ -3,14 +3,16 @@
 ## Fedora
 
 - gnome-tweaks
-    - caps lock to ctrl
     - touchpad natural scroll direction
+
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
+gsettings set org.gnome.desktop.interface enable-animations false
+
 
 - zsh
     - install zsh
     - install omz
     - add ZSH_CUSTOM=~/dev/dotfiles/zsh_custom to .zshrc
-
 
 - nvim
     - download appimage, chmod u+x and move to ~/.local/bin/nvim
