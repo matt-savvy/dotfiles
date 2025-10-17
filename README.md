@@ -2,6 +2,23 @@
 
 ## Fedora
 
+https://discussion.fedoraproject.org/t/dns-resolution-broken/67067?u=vgaetera
+```sh
+sudo nmcli connection show
+sudo nmcli connection modify id CON_NAME \
+    ipv4.ignore-auto-dns yes \
+    ipv6.ignore-auto-dns yes \
+    ipv4.dns 8.8.8.8,8.8.4.4
+sudo nmcli connection up id CON_NAME
+```
+```sh
+sudo tee /etc/systemd/resolved.conf.d/00-custom.conf << EOF
+[Resolve]
+DNSOverTLS=yes
+EOF
+sudo systemctl restart systemd-resolved.service
+```
+
 - gnome-tweaks
     - touchpad natural scroll direction
 
