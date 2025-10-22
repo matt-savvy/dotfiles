@@ -33,6 +33,8 @@ gsettings set org.gnome.desktop.interface enable-animations false
 
 - nvim
     - download appimage, chmod u+x and move to ~/.local/bin/nvim
+        - or have installed on the base image
+    - download elixir-ls
     - plugins
         - mkdir -p ~/.local/share/nvim/site/pack
         - cd ~/.local/share/nvim/site/pack
