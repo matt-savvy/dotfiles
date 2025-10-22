@@ -11,3 +11,4 @@ RUN sudo dnf --assumeyes install elixir
 RUN sudo dnf --assumeyes install caddy
 
 RUN sudo dnf --assumeyes install neovim
+RUN sudo dnf --assumeyes install gh
