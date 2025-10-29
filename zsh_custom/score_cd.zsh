@@ -1,9 +1,9 @@
 #!/bin/zsh
 
 function score_cd {
-    DIR=`cd ~ && ls -d scorebet/*/ scoremedia/*/ | fzf`
+    DIR=$(fd . -d 1 -t d --threads 1 --format {/} ~/penn-interactive | fzf)
 
     if [[ -n "$DIR" ]]; then
-        cd ~/$DIR
+        cd ~/penn-interactive/$DIR
     fi
 }
