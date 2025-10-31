@@ -75,6 +75,9 @@ telescope.setup({
         colorscheme = {
             enable_preview = true
         }
+    },
+    extensions = {
+        fzf = {}
     }
 })
 
