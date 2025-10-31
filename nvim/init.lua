@@ -214,105 +214,70 @@ vim.keymap.set('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { ex
 -- Remove neovim mapping of Y to y$
 vim.keymap.del('n', 'Y')
 
--- from nvim-lspconfig
-local nvim_lsp = require('lspconfig')
+vim.lsp.config('elixir-ls', {
+    cmd = { '/home/matt/.local/bin/elixir-ls-v0.29.3/language_server.sh' },
+    settings = { autoBuild = false },
+    filetypes = { 'elixir', 'eelixir', 'heex' },
+    root_markers = { 'mix.exs', '.git' },
+})
 
-local function restartLsp(id)
-    return function()
-        vim.cmd("LspRestart " .. id)
-    end
-end
+vim.lsp.enable('elixir-ls')
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('my.lsp', {}),
+    callback = function(args)
+        -- always show a sign column of width 1
+        vim.wo.signcolumn = "yes:1"
 
-    local opts = { noremap=true, silent=true }
-    -- Mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '[w', vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', ']w', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<Leader>q', vim.diagnostic.setqflist, opts)
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        local opts = { noremap=true, silent=true }
+        -- Mappings.
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
 
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        -- "gO" is mapped in Normal mode to vim.lsp.buf.document_symbol()
+        vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, opts)
+        vim.keymap.set('n', '[w', vim.diagnostic.goto_prev, opts)
+        vim.keymap.set('n', ']w', vim.diagnostic.goto_next, opts)
+        vim.keymap.set('n', '<Leader>q', vim.diagnostic.setqflist, opts)
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        -- "gri" is mapped in Normal mode to vim.lsp.buf.implementation()
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        -- CTRL-S is mapped in Insert mode to vim.lsp.buf.signature_help()
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        -- "grt" is mapped in Normal mode to vim.lsp.buf.type_definition()
+        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+        -- "grn" is mapped in Normal mode to vim.lsp.buf.rename()
+        vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename, opts)
+        -- "gra" is mapped in Normal and Visual mode to vim.lsp.buf.code_action()
+        vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+        -- "grr" is mapped in Normal mode to vim.lsp.buf.references()
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 
-    -- always show a sign column of width 1
-    vim.wo.signcolumn = "yes:1"
-
-    -- format on save if available
-    if client.server_capabilities.documentFormattingProvider then
-        -- use autocommand group so re-attach will reset
-        local group_id = vim.api.nvim_create_augroup("Format", { clear = true })
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            group = group_id,
-            pattern = "<buffer>",
-            callback = function() vim.lsp.buf.format({bufnr = bufnr}) end
-        })
-    end
-    -- restart the LSP
-    vim.keymap.set('n', '<Leader>ll', restartLsp(client.id), opts)
-end
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = {
-    elmls = {},
-    elixirls = {
-        cmd = { 'elixir-ls' },
-        settings = {
-            autoBuild = false,
-        }
-    },
-}
-
-local defaults = {
-    on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150,
-    }
-}
-
-function merge(t_1, t_2)
-    local t_3 = {}
-    for k, v in pairs(t_1) do
-        t_3[k] = v
-    end
-    for k, v in pairs(t_2) do
-        if type(t_3[k]) == "table" and type(v) == "table" then
-            t_3[k] = merge(t_3[k], v)
-        else
-            t_3[k] = v
+        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+        if not client:supports_method('textDocument/willSaveWaitUntil') and client:supports_method('textDocument/formatting') then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+                group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+                buffer = args.buf,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+                end
+            })
         end
     end
-    return t_3
-end
+})
 
-for lsp, opts in pairs(servers) do
-    local config = merge(defaults, opts)
-    nvim_lsp[lsp].setup(config)
-end
-
+-- configure diagnostics
 vim.diagnostic.config({
   virtual_text = false,
   underline = { severity = vim.diagnostic.severity.ERROR },
   update_in_insert = false,
-  signs = true,
+  signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = '>',
+        [vim.diagnostic.severity.WARN]  = 'W',
+        [vim.diagnostic.severity.INFO]  = 'I',
+        [vim.diagnostic.severity.HINT]  = 'H',
+      },
+  }
 })
-
--- always show
-local signs = { Error = ">", Warn = "W", Hint = "H", Info = "I" }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
