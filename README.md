@@ -2,14 +2,23 @@
 
 ## Fedora
 
+
+sudo nmcli connection show
+sudo nmcli connection modify id $CON_NAME \
+    ipv4.ignore-auto-dns no \
+    ipv6.ignore-auto-dns no \
+    ipv4.dns ""
+sudo nmcli connection up id $CON_NAME
+
+
 https://discussion.fedoraproject.org/t/dns-resolution-broken/67067?u=vgaetera
 ```sh
 sudo nmcli connection show
-sudo nmcli connection modify id CON_NAME \
+sudo nmcli connection modify id $CON_NAME \
     ipv4.ignore-auto-dns yes \
     ipv6.ignore-auto-dns yes \
     ipv4.dns 8.8.8.8,8.8.4.4
-sudo nmcli connection up id CON_NAME
+sudo nmcli connection up id $CON_NAME
 ```
 ```sh
 sudo tee /etc/systemd/resolved.conf.d/00-custom.conf << EOF
