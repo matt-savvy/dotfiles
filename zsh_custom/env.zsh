@@ -7,6 +7,7 @@ export PATH="$PATH:~/.local/bin"
 
 # gh cli
 export GH_EDITOR="nvim"
+export EDITOR="nvim"
 
 # elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
