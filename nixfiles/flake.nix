@@ -54,18 +54,6 @@
       ];
     };
 
-    homeConfigurations."matt.savoia" =
-      let
-        system = "aarch64-darwin";
-      in
-      home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-darwin.legacyPackages.${system};
-        modules = [ ./hosts/macbook_pro_thescore/home.nix ];
-        extraSpecialArgs = {
-          nixpkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-        };
-      };
-
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
   };

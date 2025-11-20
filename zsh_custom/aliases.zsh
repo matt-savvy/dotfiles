@@ -31,4 +31,3 @@ alias cobra="cobra-cli"
 # sqlite
 alias sqlite3="rlwrap sqlite3"
 
-alias cds="score_cd"
