@@ -12,3 +12,4 @@ RUN sudo dnf --assumeyes install caddy
 
 RUN sudo dnf --assumeyes install neovim
 RUN sudo dnf --assumeyes install gh
+RUN sudo dnf --assumeyes install zig
