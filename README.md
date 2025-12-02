@@ -33,6 +33,9 @@ sudo systemctl restart systemd-resolved.service
 
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
 gsettings set org.gnome.desktop.interface enable-animations false
+- gnome settings > keyboard > shortcuts > windows > switch applications > alt + tab
+- gnome settings > keyboard > shortcuts > windows > switch to workspace > f1, f2, f3
+- disable gnome extensions
 
 
 - zsh
