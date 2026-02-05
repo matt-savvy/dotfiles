@@ -4,7 +4,7 @@ alias vim=nvim
 # git
 alias glm='git log --oneline $(git_main_branch)..'
 alias gld="git log --oneline develop.."
-alias gccp="git rev-parse --short HEAD | tr -d '\n' | pbcopy"
+alias gccp="git rev-parse --short HEAD | tr -d '\n' | xclip -sel clip"
 alias gccl="gh_commit | tr -d '\n' | pbcopy"
 alias gbc=git_branch
 alias gbb=brancher
