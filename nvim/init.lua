@@ -223,12 +223,25 @@ vim.lsp.config('elixir-ls', {
 
 vim.lsp.enable('elixir-ls')
 
+vim.lsp.config('zls', {
+    cmd = { '/home/matt/.local/bin/zls' },
+    filetypes = { 'zig' },
+    root_markers = { 'build.zig' },
+    settings = {
+        zls = {
+            enable_build_on_save = true,
+            semantic_tokens = "none",
+        }
+    }
+})
+
+vim.lsp.enable('zls')
+
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
     callback = function(args)
         -- always show a sign column of width 1
         vim.wo.signcolumn = "yes:1"
-
         local opts = { noremap=true, silent=true }
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
