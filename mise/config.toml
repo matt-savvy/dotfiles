@@ -1,0 +1,18 @@
+[tools]
+erlang = { version = "28.3.1" }
+elixir = { version = "1.19.5-otp-28" }
+fzf = "latest"
+rg = "latest"
+fd = "latest"
+"github:cli/cli" = "latest"
+"aqua:tldr-pages/tlrc" = "latest"
+
+# colordiff
+# shellcheck
+# docker
+# colima
+# orb
+# oath-toolkit
+# omz with zsh_custom
+# gpg
+# direnv
