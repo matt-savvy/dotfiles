@@ -215,7 +215,7 @@ vim.keymap.set('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { ex
 vim.keymap.del('n', 'Y')
 
 vim.lsp.config('elixir-ls', {
-    cmd = { '/home/matt/.local/bin/elixir-ls-v0.29.3/language_server.sh' },
+    cmd = { '/Users/Matthew.Savoia/.local/bin/elixir-ls/language_server.sh' },
     settings = { autoBuild = false },
     filetypes = { 'elixir', 'eelixir', 'heex' },
     root_markers = { 'mix.exs', '.git' },
