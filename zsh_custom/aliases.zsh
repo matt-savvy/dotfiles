@@ -16,6 +16,7 @@ alias sdiff="diff --side-by-side --width 200"
 # alias vim="nvim"
 
 alias cdd="dev_cd"
+alias cds="stord_cd"
 
 # mix
 alias mt="mix_test"
