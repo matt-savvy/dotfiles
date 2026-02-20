@@ -1,5 +1,10 @@
 # Dotfiles
 
+## Mac
+
+- install macports
+- install oath-toolkit
+
 ## Fedora
 
 
