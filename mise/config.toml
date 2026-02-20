@@ -6,6 +6,8 @@ rg = "latest"
 fd = "latest"
 "github:cli/cli" = "latest"
 "aqua:tldr-pages/tlrc" = "latest"
+colima = "latest"
+docker-cli = "latest"
 
 # colordiff
 # shellcheck
