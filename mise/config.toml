@@ -8,6 +8,8 @@ fd = "latest"
 "aqua:tldr-pages/tlrc" = "latest"
 colima = "latest"
 docker-cli = "latest"
+yq = "latest"
+pnpm = "latest"
 
 # colordiff
 # shellcheck
