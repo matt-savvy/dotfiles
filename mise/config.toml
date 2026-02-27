@@ -10,6 +10,7 @@ colima = "latest"
 docker-cli = "latest"
 yq = "latest"
 pnpm = "latest"
+difftastic = "latest"
 
 # colordiff
 # shellcheck
