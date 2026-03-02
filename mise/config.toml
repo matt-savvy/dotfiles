@@ -11,6 +11,7 @@ docker-cli = "latest"
 yq = "latest"
 pnpm = "latest"
 difftastic = "latest"
+k9s = "latest"
 
 # colordiff
 # shellcheck
