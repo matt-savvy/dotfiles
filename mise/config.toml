@@ -12,6 +12,7 @@ yq = "latest"
 pnpm = "latest"
 difftastic = "latest"
 k9s = "latest"
+helm = "latest"
 
 # colordiff
 # shellcheck
