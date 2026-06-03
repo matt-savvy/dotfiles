@@ -13,12 +13,14 @@ pnpm = "latest"
 difftastic = "latest"
 k9s = "latest"
 helm = "latest"
+"github:elixir-lang/expert" = "v0.1.4"
+kubectx = "latest"
+gcloud = "latest"
+neovim = "0.11.7"
+zig = "0.16.0"
 
 # colordiff
 # shellcheck
-# docker
 # colima
-# orb
 # oath-toolkit
 # gpg
-# direnv

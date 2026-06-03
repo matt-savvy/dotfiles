@@ -214,15 +214,27 @@ vim.keymap.set('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { ex
 -- Remove neovim mapping of Y to y$
 vim.keymap.del('n', 'Y')
 
-vim.lsp.config('elixir-ls', {
-    cmd = { '/Users/Matthew.Savoia/.local/bin/elixir-ls/language_server.sh' },
-    settings = { autoBuild = false },
-    filetypes = { 'elixir', 'eelixir', 'heex' },
-    root_markers = { 'mix.exs', '.git' },
+
+vim.lsp.config('expert', {
+  cmd = { 'expert', '--stdio' },
+  settings = {
+    workspaceSymbols = {
+      minQueryLength = 0
+    }
+  }
 })
 
-vim.lsp.enable('elixir-ls')
+vim.lsp.enable('expert')
 
+-- vim.lsp.config('elixir-ls', {
+--     cmd = { '/Users/Matthew.Savoia/.local/bin/elixir-ls/language_server.sh' },
+--     settings = { autoBuild = false },
+--     filetypes = { 'elixir', 'eelixir', 'heex' },
+--     root_markers = { 'mix.exs', '.git' },
+-- })
+--
+-- vim.lsp.enable('elixir-ls')
+--
 vim.lsp.config('zls', {
     cmd = { '/home/matt/.local/bin/zls' },
     filetypes = { 'zig' },
@@ -269,10 +281,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         if client:supports_method('textDocument/formatting') then
+			print("creating autocmd for BufWritePre")
             vim.api.nvim_create_autocmd('BufWritePre', {
                 group = vim.api.nvim_create_augroup('my.lsp', { clear = true }),
                 buffer = args.buf,
                 callback = function()
+					print("running autocmd for BufWritePre")
                     vim.lsp.buf.format({ bufnr = args.buf, id = client.id, async = false, timeout_ms = 1000 })
                 end
             })
