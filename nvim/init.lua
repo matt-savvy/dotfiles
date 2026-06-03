@@ -217,6 +217,7 @@ vim.keymap.del('n', 'Y')
 
 vim.lsp.config('expert', {
   cmd = { 'expert', '--stdio' },
+  filetypes = { 'elixir' },
   settings = {
     workspaceSymbols = {
       minQueryLength = 0
