@@ -1,23 +1,8 @@
 #!/bin/zsh
 
-
 function mix_test() {
   QUERY=$1
   TEST_DIRS=($(fd ^test$ -t d))
-  WATCH=0
-
-  # WATCH=1 if -w or --watch is set
-  for arg in $@; do
-      case $arg in
-          -w | --watch )
-              WATCH=1
-              ;;
-      esac
-  done
-
-  if [[ $WATCH -eq 1 ]]; then
-      echo "watch set"
-  fi
 
   # no query
   if [[ -z $QUERY ]]; then
@@ -25,44 +10,39 @@ function mix_test() {
     return $?
   fi
 
-  # query begins with test/
-  # if $1 starts with test, use it as is, don't call fd
-  if [[ ${QUERY:0:5} == "test/" ]]; then
+  # if the query is an existing file, just run it as is
+  if [[ -e $QUERY ]]; then
       mix test $QUERY
       return $?
   fi
 
-  # does this include a line number?
+  # does this include a line number? run it as is
   if test "${QUERY#*:}" != $QUERY; then
-      LINE_NUMBER=${QUERY#*:}
-      QUERY=${QUERY%%:*}
-
-      COMMAND="fd -p $QUERY"
-      for DIR in "${TEST_DIRS[@]}"; do
-          COMMAND+=" --search-path $DIR"
-      done
-      COMMAND+=" -1"
-
-      FILE=$(eval $COMMAND)
-      if [[ -z $FILE ]]; then
-          echo "No tests found."
-          return 1
-      fi
-      FILES=$FILE:$LINE_NUMBER
+      echo "line number"
+      mix test $QUERY
+      return $?
   else
-      COMMAND="fd -p $QUERY"
+      # .exs files matching query
+      COMMAND="fd $QUERY -e exs"
       for DIR in "${TEST_DIRS[@]}"; do
           COMMAND+=" --search-path $DIR"
       done
       FILES=$(eval $COMMAND)
+
+      # dirs matching query
+      COMMAND="fd $QUERY --type directory"
+      for DIR in "${TEST_DIRS[@]}"; do
+          COMMAND+=" --search-path $DIR"
+      done
+      DIRS=$(eval $COMMAND)
   fi
 
-  if [[ -z $FILES ]]; then
+  if [[ -z $FILES && -z $DIRS ]]; then
       echo "No tests found."
       return 1
   else
-      echo "tests found: \n$FILES\n"
-      echo $FILES | xargs mix test
+      echo "tests found: \n$FILES\n$DIRS\n"
+      echo $FILES $DIRS | xargs mix test
       return $?
   fi
 }
